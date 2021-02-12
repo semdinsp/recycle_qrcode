@@ -8,7 +8,6 @@ module Api
       # GET /locations
      # curl -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.CCFshmdzekkCKEtOyvOKSGKGHjLM-U_AWS3qySJ9xPA" http://localhost:5000/v1/teams
       def checkin
-
         puts "CHECKIN  entity #{@entity.inspect} "
         render json: @entity
       end
@@ -27,7 +26,7 @@ module Api
 
       private
         # Use callbacks to share common setup or constraints between actions.
-        def set_entity(act_id)
+        def set_entity
           # need to limit to only the user involved...
           puts "set enttity params #{params}"
           @entity = Entity.find(params['id'])
