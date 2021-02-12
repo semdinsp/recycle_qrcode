@@ -1,6 +1,28 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+
+# SCOTT
+gem 'bourbon'
+gem 'administrate'
+gem 'administrate-field-enum'
+gem 'active_model_serializers'
+gem 'google-api-client'
+gem 'parallel'
+
+gem 'falcon'
+gem 'kaminari'
+gem 'jquery-rails'
+gem 'uglifier' 
+gem 'devise_token_auth'
+gem 'omniauth-google-oauth2'
+gem 'jwt'
+gem 'rack-cors' #, :require => 'rack/cors'
+gem 'jekyll'
+gem 'light-service'
+
+# END SCOTT
+
 ruby '2.6.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

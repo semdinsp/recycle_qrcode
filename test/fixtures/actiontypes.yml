@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  entity: one
+  location: one
+  user: MyString
+  atype: 1
+
+two:
+  entity: two
+  location: two
+  user: MyString
+  atype: 1
