@@ -10,22 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_12_064603) do
+ActiveRecord::Schema.define(version: 2021_02_12_095440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
-
-  create_table "actions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "entity_id", null: false
-    t.uuid "location_id", null: false
-    t.string "user"
-    t.integer "atype"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["entity_id"], name: "index_actions_on_entity_id"
-    t.index ["location_id"], name: "index_actions_on_location_id"
-  end
 
   create_table "actiontypes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "entity_id", null: false
@@ -44,6 +33,7 @@ ActiveRecord::Schema.define(version: 2021_02_12_064603) do
     t.integer "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.uuid "location_id"
   end
 
   create_table "locations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -52,11 +42,10 @@ ActiveRecord::Schema.define(version: 2021_02_12_064603) do
     t.uuid "entity_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.uuid "actiontype_id"
     t.index ["entity_id"], name: "index_locations_on_entity_id"
   end
 
-  add_foreign_key "actions", "entities"
-  add_foreign_key "actions", "locations"
   add_foreign_key "actiontypes", "entities"
   add_foreign_key "actiontypes", "locations"
   add_foreign_key "locations", "entities"

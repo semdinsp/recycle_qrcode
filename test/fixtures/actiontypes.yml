@@ -2,12 +2,15 @@
 
 one:
   entity: one
-  location: one
-  user: MyString
+  #location: one
+  user: MyStringActionType1
   atype: 1
+  location_id: aa67c98c-d81f-5a9c-b0bc-26caa0051add
+
 
 two:
   entity: two
-  location: two
-  user: MyString
+  #location: two
+  user: MyStringActionType2
   atype: 1
+  location_id: aa67c98c-d81f-5a9c-b0bc-26caa0051add
