@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+  # api
+  scope module: 'api' do
+    namespace :v1 do
+    #  get  '/teams/teams_for_user'
+    #  get  '/teams/users_for_team'
+    #  resources :users, only: [:create]
+    #  post '/auto_login', to: "users#auto_login"
+       get '/entities/checkin', to: "entities#checkin#id"
+    end # v1
+  end #api
+  # ennd api
+
+
   namespace :admin do
       # resources :entities
       %i(
