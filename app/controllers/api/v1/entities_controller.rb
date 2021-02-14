@@ -10,7 +10,7 @@ module Api
       def checkin
         @location=Location.first
 
-        puts "CHECKIN  entity #{@entity.inspect}  location: #{@location.inspect}"
+        puts "CHECKIN  entity #{@entity.inspect}  location: #{@location.inspect} params: #{params.inspect}"
         EntityCheckinAction.execute(entity: @entity, location: @location)
         render json: @entity
       end
