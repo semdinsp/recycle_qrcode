@@ -9,6 +9,7 @@ class EntityCheckinAction
   executed do |context|
     a=Actiontype.new
     a.user="fred"
+    puts "context is #{context.inspect}"
     a.entity=context.entity
     a.location_id=context.location.id
 

@@ -8,8 +8,9 @@ module Api
       # GET /locations
      # curl -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.CCFshmdzekkCKEtOyvOKSGKGHjLM-U_AWS3qySJ9xPA" http://localhost:5000/v1/teams
       def checkin
-        puts "CHECKIN  entity #{@entity.inspect} "
         @location=Location.first
+
+        puts "CHECKIN  entity #{@entity.inspect}  location: #{@location.inspect}"
         EntityCheckinAction.execute(entity: @entity, location: @location)
         render json: @entity
       end
