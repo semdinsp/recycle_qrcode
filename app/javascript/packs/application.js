@@ -20,10 +20,10 @@ function initMap()  {
   console.log("in initmap");
   var center, infowindow, map;
   center = {
-    lat: 0,
-    lng: 0    };
+    lat: -8.5569,
+    lng: 125.5603    };
   map = new google.maps.Map($('#map')[0], {
-    zoom: 2,
+    zoom: 12,
     center: center
   });
   infowindow = new google.maps.InfoWindow;
