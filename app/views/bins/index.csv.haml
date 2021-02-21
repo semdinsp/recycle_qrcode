@@ -2,5 +2,8 @@
 - booklets_headers = [ 'id', 'name', 'type', 'iconcolor', 'latitude', 'longitude' ]
 = CSV.generate_line(booklets_headers).strip.html_safe
 - @bins.each do |bin|
-  - row = [ bin.id, bin.name, bin.etype, bin.iconcolor, bin.location.latitude, bin.location.longitude ]
+  - long=lat=""
+  - long=bin.location.longitude if !bin.location.nil?
+  - lat=bin.location.latitude if !bin.location.nil?
+  - row = [ bin.id, bin.name, bin.etype, bin.iconcolor, lat, long ]
   = CSV.generate_line(row).strip.html_safe
