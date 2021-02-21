@@ -9,7 +9,7 @@ gem 'administrate-field-enum'
 gem 'active_model_serializers'
 gem 'google-api-client'
 gem 'parallel'
-
+gem 'jbuilder'
 gem 'falcon'
 gem 'kaminari'
 gem 'jquery-rails'
@@ -23,12 +23,11 @@ gem 'light-service'
 
 # END SCOTT
 
-ruby '2.6.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.0'
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 1.1'
+gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
@@ -38,7 +37,6 @@ gem 'webpacker', '~> 5.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
