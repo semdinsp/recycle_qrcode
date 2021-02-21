@@ -29,11 +29,13 @@ function initMap()  {
   infowindow = new google.maps.InfoWindow;
   return $.getJSON('/bins.json', function(jsonData) {
     return $.each(jsonData, function(key, data) {
-      var latLng, marker;
+      var latLng, marker,iconurl;
       latLng = new google.maps.LatLng(data.lat, data.lng);
+      iconurl= "http://maps.google.com/mapfiles/ms/icons/"+data.iconcolor + "-dot.png";
       marker = new google.maps.Marker({
         position: latLng,
         map: map,
+        icon: { url: iconurl},
         title: data.title
       });
       return google.maps.event.addListener(marker, 'click', function() {

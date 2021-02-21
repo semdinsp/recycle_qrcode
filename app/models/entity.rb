@@ -5,6 +5,14 @@ class Entity < ApplicationRecord
      has_many :actiontypes
 
 
+   def iconcolor
+     mycolor="red"
+     mycolor="green" if !self.actiontypes.empty? and self.actiontypes.order('created_at DESC').limit(1).first.recent_activity
+    # "green"  # green if recent action
+    # "red"   # red if no recent
+     mycolor
+   end
+
     def svg_checkin_qrcode
         url = "v1/entities/checkin";
         host = "https://recycle-qrcode.herokuapp.com/";
