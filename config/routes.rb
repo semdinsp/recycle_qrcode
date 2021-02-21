@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       %i(
         entities actiontypes locations trucks routes
       ).each do |name|
-        resources name, only: %i(index show new create edit update destroy)
+        resources name, only: %i(index show new create edit update)
       end
       root to: "entities#index"
     end

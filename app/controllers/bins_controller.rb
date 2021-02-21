@@ -6,7 +6,7 @@ def index
         format.html
       #  format.json { render json: @bins }
         format.json 
-
+        format.csv
       end
 end
 

@@ -1,0 +1,6 @@
+
+- booklets_headers = [ 'id', 'name', 'type', 'iconcolor', 'latitude', 'longitude' ]
+= CSV.generate_line(booklets_headers).strip.html_safe
+- @bins.each do |bin|
+  - row = [ bin.id, bin.name, bin.etype, bin.iconcolor, bin.location.latitude, bin.location.longitude ]
+  = CSV.generate_line(row).strip.html_safe
