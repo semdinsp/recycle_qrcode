@@ -46,6 +46,11 @@ as well as a link to its edit page.
           ><%= render_field attribute, page: page %></dd>
     <% end %>
     <dt class="attribute-label" id="entity.location">Location</dt>
-    <dd class="attribute-data"><%=link_to "location", "/admin/locations/#{page.resource.location.id}" if !page.resource.location.nil?%></dd>
+    <dd class="attribute-data"> <%=link_to "location", "/admin/locations/#{page.resource.location.id}" if !page.resource.location.nil? %> </dd>
+
+    <dt class="attribute-label" id="entity.qrcode">Checkin QR Code</dt>
+    <dd class="attribute-data"><h2><%=page.resource.name%></h2>
+      <h4><%=page.resource.id%></h4><%= page.resource.svg_checkin_qrcode.html_safe %> </dd>
+
   </dl>
 </section>

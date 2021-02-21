@@ -20,6 +20,7 @@ gem 'jwt'
 gem 'rack-cors' #, :require => 'rack/cors'
 gem 'jekyll'
 gem 'light-service'
+gem 'rqrcode'
 ruby "3.0.0"
 
 # END SCOTT
