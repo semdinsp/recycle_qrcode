@@ -31,7 +31,7 @@ function initMap()  {
     return $.each(jsonData, function(key, data) {
       var latLng, marker,iconurl;
       latLng = new google.maps.LatLng(data.lat, data.lng);
-      iconurl= "http://maps.google.com/mapfiles/ms/icons/"+data.iconcolor + "-dot.png";
+      iconurl= "https://maps.google.com/mapfiles/ms/icons/"+data.iconcolor + "-dot.png";
       marker = new google.maps.Marker({
         position: latLng,
         map: map,
