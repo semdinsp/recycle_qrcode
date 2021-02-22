@@ -1,3 +1,6 @@
 <h5><%= bin.name %></h5>
-<p>Contact: <%= bin.contactName %>, Phone: <%= bin.telephone %></p>
+<p>
+<%- if !bin.contactName.nil? then %> Contact: <%= bin.contactName %> <%-end%>
+<%- if !bin.telephone.nil? then %> Phone: <%= bin.telephone %> <%-end%>
+</p>
 <%- if !bin.notes.nil? then %> <p>Notes: <%= bin.notes %></p> <%-end%>
