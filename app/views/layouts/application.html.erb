@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0DOvkm6xAXJOEvcm6gpdSBwzWvt1-Eog"> </script>
+    <%- scripturl="https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google_maps_api_key}" %>
+    <script  src=<%=scripturl%> > </script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
