@@ -3,6 +3,7 @@ class Entity < ApplicationRecord
      enum status: [  :active, :deleted ]
      has_one :location, required: false
      has_many :actiontypes
+     has_many :kv_pairs
 
 
    def iconcolor
@@ -11,6 +12,16 @@ class Entity < ApplicationRecord
     # "green"  # green if recent action
     # "red"   # red if no recent
      mycolor
+   end
+
+   def contactName
+     self.kv_pairs.contact.first.value if !self.kv_pairs.empty? and !self.kv_pairs.contact.empty?  and !self.kv_pairs.contact.nil?
+   end
+   def notes
+     self.kv_pairs.notes.first.value if !self.kv_pairs.empty? and !self.kv_pairs.notes.empty? and !self.kv_pairs.notes.nil?
+   end
+   def telephone
+     self.kv_pairs.telephone.first.value if !self.kv_pairs.empty? and !self.kv_pairs.telephone.empty?  and !self.kv_pairs.telephone.nil?
    end
 
     def svg_checkin_qrcode

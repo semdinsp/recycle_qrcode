@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_20_040902) do
+ActiveRecord::Schema.define(version: 2021_02_22_063149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(version: 2021_02_20_040902) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.uuid "location_id"
+  end
+
+  create_table "kv_pairs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.integer "key"
+    t.string "value"
+    t.uuid "entity_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["entity_id"], name: "index_kv_pairs_on_entity_id"
   end
 
   create_table "locations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -66,6 +75,7 @@ ActiveRecord::Schema.define(version: 2021_02_20_040902) do
 
   add_foreign_key "actiontypes", "entities"
   add_foreign_key "actiontypes", "locations"
+  add_foreign_key "kv_pairs", "entities"
   add_foreign_key "locations", "entities"
   add_foreign_key "routes", "trucks"
 end
