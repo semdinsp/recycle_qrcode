@@ -17,7 +17,7 @@ ActiveStorage.start()
 import "controllers"
 
 function initMap()  {
-  console.log("in initmap");
+  //console.log("in initmap");
   var center, infowindow, map;
   center = {
     lat: -8.5569,
