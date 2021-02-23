@@ -7,10 +7,12 @@ Feel free to drop me a note on how to migrate this system to track other items (
 
 # To do
   * setting object  (for various configurations and a center for google map)
-  * add additional indices  (particularly for kv pairs on entity id)
+  * add additional indices  (particularly for kv pairs on entity id and same for entity id in locations)
   * additional reporting (currently a private google data studio web page links to the data)
   * security/authentication (jwt
   * route editing and displays (for truck routes)
+  * add locatable polymorphic class for locations so that both entity and actiontype have the same type of location
+  * add route item and link route item and entity.
 
 
 ## Documentation

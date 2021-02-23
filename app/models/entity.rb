@@ -1,3 +1,8 @@
+# Entity is the key datastructure in the system.
+# We store the bin as an entity and link actiontypes to it to reflect actions on the entity
+#
+# @author Scott Sproule
+
 class Entity < ApplicationRecord
      enum etype: [  :bin, :garage ]
      enum status: [  :active, :deleted ]
@@ -5,6 +10,9 @@ class Entity < ApplicationRecord
      has_many :actiontypes
      has_many :kv_pairs
 
+     # Return iconcolr green if recent activity and red else
+     #
+     # @return [String] the color as a string
 
    def iconcolor
      mycolor="red"
