@@ -3,6 +3,7 @@
 ## Simple database driven system to monitor collections/activity at various locations and display status on a google map.
 In our particular case we use it for collecting recycled plastic from our collection bins.  The driver at the collection vehicle scans the qr code for the site to track a collection and the database is updated with the collection time stamp.    We support reports and a live google map to track collection status.  Each entity (collection point) can associate data with it via key value pairs.
 
+
 Feel free to drop me a note on how to migrate this system to track other items (eg security guard scans QR code or package tracking or ...)
 
 # To do
