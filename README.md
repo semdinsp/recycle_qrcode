@@ -5,7 +5,7 @@ In our particular case we use it for collecting recycled plastic from our collec
 
 Feel free to drop me a note on how to migrate this system to track other items (eg security guard scans QR code or package tracking or ...)
 # Yard Command
-yardoc --no-private --protected app/**/*.rb - README LEGAL COPYING
+yardoc --no-private --protected app/**/*.rb - README LEGAL COPYING NOTES.md
 
 # To do
   * setting object  (for various configurations and a center for google map)
