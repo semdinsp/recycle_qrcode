@@ -17,6 +17,9 @@ class Entity < ApplicationRecord
    def contactName
      self.kv_pairs.contact.first.value if !self.kv_pairs.empty? and !self.kv_pairs.contact.empty?  and !self.kv_pairs.contact.nil?
    end
+   def suco
+     self.kv_pairs.suco.first.value if !self.kv_pairs.empty? and !self.kv_pairs.suco.empty?  and !self.kv_pairs.suco.nil?
+   end
    def notes
      self.kv_pairs.notes.first.value if !self.kv_pairs.empty? and !self.kv_pairs.notes.empty? and !self.kv_pairs.notes.nil?
    end
@@ -26,7 +29,7 @@ class Entity < ApplicationRecord
 
     def svg_checkin_qrcode
         url = "v1/entities/checkin";
-        host = "https://recycle-qrcode.herokuapp.com/";
+        host = "https://recycle-qrcode.herokuapp.com/";  # change to support hostname in Settings
         finalurl = "#{host}#{url}?id=#{self.id}"
         qrcode = RQRCode::QRCode.new(finalurl)
         svg = qrcode.as_svg(

@@ -45,6 +45,7 @@ as well as a link to its edit page.
       <dd class="attribute-data attribute-data--<%=attribute.html_class%>"
           ><%= render_field attribute, page: page %></dd>
     <% end %>
+    <%= render 'location', locals: { page: page }%>
     <%= render 'qrcode', locals: { page: page }%>
 
   </dl>

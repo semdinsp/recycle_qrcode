@@ -1,0 +1,3 @@
+%dt.attribute-label{:id => "entity.location"} Location
+%dd.attribute-data
+  = link_to "location", "/admin/locations/#{locals[:page].resource.location.id}" if !locals[:page].resource.location.nil?
