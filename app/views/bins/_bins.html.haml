@@ -1,0 +1,9 @@
+%h5= bin.name
+%p
+  - if !bin.contactName.nil? then
+    Contact: #{bin.contactName}
+  - if !bin.telephone.nil? then
+    Phone: #{bin.telephone}
+- if !bin.notes.nil? then
+  %p
+    Notes: #{bin.notes}

@@ -12,6 +12,8 @@
 #    3
 #  end
 # end
+# HEROKLU COMMAND
+# heroku config:set ASYNC_CONTAINER_PROCESSOR_COUNT=3
 pcount=ENV.fetch('ASYNC_CONTAINER_PROCESSOR_COUNT',Etc.nprocessors)
 puts "falcon processor count #{pcount} cores: #{Etc.nprocessors} set ASYNC_CONTAINER_PROCESSOR_COUNT env to override"
 
