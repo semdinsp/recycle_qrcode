@@ -1,7 +1,7 @@
 %h5
   = bin.name
   - if !bin.suco.nil? or !bin.suco==""
-    ="(bin.suco)"
+    ="(#{bin.suco})"
 %p
   - if !bin.contactName.nil? then
     Contact: #{bin.contactName}

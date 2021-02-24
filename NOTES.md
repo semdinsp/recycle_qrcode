@@ -10,4 +10,4 @@ Basic information assigned to an entity (bin) is displayed on the googlemap.
 
 ## Suco
 
-When you set a suco key value then it is appended to the site name in Google maps
+When you set a suco key value then it is appended to the site name in Google maps.  So the site name will appear in a bubble in brackets when you click on the google marker.  [map](https://maps.verde-tl.com)
