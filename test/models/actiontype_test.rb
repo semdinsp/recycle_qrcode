@@ -20,8 +20,8 @@ class ActiontypeTest < ActiveSupport::TestCase
     assert !e.save, "could not save #{e.errors.inspect} without location "
     e.entity=@entity
     @entity.location=@location
-    e.location_id=@location.id
-    @location.actiontype=e
+  #  e.location_id=@location.id
+    e.location= @location
     puts "enntity #{@entity.inspect} actionntype #{e.inspect}"
     puts "before second save"
     assert e.save, "could not save #{e.errors.inspect} without location "

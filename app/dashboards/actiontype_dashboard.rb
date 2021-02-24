@@ -9,7 +9,7 @@ class ActiontypeDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     entity: Field::BelongsTo,
-    location: Field::BelongsTo,
+    location: Field::HasOne,
     id: Field::String.with_options(searchable: false),
     user: Field::String,
     atype: Field::Select.with_options(searchable: false, collection: ->(field) { field.resource.class.send(field.attribute.to_s.pluralize).keys }),

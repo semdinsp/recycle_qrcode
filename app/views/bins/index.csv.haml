@@ -1,5 +1,5 @@
 
-- booklets_headers = [ 'id', 'name', 'type', 'iconcolor', 'latitude', 'longitude', 'kv pairs' ]
+- booklets_headers = [ 'id', 'name', 'type', 'iconcolor', 'latitude', 'longitude','suco', 'kv pairs' ]
 = CSV.generate_line(booklets_headers).strip.html_safe
 - @bins.each do |bin|
   - long=lat=""
@@ -7,5 +7,5 @@
   - lat=bin.location.latitude if !bin.location.nil?
   - kvs=""
   - kvs =bin.kv_pairs.map { |kv| kvs << kv.key + ": "  + kv.value } if !bin.kv_pairs.nil? and !bin.kv_pairs.empty?
-  - row = [ bin.id, bin.name, bin.etype, bin.iconcolor, lat, long, kvs ]
+  - row = [ bin.id, bin.name, bin.etype, bin.iconcolor, lat, long, bin.suco, kvs ]
   = CSV.generate_line(row).strip.html_safe

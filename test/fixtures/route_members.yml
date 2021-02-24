@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  route_order: 1
+  route: one
+  entity: one
+
+two:
+  route_order: 1
+  route: two
+  entity: two

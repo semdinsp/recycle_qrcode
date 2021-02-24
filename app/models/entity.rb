@@ -6,14 +6,15 @@
 class Entity < ApplicationRecord
      enum etype: [  :bin, :garage ]
      enum status: [  :active, :deleted ]
-     has_one :location, required: false
+  #   has_one :location, required: false
+     has_one :location, as: :locatable
      has_many :actiontypes
      has_many :kv_pairs
+     has_many :routes, through: :route_member
 
-     # Return iconcolr green if recent activity and red else
-     #
-     # @return [String] the color as a string
-
+   # Return iconcolor green if recent activity and red if not active
+   #
+   # @return [String] the color as a string
    def iconcolor
      mycolor="red"
      mycolor="green" if !self.actiontypes.empty? and self.actiontypes.order('created_at DESC').limit(1).first.recent_activity
@@ -21,9 +22,12 @@ class Entity < ApplicationRecord
     # "red"   # red if no recent
      mycolor
    end
-
+   def kv_extract(key)
+     return '' if self.kv_pairs.empty?
+     #self.kv_pairs.send(key.to_sym).value
+   end
    def contactName
-     self.kv_pairs.contact.first.value if !self.kv_pairs.empty? and !self.kv_pairs.contact.empty?  and !self.kv_pairs.contact.nil?
+     self.kv_pairs.contact.first.value if  !self.kv_pairs.contact.empty?  and !self.kv_pairs.contact.nil?
    end
    def suco
      self.kv_pairs.suco.first.value if !self.kv_pairs.empty? and !self.kv_pairs.suco.empty?  and !self.kv_pairs.suco.nil?
@@ -34,6 +38,7 @@ class Entity < ApplicationRecord
    def telephone
      self.kv_pairs.telephone.first.value if !self.kv_pairs.empty? and !self.kv_pairs.telephone.empty?  and !self.kv_pairs.telephone.nil?
    end
+
 
     def svg_checkin_qrcode
         url = "v1/entities/checkin";

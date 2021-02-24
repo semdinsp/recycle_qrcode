@@ -17,7 +17,7 @@ class EntityDashboard < Administrate::BaseDashboard
     status: Field::Select.with_options(searchable: false, collection: ->(field) { field.resource.class.send(field.attribute.to_s.pluralize).keys }),
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-#    location_id: Field::String.with_options(searchable: false),
+    location_id: Field::String.with_options(searchable: false),
   }.freeze
 
   # COLLECTION_ATTRIBUTES

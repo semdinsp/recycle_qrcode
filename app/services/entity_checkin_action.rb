@@ -11,7 +11,7 @@ class EntityCheckinAction
     a.user="fred"
     puts "context is #{context.inspect}"
     a.entity=context.entity
-    a.location_id=context.location.id
+    a.location=context.location
 
     context.actiontype=a
     a.save

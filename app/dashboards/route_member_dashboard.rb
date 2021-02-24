@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class EntityDashboard < Administrate::BaseDashboard
+class RouteMemberDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -8,16 +8,12 @@ class EntityDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    location: Field::HasOne,
-    actiontypes: Field::HasMany,
-    kv_pairs: Field::HasMany,
+    route: Field::BelongsTo,
+    entity: Field::BelongsTo,
     id: Field::String.with_options(searchable: false),
-    name: Field::String,
-    etype: Field::Select.with_options(searchable: false, collection: ->(field) { field.resource.class.send(field.attribute.to_s.pluralize).keys }),
-    status: Field::Select.with_options(searchable: false, collection: ->(field) { field.resource.class.send(field.attribute.to_s.pluralize).keys }),
+    route_order: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-#    location_id: Field::String.with_options(searchable: false),
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -26,37 +22,30 @@ class EntityDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-  name
+  route
+  entity
   id
-  kv_pairs
-  location
+  route_order
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
+  route
+  entity
   id
-  name
-  etype
-  actiontypes
-  kv_pairs
-  status
+  route_order
   created_at
   updated_at
-  location
-
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-
-  name
-  etype
-  status
-  location
-  kv_pairs
+  route
+  entity
+  route_order
   ].freeze
 
   # COLLECTION_FILTERS
@@ -71,10 +60,10 @@ class EntityDashboard < Administrate::BaseDashboard
   #   }.freeze
   COLLECTION_FILTERS = {}.freeze
 
-  # Overwrite this method to customize how entities are displayed
+  # Overwrite this method to customize how route members are displayed
   # across all pages of the admin dashboard.
   #
-   def display_resource(entity)
-     "#{entity.name}:#{entity.id}"
-   end
+  # def display_resource(route_member)
+  #   "RouteMember ##{route_member.id}"
+  # end
 end

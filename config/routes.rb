@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   namespace :admin do
       # resources :entities
       %i(
-        entities actiontypes locations trucks routes kv_pairs
+        entities actiontypes locations trucks routes kv_pairs route_members
       ).each do |name|
         resources name, only: %i(index show new create edit update)
       end

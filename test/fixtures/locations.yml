@@ -3,10 +3,10 @@
 one:
   latitude: 1.5
   longitude: 1.5
-  entity: one
+  #entity: one
   id: aa67c98c-d81f-5a9c-b0bc-26caa0051add
 
 two:
   latitude: 1.5
   longitude: 1.5
-  entity: two
+  #entity: two

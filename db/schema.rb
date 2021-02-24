@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_22_063149) do
+ActiveRecord::Schema.define(version: 2021_02_24_135817) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -18,13 +18,11 @@ ActiveRecord::Schema.define(version: 2021_02_22_063149) do
 
   create_table "actiontypes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "entity_id", null: false
-    t.uuid "location_id", null: false
     t.string "user"
     t.integer "atype"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["entity_id"], name: "index_actiontypes_on_entity_id"
-    t.index ["location_id"], name: "index_actiontypes_on_location_id"
   end
 
   create_table "entities", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -48,11 +46,24 @@ ActiveRecord::Schema.define(version: 2021_02_22_063149) do
   create_table "locations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.float "latitude"
     t.float "longitude"
-    t.uuid "entity_id", null: false
+    t.uuid "entity_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.uuid "actiontype_id"
+    t.string "locatable_type"
+    t.uuid "locatable_id"
     t.index ["entity_id"], name: "index_locations_on_entity_id"
+    t.index ["locatable_type", "locatable_id"], name: "index_locations_on_locatable"
+  end
+
+  create_table "route_members", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.integer "route_order"
+    t.uuid "route_id", null: false
+    t.uuid "entity_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["entity_id"], name: "index_route_members_on_entity_id"
+    t.index ["route_id"], name: "index_route_members_on_route_id"
   end
 
   create_table "routes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -74,8 +85,9 @@ ActiveRecord::Schema.define(version: 2021_02_22_063149) do
   end
 
   add_foreign_key "actiontypes", "entities"
-  add_foreign_key "actiontypes", "locations"
   add_foreign_key "kv_pairs", "entities"
   add_foreign_key "locations", "entities"
+  add_foreign_key "route_members", "entities"
+  add_foreign_key "route_members", "routes"
   add_foreign_key "routes", "trucks"
 end

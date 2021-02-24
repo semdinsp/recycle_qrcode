@@ -14,11 +14,13 @@ class LocationTest < ActiveSupport::TestCase
     e=Location.new
 #    e.entity=entity
     f=Entity.new
-    e.entity=f
+#    e.entity=f
   #  @entity.location=e
     e.longitude=3.4
     e.latitude=3.4
+    f.location=e
 #puts "BEFOREE SAVE"
     assert e.save,  "could not save #{e.errors.inspect} "
+    assert f.location==e, "location shold be entity location"
   end
 end
