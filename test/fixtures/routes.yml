@@ -2,8 +2,8 @@
 
 one:
   truck: one
-  name: MyString
-  info: MyString
+  name: MyStringOne
+  info: MyStringOne
   dayofweek: MyString
 
 two:

@@ -65,6 +65,8 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
+    acts_as_list (1.0.3)
+      activerecord (>= 4.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     administrate (0.14.0)
@@ -469,6 +471,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  acts_as_list (~> 1.0)
   administrate
   administrate-field-enum
   bootsnap (>= 1.4.4)

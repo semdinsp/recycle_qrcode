@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'routes/index'
+  # scott original get 'routes/show'
+  get 'routes/show/:id' => "routes#show#:id(.:format)"
+  patch 'routes/move/:id' => "routes#move#:id(.:format)"
+
   # api
   scope module: 'api' do
     namespace :v1 do

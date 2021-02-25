@@ -128,7 +128,7 @@
         </dt>
         <dd><pre class="code"><span class='lbrace'>{</span>
   <span class='label'>entity:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>BelongsTo</span><span class='comma'>,</span>
-  <span class='label'>location:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>BelongsTo</span><span class='comma'>,</span>
+  <span class='label'>location:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>HasOne</span><span class='comma'>,</span>
   <span class='label'>id:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>String</span><span class='period'>.</span><span class='id identifier rubyid_with_options'>with_options</span><span class='lparen'>(</span><span class='label'>searchable:</span> <span class='kw'>false</span><span class='rparen'>)</span><span class='comma'>,</span>
   <span class='label'>user:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>String</span><span class='comma'>,</span>
   <span class='label'>atype:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>Select</span><span class='period'>.</span><span class='id identifier rubyid_with_options'>with_options</span><span class='lparen'>(</span><span class='label'>searchable:</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='label'>collection:</span> <span class='tlambda'>-&gt;</span><span class='lparen'>(</span><span class='id identifier rubyid_field'>field</span><span class='rparen'>)</span> <span class='tlambeg'>{</span> <span class='id identifier rubyid_field'>field</span><span class='period'>.</span><span class='id identifier rubyid_resource'>resource</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_field'>field</span><span class='period'>.</span><span class='id identifier rubyid_attribute'>attribute</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_pluralize'>pluralize</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span> <span class='rbrace'>}</span><span class='rparen'>)</span><span class='comma'>,</span>
@@ -242,7 +242,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Feb 24 00:24:29 2021 by
+  Generated on Fri Feb 26 00:52:50 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.0).
 </div>

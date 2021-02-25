@@ -128,6 +128,7 @@
         </dt>
         <dd><pre class="code"><span class='lbrace'>{</span>
   <span class='label'>truck:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>BelongsTo</span><span class='comma'>,</span>
+  <span class='label'>route_members:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>HasMany</span><span class='comma'>,</span>
   <span class='label'>id:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>String</span><span class='period'>.</span><span class='id identifier rubyid_with_options'>with_options</span><span class='lparen'>(</span><span class='label'>searchable:</span> <span class='kw'>false</span><span class='rparen'>)</span><span class='comma'>,</span>
   <span class='label'>name:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>String</span><span class='comma'>,</span>
   <span class='label'>info:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>String</span><span class='comma'>,</span>
@@ -154,9 +155,9 @@
         </dt>
         <dd><pre class="code"><span class='qsymbols_beg'>%i[</span><span class='words_sep'>
 </span><span class='tstring_content'>truck</span><span class='words_sep'>
+</span><span class='tstring_content'>route_members</span><span class='words_sep'>
 </span><span class='tstring_content'>id</span><span class='words_sep'>
 </span><span class='tstring_content'>name</span><span class='words_sep'>
-</span><span class='tstring_content'>info</span><span class='words_sep'>
 </span><span class='tstring_end'>]</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
         <dt id="SHOW_PAGE_ATTRIBUTES-constant" class="">SHOW_PAGE_ATTRIBUTES =
@@ -175,6 +176,7 @@
         </dt>
         <dd><pre class="code"><span class='qsymbols_beg'>%i[</span><span class='words_sep'>
 </span><span class='tstring_content'>truck</span><span class='words_sep'>
+</span><span class='tstring_content'>route_members</span><span class='words_sep'>
 </span><span class='tstring_content'>id</span><span class='words_sep'>
 </span><span class='tstring_content'>name</span><span class='words_sep'>
 </span><span class='tstring_content'>info</span><span class='words_sep'>
@@ -199,6 +201,7 @@
         </dt>
         <dd><pre class="code"><span class='qsymbols_beg'>%i[</span><span class='words_sep'>
 </span><span class='tstring_content'>truck</span><span class='words_sep'>
+</span><span class='tstring_content'>route_members</span><span class='words_sep'>
 </span><span class='tstring_content'>name</span><span class='words_sep'>
 </span><span class='tstring_content'>info</span><span class='words_sep'>
 </span><span class='tstring_content'>dayofweek</span><span class='words_sep'>
@@ -242,7 +245,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Feb 24 00:24:30 2021 by
+  Generated on Fri Feb 26 00:52:51 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.0).
 </div>

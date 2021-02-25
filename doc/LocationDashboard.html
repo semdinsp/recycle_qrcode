@@ -127,12 +127,14 @@
 </div>
         </dt>
         <dd><pre class="code"><span class='lbrace'>{</span>
-  <span class='label'>entity:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>BelongsTo</span><span class='comma'>,</span>
+  <span class='label'>locatable:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>Polymorphic</span><span class='comma'>,</span>
   <span class='label'>id:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>String</span><span class='period'>.</span><span class='id identifier rubyid_with_options'>with_options</span><span class='lparen'>(</span><span class='label'>searchable:</span> <span class='kw'>false</span><span class='rparen'>)</span><span class='comma'>,</span>
   <span class='label'>latitude:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>Number</span><span class='period'>.</span><span class='id identifier rubyid_with_options'>with_options</span><span class='lparen'>(</span><span class='label'>decimals:</span> <span class='int'>2</span><span class='rparen'>)</span><span class='comma'>,</span>
   <span class='label'>longitude:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>Number</span><span class='period'>.</span><span class='id identifier rubyid_with_options'>with_options</span><span class='lparen'>(</span><span class='label'>decimals:</span> <span class='int'>2</span><span class='rparen'>)</span><span class='comma'>,</span>
+  <span class='label'>entity_id:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>String</span><span class='period'>.</span><span class='id identifier rubyid_with_options'>with_options</span><span class='lparen'>(</span><span class='label'>searchable:</span> <span class='kw'>false</span><span class='rparen'>)</span><span class='comma'>,</span>
   <span class='label'>created_at:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>DateTime</span><span class='comma'>,</span>
   <span class='label'>updated_at:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>DateTime</span><span class='comma'>,</span>
+  <span class='label'>actiontype_id:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>String</span><span class='period'>.</span><span class='id identifier rubyid_with_options'>with_options</span><span class='lparen'>(</span><span class='label'>searchable:</span> <span class='kw'>false</span><span class='rparen'>)</span><span class='comma'>,</span>
 <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
         <dt id="COLLECTION_ATTRIBUTES-constant" class="">COLLECTION_ATTRIBUTES =
@@ -152,7 +154,7 @@
 </div>
         </dt>
         <dd><pre class="code"><span class='qsymbols_beg'>%i[</span><span class='words_sep'>
-</span><span class='tstring_content'>entity</span><span class='words_sep'>
+</span><span class='tstring_content'>locatable</span><span class='words_sep'>
 </span><span class='tstring_content'>id</span><span class='words_sep'>
 </span><span class='tstring_content'>latitude</span><span class='words_sep'>
 </span><span class='tstring_content'>longitude</span><span class='words_sep'>
@@ -173,12 +175,14 @@
 </div>
         </dt>
         <dd><pre class="code"><span class='qsymbols_beg'>%i[</span><span class='words_sep'>
-</span><span class='tstring_content'>entity</span><span class='words_sep'>
+</span><span class='tstring_content'>locatable</span><span class='words_sep'>
 </span><span class='tstring_content'>id</span><span class='words_sep'>
 </span><span class='tstring_content'>latitude</span><span class='words_sep'>
 </span><span class='tstring_content'>longitude</span><span class='words_sep'>
+</span><span class='tstring_content'>entity_id</span><span class='words_sep'>
 </span><span class='tstring_content'>created_at</span><span class='words_sep'>
 </span><span class='tstring_content'>updated_at</span><span class='words_sep'>
+</span><span class='tstring_content'>actiontype_id</span><span class='words_sep'>
 </span><span class='tstring_end'>]</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
         <dt id="FORM_ATTRIBUTES-constant" class="">FORM_ATTRIBUTES =
@@ -196,9 +200,11 @@
 </div>
         </dt>
         <dd><pre class="code"><span class='qsymbols_beg'>%i[</span><span class='words_sep'>
-</span><span class='tstring_content'>entity</span><span class='words_sep'>
+</span><span class='tstring_content'>locatable</span><span class='words_sep'>
 </span><span class='tstring_content'>latitude</span><span class='words_sep'>
 </span><span class='tstring_content'>longitude</span><span class='words_sep'>
+</span><span class='tstring_content'>entity_id</span><span class='words_sep'>
+</span><span class='tstring_content'>actiontype_id</span><span class='words_sep'>
 </span><span class='tstring_end'>]</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
         <dt id="COLLECTION_FILTERS-constant" class="">COLLECTION_FILTERS =
@@ -239,7 +245,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Feb 24 00:24:30 2021 by
+  Generated on Fri Feb 26 00:52:51 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.0).
 </div>
