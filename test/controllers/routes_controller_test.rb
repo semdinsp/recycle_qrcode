@@ -10,7 +10,8 @@ class RoutesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get show" do
-    get routes_show_url, params: { id: @aroute.id }
+    get "/routes/show/#{@aroute.id}", params: { id: @aroute.id }
     assert_response :success
   end
+  # TODO  add test for move
 end
