@@ -1,7 +1,8 @@
 class BinsController < ApplicationController
 
 def index
-    @bins = Entity.includes(:kv_pairs).all
+  #  @bins = Entity.includes(:kv_pairs).all
+    @bins = Entity.all
     respond_to do |format|
         format.html
       #  format.json { render json: @bins }
