@@ -1,0 +1,15 @@
+%p
+  List of entities with two routes.
+  - emptyflag=true
+  - Entity.all.each do |bin|
+    -if bin.routes.size>1
+      - emptyflag=false
+      .card{:style => "width: 18rem;"}
+        .card-body
+          %h5.card-title
+            =bin.name
+          - bin.routes.each do |r|
+            %h6.card-subtitle= r.name+ ','
+  - if emptyflag
+    .alert.alert-success{:role => "alert"}
+      "Success: All bins have only one associated route"

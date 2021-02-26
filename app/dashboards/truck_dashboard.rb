@@ -63,7 +63,7 @@ class TruckDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how trucks are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(truck)
-  #   "Truck ##{truck.id}"
-  # end
+   def display_resource(truck)
+     "#{truck.name} #{truck.id}"
+   end
 end

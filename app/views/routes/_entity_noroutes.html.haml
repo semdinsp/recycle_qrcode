@@ -1,0 +1,15 @@
+%p
+  List of entities with no routes.
+  - emptyflag=true
+  - Entity.all.each do |bin|
+    -if bin.routes.empty?
+      - emptyflag=false
+      .card{:style => "width: 18rem;"}
+        .card-body
+          %h5.card-title
+            =bin.name
+          %a.card-link
+            =link_to 'Add +', "/admin/route_members/new?entity=#{bin.name}-#{bin.id}"
+  - if emptyflag
+    .alert.alert-success{:role => "alert"}
+      "Success: All bins have an associated route"

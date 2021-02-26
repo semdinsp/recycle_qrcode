@@ -69,7 +69,7 @@ class RouteDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how routes are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(route)
-  #   "Route ##{route.id}"
-  # end
+   def display_resource(route)
+     "#{route.name} ##{route.id}"
+  end
 end

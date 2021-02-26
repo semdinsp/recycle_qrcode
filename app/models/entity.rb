@@ -10,7 +10,8 @@ class Entity < ApplicationRecord
      has_one :location, as: :locatable
      has_many :actiontypes
      has_many :kv_pairs
-     has_many :routes, through: :route_member
+     has_many :route_members
+     has_many :routes, through: :route_members
 
    # Return iconcolor green if recent activity and red if not active
    #

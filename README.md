@@ -12,9 +12,11 @@ yardoc --no-private --protected app/**/*.rb - README LEGAL COPYING NOTES.md
   * add additional indices  (particularly for kv pairs on entity id and same for entity id in locations)
   * additional reporting (currently a private google data studio web page links to the data)
   * security/authentication (jwt
-  * route editing and displays (for truck routes)
+  * route editing and displays (for truck routes) -SEMI DONE
   * add locatable polymorphic class for locations so that both entity and actiontype have the same type of location
-  * add route item and link route item and entity.
+  * add route item and link route item and entity. -SEMI DONE
+  * add links to return from route pages  (where should they go)
+  * add index on route member entity.
 
 
 ## Documentation
