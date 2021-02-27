@@ -1,0 +1,19 @@
+- content_for :head do
+  :javascript
+    function binURL() { return "/bins.json?icon=route"; };
+    console.log("setting binURL to: ", binURL)
+
+
+%h1 Map of Routes
+#map{:style => "height: 400px; width: 400;"}
+%h3 Legend
+%dl
+  %dt.attribute-label Red Icon
+  %dd.attribute-data No route!!!
+  %dt.attribute-label Blue Icon
+  %dd.attribute-data= Route.first.name
+  %dt.attribute-label Yellow Icon
+  %dd.attribute-data= Route.last.name
+%p
+  Links
+  =link_to 'Map', '/bins/googlemaps'

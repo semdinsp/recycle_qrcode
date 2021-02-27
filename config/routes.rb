@@ -30,7 +30,8 @@ Rails.application.routes.draw do
  resources :bins do
      resources :operation_hours, :index
      collection do
-      get :googlemaps
+      get :googlemaps, :routemaps
+
      end
  end
 

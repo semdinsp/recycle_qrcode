@@ -1,0 +1,17 @@
+- content_for :head do
+  :javascript
+    function binURL() { return "/bins.json?icon=normal"; };
+    console.log("setting binURL to: ", binURL)
+
+
+%h1 Map of Bin Locations
+#map{:style => "height: 400px; width: 400;"}
+%h3 Legend
+%dl
+  %dt.attribute-label Red Icon
+  %dd.attribute-data Activity Older than one day
+  %dt.attribute-label Green Icon
+  %dd.attribute-data Recent activity withn 24 hours
+%p
+  Links
+  =link_to 'Routes', '/bins/routemaps'

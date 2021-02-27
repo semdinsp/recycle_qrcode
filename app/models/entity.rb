@@ -12,13 +12,25 @@ class Entity < ApplicationRecord
      has_many :kv_pairs
      has_many :route_members
      has_many :routes, through: :route_members
+     @@iconcolormgr
 
+   def self.setIconColorMgr(col)
+     @@iconcolormgr=col
+     self
+   end
+   def self.iconColorMgr()
+     @@iconcolormgr
+   end
    # Return iconcolor green if recent activity and red if not active
    #
    # @return [String] the color as a string
-   def iconcolor
+   def iconcolor   #NEED TO FIX ROUTE CODE COLORS
      mycolor="red"
-     mycolor="green" if !self.actiontypes.empty? and self.actiontypes.order('created_at DESC').limit(1).first.recent_activity
+     mycolor="green" if Entity.iconColorMgr=='normal' and !self.actiontypes.empty? and self.actiontypes.order('created_at DESC').limit(1).first.recent_activity
+     if Entity.iconColorMgr=='route'
+       mycolor="blue" if self.routes.first==Route.first
+       mycolor="yellow" if  self.routes.last==Route.last
+     end
     # "green"  # green if recent action
     # "red"   # red if no recent
      mycolor

@@ -2,7 +2,7 @@ class BinsController < ApplicationController
 
 def index
   #  @bins = Entity.includes(:kv_pairs).all
-    @bins = Entity.all
+    @bins = Entity.setIconColorMgr(params['icon']).all
     respond_to do |format|
         format.html
       #  format.json { render json: @bins }
@@ -12,8 +12,12 @@ def index
 end
 
 def googlemaps
-  puts "in google maps"
   @bins = Entity.all
 end
+
+def routemaps
+  @bins = Entity.all
+end
+
 
 end

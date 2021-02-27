@@ -16,6 +16,8 @@ Turbolinks.start()
 ActiveStorage.start()
 import "controllers"
 
+//var binURL;
+
 function initMap()  {
   //console.log("in initmap");
   var center, infowindow, map;
@@ -27,7 +29,8 @@ function initMap()  {
     center: center
   });
   infowindow = new google.maps.InfoWindow;
-  return $.getJSON('/bins.json', function(jsonData) {
+  console.log('initMap() binURL: ',binURL());
+  return $.getJSON(binURL(), function(jsonData) {
     return $.each(jsonData, function(key, data) {
       var latLng, marker,iconurl;
       latLng = new google.maps.LatLng(data.lat, data.lng);

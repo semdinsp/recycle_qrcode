@@ -8,7 +8,7 @@ class LocationDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    locatable: Field::Polymorphic,
+    locatable: Field::Polymorphic.with_options(classes: [Entity, Actiontype]),
     id: Field::String.with_options(searchable: false),
     latitude: Field::Number.with_options(decimals: 2),
     longitude: Field::Number.with_options(decimals: 2),
