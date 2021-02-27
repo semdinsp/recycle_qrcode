@@ -1,7 +1,9 @@
 %h2
   Route:
   = " [#{@myroute.name}] Member count: #{@myroute.route_members.size}"
-  = link_to 'Download', "/routes/show/#{@myroute.id}.csv"
+  = link_to "/routes/show/#{@myroute.id}.csv" do
+    %i.fas.fa-download
+
 
 %h5
   Drag the elements up and down to change the order

@@ -16,7 +16,10 @@
         %td= link_to myroute.name, "/routes/show/#{myroute.id}"
         %td= myroute.route_members.size
         %td= link_to 'Show', "/routes/show/#{myroute.id}"
-        %td= link_to 'Download', "/routes/show/#{myroute.id}.csv"
+        %td
+          = link_to "/routes/show/#{myroute.id}.csv" do
+            %i.fas.fa-download
+
 
 
 %br
