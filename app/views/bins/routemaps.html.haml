@@ -11,9 +11,14 @@
   %dt.attribute-label Red Icon
   %dd.attribute-data No route!!!
   %dt.attribute-label Blue Icon
-  %dd.attribute-data= Route.first.name
+  %dd.attribute-data
+    = Route.first.name
+    = Route.last.route_members.size
   %dt.attribute-label Yellow Icon
-  %dd.attribute-data= Route.last.name
+  %dd.attribute-data
+    = Route.last.name
+    = Route.last.route_members.size
+
 %p
   Links
   =link_to 'Map', '/bins/googlemaps'
