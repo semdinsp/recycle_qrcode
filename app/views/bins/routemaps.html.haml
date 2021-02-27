@@ -8,8 +8,6 @@
 #map{:style => "height: 400px; width: 400;"}
 %h3 Legend
 %dl
-  %dt.attribute-label Red Icon
-  %dd.attribute-data No route!!!
   %dt.attribute-label Blue Icon
   %dd.attribute-data
     %td= link_to Route.first.name, "/routes/show/#{Route.first.id}"
@@ -21,7 +19,8 @@
     %td= link_to Route.last.name, "/routes/show/#{Route.last.id}"
     = Route.last.route_members.size
     = link_to 'Download', "/routes/show/#{Route.last.id}.csv"
-
+  %dt.attribute-label Red Icon
+  %dd.attribute-data No route!!!
 
 %p
   Links
