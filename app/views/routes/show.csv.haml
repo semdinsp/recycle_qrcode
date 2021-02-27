@@ -1,0 +1,11 @@
+-# - rowheaders = [ 'name', 'id', 'member_count']
+-# = CSV.generate_line(rowheaders).strip.html_safe
+-# - row = [ @myroute.name, @myroute.id, @myroute.route_members.size]
+-# = CSV.generate_line(row).strip.html_safe
+
+- rm_headers = [ 'id', 'name', 'suco', 'position' ]
+= CSV.generate_line(rm_headers).strip.html_safe
+
+- @route_members.order(position: :asc).each do |rm|
+  - row=[rm.id, rm.entity.name, rm.entity.suco, rm.position]
+  = CSV.generate_line(row).strip.html_safe

@@ -13,9 +13,11 @@
     - @myroutes.each do |myroute|
       %tr
         %td= myroute.id
-        %td= myroute.name
+        %td= link_to myroute.name, "/routes/show/#{myroute.id}"
         %td= myroute.route_members.size
         %td= link_to 'Show', "/routes/show/#{myroute.id}"
+        %td= link_to 'Download', "/routes/show/#{myroute.id}.csv"
+
 
 %br
 = render 'entity_noroutes'

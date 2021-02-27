@@ -12,12 +12,16 @@
   %dd.attribute-data No route!!!
   %dt.attribute-label Blue Icon
   %dd.attribute-data
-    = Route.first.name
+    %td= link_to Route.first.name, "/routes/show/#{Route.first.id}"
     = Route.first.route_members.size
+    = link_to 'Download', "/routes/show/#{Route.first.id}.csv"
+
   %dt.attribute-label Yellow Icon
   %dd.attribute-data
-    = Route.last.name
+    %td= link_to Route.last.name, "/routes/show/#{Route.last.id}"
     = Route.last.route_members.size
+    = link_to 'Download', "/routes/show/#{Route.last.id}.csv"
+
 
 %p
   Links

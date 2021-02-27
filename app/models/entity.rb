@@ -21,6 +21,12 @@ class Entity < ApplicationRecord
    def self.iconColorMgr()
      @@iconcolormgr
    end
+
+   def routeposition
+     res=""
+     res=self.route_members.first.position.to_s if Entity.iconColorMgr=='route' and !self.route_members.empty?
+     res
+   end
    # Return iconcolor green if recent activity and red if not active
    #
    # @return [String] the color as a string
