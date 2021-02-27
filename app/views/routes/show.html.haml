@@ -14,4 +14,6 @@
         %h6.card-subtitle
           - suco=""
           - suco=rm.entity.suco if !rm.entity.nil? and !rm.entity.suco.nil?
-          = "#{suco} #{rm.id} "
+          = "#{rm.entity.contactName} #{rm.entity.telephone} [#{suco}]"
+        %p.small
+          = "[#{rm.id}]"
