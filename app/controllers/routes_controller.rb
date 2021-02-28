@@ -9,6 +9,7 @@ class RoutesController < ApplicationController
    @dragController="drag"
    @dragController="nodrag" if params['drag']=='nodrag'
    @route_members=@myroute.route_members
+   Entity.setIconColorMgr('normal')
   end
 
 
