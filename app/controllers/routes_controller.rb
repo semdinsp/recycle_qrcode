@@ -6,8 +6,11 @@ class RoutesController < ApplicationController
   end
 
   def show
+   @dragController="drag"
+   @dragController="nodrag" if params['drag']=='nodrag'
    @route_members=@myroute.route_members
   end
+
 
   def move
     puts "Move parameters are #{params}"
@@ -30,6 +33,6 @@ class RoutesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def route_params
-      params.require(:route).permit(:name)
+      params.require(:route).permit(:name, :drag)
     end
 end
