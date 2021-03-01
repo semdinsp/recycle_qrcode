@@ -19,7 +19,9 @@
       %tr
         %td= collection.entity.name
         %td= collection.entity.suco
-        %td= time_ago_in_words collection.created_at
+        %td
+          = time_ago_in_words collection.created_at
+          ago
         -# %td
         -#  = collection.user
         -#  (Coming soon)
