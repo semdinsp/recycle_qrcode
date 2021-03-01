@@ -108,6 +108,9 @@ GEM
     bindex (0.8.1)
     bootsnap (1.7.2)
       msgpack (~> 1.0)
+    bootstrap4-kaminari-views (1.0.1)
+      kaminari (>= 0.13)
+      rails (>= 3.1)
     bourbon (7.0.0)
       thor (~> 1.0)
     build-environment (1.13.0)
@@ -475,6 +478,7 @@ DEPENDENCIES
   administrate
   administrate-field-enum
   bootsnap (>= 1.4.4)
+  bootstrap4-kaminari-views
   bourbon
   byebug
   capybara (>= 3.26)
