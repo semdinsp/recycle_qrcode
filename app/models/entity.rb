@@ -22,6 +22,13 @@ class Entity < ApplicationRecord
      @@iconcolormgr
    end
 
+   def latitude
+     self.location.latitude if !self.location.nil?
+   end
+   def longitude
+     self.location.longitude if !self.location.nil?
+   end
+
    def routeposition
      res=""
      res=self.route_members.first.position.to_s if Entity.iconColorMgr=='route' and !self.route_members.empty?
