@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'routes/index'
+  get 'routes/collections'
   # scott original get 'routes/show'
   get 'routes/show/:id' => "routes#show#:id(.:format)"
   patch 'routes/move/:id' => "routes#move#:id(.:format)"
@@ -31,6 +32,7 @@ Rails.application.routes.draw do
      resources :operation_hours, :index
      collection do
       get :googlemaps, :routemaps
+
 
      end
  end

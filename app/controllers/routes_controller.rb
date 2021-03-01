@@ -12,6 +12,10 @@ class RoutesController < ApplicationController
    Entity.setIconColorMgr('normal')
   end
 
+  def collections
+    @pickups=Actiontype.order("created_at DESC").page(params[:page])
+  end
+
 
   def move
     puts "Move parameters are #{params}"

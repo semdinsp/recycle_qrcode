@@ -11,6 +11,9 @@ def index
       end
 end
 
+
+
+
 def googlemaps
   @bins = Entity.all
 end
