@@ -7,7 +7,15 @@ class Actiontype < ApplicationRecord
   scope :recent, -> { order('created_at DESC').limit(1) }
 
   def recent_activity
+    self.today
+  end
+  def today?
     self.created_at > Time.now - 1.day
+  end
+  def yesterday?
+    return false if self.today?
+    return true if self.created_at > Time.now - 2.day
+    false
   end
 
 def self.create_checkin

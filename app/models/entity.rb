@@ -22,6 +22,10 @@ class Entity < ApplicationRecord
      @@iconcolormgr
    end
 
+   def most_recent_actiontype
+     self.actiontypes.order("created_at DESC").first
+   end
+
    def latitude
      self.location.latitude if !self.location.nil?
    end

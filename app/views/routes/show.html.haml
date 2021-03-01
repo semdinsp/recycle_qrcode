@@ -13,8 +13,11 @@
       .card.card-body.mb-4{"data-id" => rm.id}
         %h4.card-title
           = "Stop #{rm.position} : #{rm.entity.name}"
-          - if rm.entity.iconcolor=="green"
+          - at=rm.entity.most_recent_actiontype
+          - if !at.nil? and at.today?
             %span.badge.badge-success Collected Today!
+          - if !at.nil? and at.yesterday?
+            %span.badge.badge-warning Collected Yesterday!
         %h6.card-subtitle
           - suco=""
           - suco=rm.entity.suco if !rm.entity.nil? and !rm.entity.suco.nil?
