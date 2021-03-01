@@ -14,7 +14,8 @@ class EntityCheckinAction
     a.location=context.location
 
     context.actiontype=a
-    a.save
+    oldat=a.entity.most_recent_actiontype
+    a.save if oldat==nil or !oldat.today?
     puts "actiontype created is #{a.inspect}"
     a
   end

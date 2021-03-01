@@ -14,8 +14,8 @@ class RoutesController < ApplicationController
 
   def collections
     @pickups=Actiontype.order("created_at DESC").page(params[:page])
+    @pickups=Actiontype.order("created_at DESC").limit(1000)   if request.format.csv?
     respond_to do |format|
-        @pickups=Actiontype.order("created_at DESC").limit(1000) if format==:csv
         format.html
       #  format.json { render json: @bins }
         format.json
