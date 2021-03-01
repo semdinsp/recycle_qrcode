@@ -12,6 +12,7 @@
       %th Suco
       %th Date
       -#%th User
+      %th Report
       %th
       %th
   %tbody
@@ -22,6 +23,7 @@
         %td
           = time_ago_in_words collection.created_at
           ago
+        %td= link_to 'Report', bin_report_url(collection.entity)
         -# %td
         -#  = collection.user
         -#  (Coming soon)

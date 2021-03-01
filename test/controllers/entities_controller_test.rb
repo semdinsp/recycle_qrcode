@@ -6,7 +6,6 @@ class EntitiesControllerTest < ActionDispatch::IntegrationTest
     @location=locations(:one)
     @entity=entities(:one)
 
-
   end
 
 
@@ -18,9 +17,6 @@ class EntitiesControllerTest < ActionDispatch::IntegrationTest
     get v1_entities_checkin_url, params: {id: @entity.id  },headers: {Authorization: "Bearer #{jwt}"} , as: :json
     assert_response :success
   end
-
-
-
 
 
 

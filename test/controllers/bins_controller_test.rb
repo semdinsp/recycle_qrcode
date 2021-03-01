@@ -19,7 +19,25 @@ class BinsControllerTest < ActionDispatch::IntegrationTest
   jwt="test"
   #get v1_entities_checkin_url, params: {activity_id: @activity.id  },headers: {Authorization: "Bearer #{jwt}"} , as: :json
 
-    get bins_url, params: {icon: 'route' },headers: {Authorization: "Bearer #{jwt}"} , as: :json
+    get bins_url, params: {icon: 'route' },headers: {Authorization: "Bearer #{jwt}"}, as: :json
     assert_response :success
   end
+
+  test "should get bins routemaps" do
+  #  jwt=get_token
+  jwt="test"
+  #get v1_entities_checkin_url, params: {activity_id: @activity.id  },headers: {Authorization: "Bearer #{jwt}"} , as: :json
+
+    get routemaps_bins_url, params: { },headers: {Authorization: "Bearer #{jwt}"}
+    assert_response :success
+  end
+
+test "should get bins googlemaps" do
+#  jwt=get_token
+jwt="test"
+#get v1_entities_checkin_url, params: {activity_id: @activity.id  },headers: {Authorization: "Bearer #{jwt}"} , as: :json
+
+  get googlemaps_bins_url, params: { },headers: {Authorization: "Bearer #{jwt}"}
+  assert_response :success
+end
 end

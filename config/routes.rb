@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'routes/collections'
   # scott original get 'routes/show'
   get 'routes/show/:id' => "routes#show#:id(.:format)"
+
   patch 'routes/move/:id' => "routes#move#:id(.:format)"
 
   # api
@@ -29,11 +30,13 @@ Rails.application.routes.draw do
     end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
  resources :bins do
-     resources :operation_hours, :index
+     # resources :operation_hours, :index
+
+     get 'report' => "bins#report#:id(.:format)"
+
      collection do
       get :googlemaps, :routemaps
-
-
+      #get 'report/:id' => "bins#report#:id(.:format)"
      end
  end
 

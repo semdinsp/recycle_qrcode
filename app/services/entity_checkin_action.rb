@@ -12,6 +12,7 @@ class EntityCheckinAction
     puts "context is #{context.inspect}"
     a.entity=context.entity
     a.location=context.location
+    a.atype=:collection
 
     context.actiontype=a
     oldat=a.entity.most_recent_actiontype
