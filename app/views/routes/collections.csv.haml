@@ -1,0 +1,6 @@
+- bc_headers = [  'name', 'suco','date', 'id','latitude', 'longitude', 'contact','telephone' ]
+= CSV.generate_line(bc_headers).strip.html_safe
+
+- @pickups.each do |pickup|
+  - row=[pickup.entity.name, pickup.entity.suco, pickup.created_at, pickup.id, pickup.entity.latitude, pickup.entity.longitude, pickup.entity.contactName, pickup.entity.telephone]
+  = CSV.generate_line(row).strip.html_safe
