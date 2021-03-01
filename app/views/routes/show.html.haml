@@ -14,7 +14,7 @@
         %h4.card-title
           = "Stop #{rm.position} : #{rm.entity.name}"
           - if rm.entity.iconcolor=="green"
-            %span.badge.badge-success Visited Today!
+            %span.badge.badge-success Collected Today!
         %h6.card-subtitle
           - suco=""
           - suco=rm.entity.suco if !rm.entity.nil? and !rm.entity.suco.nil?
