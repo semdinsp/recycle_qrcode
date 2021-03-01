@@ -7,7 +7,7 @@ class Actiontype < ApplicationRecord
   scope :recent, -> { order('created_at DESC').limit(1) }
 
   def recent_activity
-    self.today
+    self.today?
   end
   def today?
     self.created_at > Time.now - 1.day
