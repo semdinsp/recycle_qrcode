@@ -25,9 +25,10 @@ class RoutesController < ApplicationController
 
 def mercycorpinvoice
   @bins=Entity.all
+  puts "format type is #{request.format} params #{params}"
   respond_to do |format|
       #  format.html
-    #  format.json { render json: @bins }
+      #  format.json { render json: @bins }
       format.csv
     end
 end
