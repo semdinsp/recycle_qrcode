@@ -20,8 +20,8 @@
         %tr
           %th Name
           %th Suco
-          %th Date (ago)
           %th Date
+          %th Time
           -#%th User
           %th
           %th
@@ -31,10 +31,9 @@
             %td= collection.entity.name
             %td= collection.entity.suco
             %td
-              = time_ago_in_words collection.created_at
-              ago
-            %td
               = collection.created_at.to_date
+            %td
+              = collection.created_at.strftime("%H:%M:%S")
             -# %td
             -#  = collection.user
             -#  (Coming soon)
@@ -67,6 +66,7 @@
   .col
 .row
   .col-1
+  .col
     %p
       Links
       =link_to 'Routes', routemaps_bins_url
