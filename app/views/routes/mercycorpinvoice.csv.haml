@@ -2,6 +2,7 @@
 = CSV.generate_line(bc_headers).strip.html_safe
 
 - @bins.each do |bin|
-  - count=bin.actiontypes.count    #NEED TO FIX DATE
+  -count=0
+  - count=bin.actiontypes.count  if !bin.actiontypes.empty?  #NEED TO FIX DATE
   - row=[bin.name, bin.suco, count, [count*2,10].min]
   = CSV.generate_line(row).strip.html_safe
