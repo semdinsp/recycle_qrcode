@@ -10,8 +10,18 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 require("bootstrap");
 require("@fortawesome/fontawesome-free")
-import "@fortawesome/fontawesome-free/js/all";
-import "@fortawesome/fontawesome-free/css/all";
+import "@fortawesome/fontawesome-free/js/solid.min.js";
+import "@fortawesome/fontawesome-free/css/solid.min";
+
+//old import { dom, library, download } from '@fortawesome/fontawesome-free'
+
+
+
+// after library.add
+
+//library.add(download )
+// dom.i2svg()
+
 
 Rails.start()
 Turbolinks.start()
