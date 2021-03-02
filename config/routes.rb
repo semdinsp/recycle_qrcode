@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'routes/index'
   get 'routes/collections'
+  get 'routes/mercycorpinvoice'
+
   # scott original get 'routes/show'
   get 'routes/show/:id' => "routes#show#:id(.:format)"
 

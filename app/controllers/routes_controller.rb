@@ -23,6 +23,14 @@ class RoutesController < ApplicationController
       end
   end
 
+def mercycorpinvoice
+  @bins=Entity.all
+  respond_to do |format|
+      #  format.html
+    #  format.json { render json: @bins }
+      format.csv
+    end
+end
 
   def move
     puts "Move parameters are #{params}"
