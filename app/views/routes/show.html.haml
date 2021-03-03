@@ -4,9 +4,10 @@
   = link_to "/routes/show/#{@myroute.id}.csv" do
     %i.fas.fa-download
 
-
 %h5
   Drag the elements up and down to change the order
+%h5
+  = "Schedule: #{@myroute.schedule}"
 %p
   %div{"data-controller" => "#{@dragController}", "data-drag-url" => "/routes/move/#{@myroute.id}"}
     - @route_members.order(position: :asc).each do |rm|

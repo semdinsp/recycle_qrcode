@@ -12,6 +12,7 @@ class RouteDashboard < Administrate::BaseDashboard
     route_members: Field::HasMany,
     id: Field::String.with_options(searchable: false),
     name: Field::String,
+    schedule: Field::String,
     info: Field::String,
     dayofweek: Field::String,
     created_at: Field::DateTime,
@@ -37,6 +38,7 @@ class RouteDashboard < Administrate::BaseDashboard
   route_members
   id
   name
+  schedule
   info
   dayofweek
   created_at
@@ -52,6 +54,7 @@ class RouteDashboard < Administrate::BaseDashboard
   name
   info
   dayofweek
+  schedule
   ].freeze
 
   # COLLECTION_FILTERS
