@@ -108,6 +108,10 @@ GEM
     bindex (0.8.1)
     bootsnap (1.7.2)
       msgpack (~> 1.0)
+    bootstrap (4.6.0)
+      autoprefixer-rails (>= 9.1.0)
+      popper_js (>= 1.14.3, < 2)
+      sassc-rails (>= 2.0.0)
     bootstrap4-kaminari-views (1.0.1)
       kaminari (>= 0.13)
       rails (>= 3.1)
@@ -323,6 +327,7 @@ GEM
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     pg (1.2.3)
+    popper_js (1.16.0)
     process-metrics (0.2.1)
       console (~> 1.8)
       samovar (~> 2.1)
@@ -477,6 +482,7 @@ DEPENDENCIES
   administrate
   administrate-field-enum
   bootsnap (>= 1.4.4)
+  bootstrap
   bootstrap4-kaminari-views
   bourbon
   byebug
