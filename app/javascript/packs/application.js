@@ -65,14 +65,14 @@ function initMap()  {
   });
 };
 
- 
-document.addEventListener("turbolinks:load", () => {
-  $('[data-toggle="tooltip"]').tooltip()
-  $('[data-toggle="popover"]').popover()
-})
 
 $(document).on('turbolinks:load', function() {
   console.log("start of turboLinks:load");
   initMap();
   console.log("after initMap");
+});
+
+document.addEventListener("turbolinks:load", () => {
+  $('[data-toggle="tooltip"]').tooltip()
+  $('[data-toggle="popover"]').popover()
 });
