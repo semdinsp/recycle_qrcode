@@ -10,7 +10,7 @@ Rails.application.configure do
 
   # Do not eager load code on boot.
   config.eager_load = false
-
+  config.hosts << "scotts-macbook-pro-2.local"
   # Show full error reports.
   config.consider_all_requests_local = true
 
