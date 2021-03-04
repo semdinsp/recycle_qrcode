@@ -1,0 +1,34 @@
+{
+  "name": "recycle-qrcode",
+  "description": "QR code system to record tracking of recycle bins",
+  "keywords": [
+    "recycle",
+    "qrcode",
+    "collections"
+  ],
+  "env": {
+    "WEB_CONCURRENCY": {
+      "description": "The number of processes to run.",
+      "value": "1"
+    }
+  },
+  "stack": "heroku-18",
+  "addons": [
+    {
+      "plan": "heroku-postgresql"
+    }
+  ],
+  "image": "heroku/ruby",
+  "environments": {
+    "test": {
+      "addons":[
+        {
+          "plan": "heroku-postgresql:in-dyno"
+        }
+      ],
+      "scripts": {
+        "test": "bundle exec rake "
+      }
+    }
+  }
+}
