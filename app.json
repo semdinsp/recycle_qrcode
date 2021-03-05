@@ -27,7 +27,7 @@
         }
       ],
       "scripts": {
-        "test": "bundle exec bin/webpack; bundle exec rake "
+        "test": "npm install --dev; bundle exec bin/webpack; bundle exec rake "
       }
     }
   }
