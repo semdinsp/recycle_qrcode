@@ -27,7 +27,9 @@
         }
       ],
       "scripts": {
-        "test": "npm install --dev; bundle exec bin/webpack; bundle exec rake "
+        "heroku-prebuild": "npm install --dev",
+        "build": "webpack --mode production",
+        "test": " bundle exec rake "
       }
     }
   }
