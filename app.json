@@ -27,7 +27,7 @@
         }
       ],
       "scripts": {
-        "test": "bundle exec rake "
+        "test": "RAILS_ENV=test bin/webpack; bundle exec rake "
       }
     }
   }
