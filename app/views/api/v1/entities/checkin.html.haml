@@ -1,6 +1,6 @@
 - content_for :head do
   :javascript
-    function binURL() { return "/bins.json?icon=route"; };
+
     var geooptions = {
     enableHighAccuracy: true,
     timeout: 5000,
@@ -18,7 +18,7 @@
     data.set('latitude', crd.latitude);
     data.set('longitude', crd.longitude);
     data.set('actiontype', "#{@at.id}");
-    fetch('/v1/entities/checkin_location_set', {method: 'POST', body: data});
+    fetch('/v1/entities/checkin_set_location', {method: 'POST', body: data});
     }
 
     function geoerror(err) {
@@ -33,9 +33,9 @@
        console.log("after getUserLocation");
     }
     // When window loaded ( external resources are loaded too- `css`,`src`, etc...)
-    if (event.target.readyState === "complete") {
-        console.log("external resoursces done");
-    }
+    //if (event.target.readyState === "complete") {
+    //    console.log("external resoursces done");
+    //}
     });
 
 
