@@ -3,7 +3,7 @@
 
     var geooptions = {
     enableHighAccuracy: true,
-    timeout: 5000,
+    timeout: 10000,
     maximumAge: 0
     };
 
@@ -12,18 +12,23 @@
     let data = new FormData(this.element);
     var token = document.getElementsByName("csrf-token")[0].content;
     console.log('csrf token:',token);
-    console.log('Your current position is:');
     console.log(`Latitude : ${crd.latitude}`);
     console.log(`Longitude: ${crd.longitude}`);
     console.log(`More or less ${crd.accuracy} meters.`);
     data.set('latitude', crd.latitude);
     data.set('longitude', crd.longitude);
     data.set('actiontype', "#{@at.id}");
+    Rails.ajax({
+      type: "POST",
+      url: '/v1/entities/checkin_set_location',
+      headers: {'X-Requested-With': 'XMLHttpRequest', 'X-CSRF-Token': token, 'Content-Type': 'application/json', 'Accept': 'application/json'},
+      data: {'latitude': crd.latitude, 'longitude': crd.longitude, 'actiontype': "#{@at.id}" }
+    });
 
-    fetch('/v1/entities/checkin_set_location', {method: 'POST',
-         headers: {'X-Requested-With': 'XMLHttpRequest', 'X-CSRF-Token': token, 'Content-Type': 'application/json', 'Accept': 'application/json'},
-         body: {'latitude': crd.latitude, 'longitude': crd.longitude, 'actiontype': "#{@at.id}" }});
-    }
+    //fetch('/v1/entities/checkin_set_location', {method: 'POST',
+    //     headers: {'X-Requested-With': 'XMLHttpRequest', 'X-CSRF-Token': token, 'Content-Type': 'application/json', 'Accept': 'application/json'},
+    //     body: {'latitude': crd.latitude, 'longitude': crd.longitude, 'actiontype': "#{@at.id}" }});
+    //}
 
     function geoerror(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
