@@ -25,7 +25,8 @@ class RoutesController < ApplicationController
 
 def mercycorpinvoice
   @bins=Entity.all
-  puts "format type is #{request.format} params #{params}"
+  log_message({format_type: request.format, params: params})
+  #puts "format type is #{request.format} params #{params}"
   respond_to do |format|
       #  format.html
       #  format.json { render json: @bins }

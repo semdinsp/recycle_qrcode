@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     #  resources :users, only: [:create]
     #  post '/auto_login', to: "users#auto_login"
        get '/entities/checkin', to: "entities#checkin#id"
+       post '/entities/checkin_set_location', to: "entities#checkin_location_set"
+
     end # v1
   end #api
   # ennd api
