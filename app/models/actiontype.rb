@@ -2,7 +2,7 @@ class Actiontype < ApplicationRecord
   self.implicit_order_column = "created_at"
 
   belongs_to :entity
-  has_one :location, as: :locatable
+  has_one :location, as: :locatable, dependent: :destroy
   enum atype: [  :collection, :departure, :arrival ]
   scope :recent, -> { order('created_at DESC').limit(1) }
 

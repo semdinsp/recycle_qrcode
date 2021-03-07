@@ -45,7 +45,7 @@ module Api
           loc.save
           at.save
           log_message({actiontype: at, location: loc})
-         head :ok
+          head :ok
       end
 
 
@@ -71,7 +71,7 @@ module Api
         # Only allow a trusted parameter "white list" through.
         def entity_params
           #@activity=set_team(params[:metric][:activity_id]) if !params[:metric][:activity_id].nil?
-          params.require(:entity).permit( :user,  :entity_id, :id )
+          params.require(:entity).permit( :user,  :entity_id, :id, :actiontype, :latitude, :longitude, :accuracy  )
         end
     end
   end
