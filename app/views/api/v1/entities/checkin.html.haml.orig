@@ -1,0 +1,32 @@
+- content_for :head do
+  :javascript
+    function binURL() { return "/bins.json?icon=route"; };
+    console.log("in checkin javascript:
+    document.addEventListener('readystatechange', event => {
+    // When HTML/DOM elements are ready:
+    if (event.target.readyState === "interactive") {   //does same as:  ..addEventListener("DOMContentLoaded"..
+       let data = new FormData();
+       let position = await navigator.geolocation.getCurrentPosition();
+       data.set('position', position);
+       data.set('actiontype', "#{@at.id}");
+        await fetch('/v1/entities/checkin_location_set', {method: 'POST', body: data});
+
+         console.log("after getUserLocation");
+    }
+    // When window loaded ( external resources are loaded too- `css`,`src`, etc...)
+    if (event.target.readyState === "complete") {
+        console.log("external resoursces done");
+    }
+    });
+
+
+
+
+%h3
+  Checkin
+  = @bin.name
+%h4
+  Collection tracker is:
+  = @at.inspect
+
+= render 'bins/bins', locals: {bin: @bin}
