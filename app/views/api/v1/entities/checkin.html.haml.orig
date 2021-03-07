@@ -1,24 +1,44 @@
 - content_for :head do
   :javascript
-    function binURL() { return "/bins.json?icon=route"; };
-    console.log("in checkin javascript:
+
+    var geooptions = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+    };
+
+    function geosuccess(pos) {
+    var crd = pos.coords;
+    let data = new FormData();
+
+    console.log('Your current position is:');
+    console.log(`Latitude : ${crd.latitude}`);
+    console.log(`Longitude: ${crd.longitude}`);
+    console.log(`More or less ${crd.accuracy} meters.`);
+    data.set('latitude', crd.latitude);
+    data.set('longitude', crd.longitude);
+    data.set('actiontype', "#{@at.id}");
+    fetch('/v1/entities/checkin_set_location', {method: 'POST',
+         headers: {'X-Requested-With': 'XMLHttpRequest', 'X-CSRF-Token': Rails.csrfToken(), 'Content-Type': 'application/json', Accept': 'application/json'},
+         body: data});
+    }
+
+    function geoerror(err) {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
+    }
+
     document.addEventListener('readystatechange', event => {
     // When HTML/DOM elements are ready:
     if (event.target.readyState === "interactive") {   //does same as:  ..addEventListener("DOMContentLoaded"..
-       let data = new FormData();
-       let position = await navigator.geolocation.getCurrentPosition();
-       data.set('position', position);
-       data.set('actiontype', "#{@at.id}");
-        await fetch('/v1/entities/checkin_location_set', {method: 'POST', body: data});
-
-         console.log("after getUserLocation");
+       console.log("start getUserLocation");
+       navigator.geolocation.getCurrentPosition(geosuccess, geoerror, geooptions);
+       console.log("after getUserLocation");
     }
     // When window loaded ( external resources are loaded too- `css`,`src`, etc...)
-    if (event.target.readyState === "complete") {
-        console.log("external resoursces done");
-    }
+    //if (event.target.readyState === "complete") {
+    //    console.log("external resoursces done");
+    //}
     });
-
 
 
 
