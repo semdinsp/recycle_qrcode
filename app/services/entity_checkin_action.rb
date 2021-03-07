@@ -11,11 +11,11 @@ class EntityCheckinAction
     a.user="fred"
     puts "context is #{context.inspect}"
     a.entity=context.entity
-    a.location=context.location
+  #  a.location=context.location
     a.atype=:collection
     oldat=context.entity.most_recent_actiontype
     a.save if oldat.nil? or !oldat.today?
-    a=oldat if oldat.today?
+    a=oldat if !oldat.nil? and oldat.today?
     context.actiontype=a
     puts "actiontype created is #{a.inspect}"
     a
