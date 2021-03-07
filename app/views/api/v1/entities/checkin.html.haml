@@ -9,30 +9,20 @@
 
     function geosuccess(pos) {
     var crd = pos.coords;
-    let data = new FormData(this.element);
     var token = document.getElementsByName("csrf-token")[0].content;
     console.log('csrf token:',token);
     console.log(`Latitude : ${crd.latitude}`);
     console.log(`Longitude: ${crd.longitude}`);
     console.log(`More or less ${crd.accuracy} meters.`);
-    data.set('latitude', crd.latitude);
-    data.set('longitude', crd.longitude);
-    data.set('actiontype', "#{@at.id}");
-    Rails.ajax({
-      type: "POST",
-      url: '/v1/entities/checkin_set_location',
-      headers: {'X-Requested-With': 'XMLHttpRequest', 'X-CSRF-Token': token, 'Content-Type': 'application/json', 'Accept': 'application/json'},
-      data: {'latitude': crd.latitude, 'longitude': crd.longitude, 'actiontype': "#{@at.id}" }
-    });
-
-    //fetch('/v1/entities/checkin_set_location', {method: 'POST',
-    //     headers: {'X-Requested-With': 'XMLHttpRequest', 'X-CSRF-Token': token, 'Content-Type': 'application/json', 'Accept': 'application/json'},
-    //     body: {'latitude': crd.latitude, 'longitude': crd.longitude, 'actiontype': "#{@at.id}" }});
-    //}
+    var data2={'latitude': crd.latitude, 'longitude': crd.longitude, 'actiontype': "#{@at.id}1234" };
+    fetch('/v1/entities/checkin_set_location', {method: 'POST',
+         headers: {'X-Requested-With': 'XMLHttpRequest', 'X-CSRF-Token': token, 'Content-Type': 'application/json', 'Accept': 'application/json'},
+         body: JSON.stringify(data2)  });
+    };
 
     function geoerror(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
-    }
+    };
 
     document.addEventListener('readystatechange', event => {
     // When HTML/DOM elements are ready:
