@@ -43,6 +43,7 @@ module Api
           loc.latitude=params['latitude']
           loc.longitude=params['longitude']
           at.location=loc
+          loc.save
           at.save
           log_message({actiontype: at, location: loc})
          head :ok
