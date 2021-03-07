@@ -14,7 +14,7 @@
     console.log(`Latitude : ${crd.latitude}`);
     console.log(`Longitude: ${crd.longitude}`);
     console.log(`More or less ${crd.accuracy} meters.`);
-    var data2={'latitude': crd.latitude, 'longitude': crd.longitude, 'actiontype': "#{@at.id}1234" };
+    var data2={'latitude': crd.latitude, 'longitude': crd.longitude, 'actiontype': "#{@at.id}" };
     fetch('/v1/entities/checkin_set_location', {method: 'POST',
          headers: {'X-Requested-With': 'XMLHttpRequest', 'X-CSRF-Token': token, 'Content-Type': 'application/json', 'Accept': 'application/json'},
          body: JSON.stringify(data2)  });
