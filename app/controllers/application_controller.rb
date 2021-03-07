@@ -4,10 +4,10 @@ class ApplicationController < ActionController::Base
     def log_message(msgs, logtype=:debug)  #msgs should be hash   logtype warn info
       logm = {time: Time.now, controller: self.class.name }.merge(msgs)
       Rails.logger.send(logtype,logm)   # was puts
-      if Rails.env.development?
+    #  if Rails.env.development?
          puts logm
          $stdout.flush
-       end
+    #   end
       logm
     end
 
