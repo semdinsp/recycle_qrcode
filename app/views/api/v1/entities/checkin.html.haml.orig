@@ -18,6 +18,11 @@
     data.set('latitude', crd.latitude);
     data.set('longitude', crd.longitude);
     data.set('actiontype', "#{@at.id}");
+    //Rails.ajax({
+    //  type: "POST",
+    //  url: '/v1/entities/checkin_set_location',
+    //  data: data
+    //})
     fetch('/v1/entities/checkin_set_location', {method: 'POST',
          headers: {'X-Requested-With': 'XMLHttpRequest', 'X-CSRF-Token': Rails.csrfToken(), 'Content-Type': 'application/json', Accept': 'application/json'},
          body: data});
