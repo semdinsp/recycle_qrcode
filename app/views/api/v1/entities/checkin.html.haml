@@ -47,3 +47,14 @@
   = @at.inspect
 
 = render 'bins/bins', locals: {bin: @bin}
+
+%h4 Last five collections
+- clist=@bin.actiontypes.order('created_at DESC').limit(5)
+- clist.each do |collection|
+  %h5
+    = collection.created_at.in_time_zone('Asia/Tokyo')
+    |
+    = collection.location.latLng if !collection.location.nil?
+    |
+    = collection.created_at
+    UTC
