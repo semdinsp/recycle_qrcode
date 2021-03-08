@@ -29,6 +29,9 @@
         -#  (Coming soon)
 
 
+=render 'api/v1/entities/collections_table', locals: { clist: @pickups}
+
+
 .row
   = paginate @pickups, theme: 'twitter-bootstrap-4'
 

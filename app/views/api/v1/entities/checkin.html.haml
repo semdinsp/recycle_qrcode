@@ -53,17 +53,4 @@
 %h4 Last five collections
 - clist=@bin.actiontypes.order('created_at DESC').limit(5)
 
-%table(class="table table-hover table-condensed table-responsive" width="100%" cellspacing="0" id="winners_table")
-  %thead.thead-default
-    %tr
-      %th Time
-      %th Latitude/Longitude
-      %th Accuracy
-      %th Time UTC
-  %tbody
-    - clist.each do |collection|
-      %tr
-        %td= collection.created_at.in_time_zone('Asia/Tokyo')
-        %td= collection.location.latLng if !collection.location.nil?
-        %td= collection.location.accuracy if !collection.location.nil?
-        %td= collection.created_at
+=render 'api/v1/entities/collections_table', locals: { clist: clist}
