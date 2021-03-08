@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_03_045619) do
+ActiveRecord::Schema.define(version: 2021_03_08_062726) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2021_03_03_045619) do
     t.uuid "actiontype_id"
     t.string "locatable_type"
     t.uuid "locatable_id"
+    t.string "accuracy", default: "not set"
     t.index ["entity_id"], name: "index_locations_on_entity_id"
     t.index ["locatable_type", "locatable_id"], name: "index_locations_on_locatable"
   end

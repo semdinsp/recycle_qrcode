@@ -40,11 +40,13 @@
 
 
 %h3
-  Checkin
+  Checkin for [
   = @bin.name
+  ]
 %h4
   Collection tracker is:
-  = @at.inspect
+  -#= @at.inspect
+  =@at.created_at.in_time_zone('Asia/Tokyo') if !@at.nil?
 
 = render 'bins/bins', locals: {bin: @bin}
 

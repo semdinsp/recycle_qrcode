@@ -33,7 +33,7 @@ class EntitiesControllerTest < ActionDispatch::IntegrationTest
   jwt="test"
   #get v1_entities_checkin_url, params: {activity_id: @activity.id  },headers: {Authorization: "Bearer #{jwt}"} , as: :json
     assert_difference('Location.count',1) do
-       post v1_entities_checkin_set_location_url, params: {format: :json, actiontype: @at.id, latitude: -8, longitude: 125  },headers: {Authorization: "Bearer #{jwt}"} , as: :json
+       post v1_entities_checkin_set_location_url, params: {format: :json, actiontype: @at.id, latitude: -8, longitude: 125 , accuracy: '20' },headers: {Authorization: "Bearer #{jwt}"} , as: :json
        assert_response :success
     end
     assert @at.location.latitude==-8, "set latitude tolocation"

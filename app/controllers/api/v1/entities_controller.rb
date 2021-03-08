@@ -37,6 +37,7 @@ module Api
           loc=Location.new
           loc.latitude=params['latitude']
           loc.longitude=params['longitude']
+          loc.accuracy=params['accuracy']
           at.location=loc
           loc.save
           at.save
