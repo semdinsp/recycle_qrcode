@@ -1,0 +1,13 @@
+%p
+  - if locals[:route]
+    =link_to 'Route Map', routemaps_bins_url, 'data-turbolinks': "false"
+    |
+  - if locals[:collection]
+    =link_to 'Collections List', routes_collections_url
+    |
+  - if locals[:bin]
+    =link_to 'Bins Map', googlemaps_bins_url, 'data-turbolinks': "false"
+    |
+  - if locals[:showroutes]
+    =link_to 'Manage Routes', routes_index_url
+    |

@@ -33,8 +33,4 @@
   = paginate @pickups, theme: 'twitter-bootstrap-4'
 
 .row
-  %p
-    ++
-    =link_to 'Routes', routemaps_bins_url, 'data-turbolinks': "false"
-    |
-    =link_to 'Map', googlemaps_bins_url, 'data-turbolinks': "false"
+  = render 'bins/links', locals: { route: true, collection: false, bin: true, showroutes: false}
