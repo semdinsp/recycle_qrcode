@@ -1,17 +1,24 @@
 %table(class="table table-hover table-condensed table-responsive" width="100%" cellspacing="0" id="winners_table")
   %thead.thead-default
     %tr
+      %th Entity
+      %th Suco
       %th Time
       %th Latitude/Longitude
       %th Accuracy
       %th Bin Distance (km)
       %th Time UTC
+      %th
   %tbody
     - locals[:clist].each do |collection|
       %tr
-        %td= collection.created_at.in_time_zone('Asia/Tokyo')
-        %td= collection.location.latLng if !collection.location.nil?
+        %td= collection.entity.name
+        %td= collection.entity.suco
+        %td
+          = time_ago_in_words collection.created_at
+          ago
+        %td= collection.location.latLngShort if !collection.location.nil?
         %td= collection.location.accuracy if !collection.location.nil?
         %td= number_with_precision(collection.location.haversine_distance(collection.entity.location), :precision => 2)  if !collection.location.nil?
-
         %td= collection.created_at
+        %td= link_to 'Report', bin_report_url(collection.entity)

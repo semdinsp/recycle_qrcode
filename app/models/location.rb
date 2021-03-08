@@ -7,6 +7,11 @@ def latLng
   return "#{self.latitude} : #{self.longitude}"
 end
 
+def latLngShort
+  return "not set" if self.longitude.nil? or self.latitude.nil?
+  return "#{self.latitude.round(2)} : #{self.longitude.round(2)}"
+end
+
 def haversine_distance(alocation, miles=false)
   # Get latitude and longitude
   res=100000.0
