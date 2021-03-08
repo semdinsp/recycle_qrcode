@@ -13,11 +13,10 @@ module Api
      # @param id= entity
 
       def checkin
-        @location=Location.first
         log_message({entity: @entity.inspect, params: params})
         @bin=@entity
         Entity.setIconColorMgr('normal')  #evenutally checkin color mgmt
-        ctx=EntityCheckinAction.execute(entity: @entity, location: @location)
+        ctx=EntityCheckinAction.execute(entity: @entity)
         @at=ctx.actiontype  # at will be nil if not first during day
         puts "action type is #{@at}"
         respond_to do |format|

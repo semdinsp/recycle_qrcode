@@ -1,19 +1,19 @@
 class EntityCheckinAction
   extend LightService::Action
  # expects :user
-  expects :entity, :location
+  expects :entity
 
   promises :actiontype
 
   # this is primary metric
   executed do |context|
     a=Actiontype.new
-    a.user="fred"
+    a.user="tbd"
     puts "context is #{context.inspect}"
+    oldat=context.entity.most_recent_actiontype
     a.entity=context.entity
   #  a.location=context.location
     a.atype=:collection
-    oldat=context.entity.most_recent_actiontype
     a.save if oldat.nil? or !oldat.today?
     a=oldat if !oldat.nil? and oldat.today?
     context.actiontype=a
