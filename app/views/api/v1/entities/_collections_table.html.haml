@@ -6,7 +6,7 @@
       %th Time
       %th Latitude/Longitude
       %th Accuracy
-      %th Bin Distance (km)
+      %th To Bin (km)
       %th Time UTC
       %th
   %tbody
@@ -18,7 +18,7 @@
           = time_ago_in_words collection.created_at
           ago
         %td= collection.location.latLngShort if !collection.location.nil?
-        %td= collection.location.accuracy if !collection.location.nil?
+        %td= number_with_precision(collection.location.accuracy, :precision => 2)  if !collection.location.nil?
         %td= number_with_precision(collection.location.haversine_distance(collection.entity.location), :precision => 2)  if !collection.location.nil?
-        %td= collection.created_at
+        %td= collection.created_at.strftime('%d %b %Y %H:%M:%S')
         %td= link_to 'Report', bin_report_url(collection.entity)
