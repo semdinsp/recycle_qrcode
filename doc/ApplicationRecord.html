@@ -103,9 +103,8 @@
 
 <div id="subclasses">
   <h2>Direct Known Subclasses</h2>
-  <p class="children"><span class='object_link'><a href="Actiontype.html" title="Actiontype (class)">Actiontype</a></span>, <span class='object_link'><a href="Entity.html" title="Entity (class)">Entity</a></span>, <span class='object_link'><a href="KvPair.html" title="KvPair (class)">KvPair</a></span>, <span class='object_link'><a href="Location.html" title="Location (class)">Location</a></span>, <span class='object_link'><a href="Route.html" title="Route (class)">Route</a></span>, <span class='object_link'><a href="RouteMember.html" title="RouteMember (class)">RouteMember</a></span>, <span class='object_link'><a href="Truck.html" title="Truck (class)">Truck</a></span></p>
+  <p class="children"><span class='object_link'><a href="Actiontype.html" title="Actiontype (class)">Actiontype</a></span>, <span class='object_link'><a href="Entity.html" title="Entity (class)">Entity</a></span>, <span class='object_link'><a href="KvPair.html" title="KvPair (class)">KvPair</a></span>, <span class='object_link'><a href="Location.html" title="Location (class)">Location</a></span>, <span class='object_link'><a href="Route.html" title="Route (class)">Route</a></span>, <span class='object_link'><a href="RouteMember.html" title="RouteMember (class)">RouteMember</a></span>, <span class='object_link'><a href="Setting.html" title="Setting (class)">Setting</a></span>, <span class='object_link'><a href="Truck.html" title="Truck (class)">Truck</a></span></p>
 </div>
-
 
 
 
@@ -114,11 +113,100 @@
 
 
   
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#log_message-instance_method" title="#log_message (instance method)">#<strong>log_message</strong>(msgs, logtype = :debug)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>msgs should be hash  logtype :info :warn etc.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="log_message-instance_method">
+  
+    #<strong>log_message</strong>(msgs, logtype = :debug)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>msgs should be hash  logtype :info :warn etc</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5
+6
+7
+8
+9
+10</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/application_record.rb', line 5</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_log_message'>log_message</span><span class='lparen'>(</span><span class='id identifier rubyid_msgs'>msgs</span><span class='comma'>,</span><span class='id identifier rubyid_logtype'>logtype</span><span class='op'>=</span><span class='symbol'>:debug</span><span class='rparen'>)</span>  <span class='comment'>#msgs should be hash  logtype :info :warn etc
+</span>  <span class='id identifier rubyid_logm'>logm</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='label'>time:</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='comma'>,</span> <span class='label'>model:</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_msgs'>msgs</span><span class='rparen'>)</span>
+  <span class='const'>Rails</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_logtype'>logtype</span><span class='comma'>,</span><span class='id identifier rubyid_logm'>logm</span><span class='rparen'>)</span>   <span class='comment'># was puts
+</span>  <span class='gvar'>$stdout</span><span class='period'>.</span><span class='id identifier rubyid_flush'>flush</span> <span class='kw'>if</span> <span class='const'>Rails</span><span class='period'>.</span><span class='id identifier rubyid_env'>env</span><span class='period'>.</span><span class='id identifier rubyid_development?'>development?</span>
+  <span class='id identifier rubyid_logm'>logm</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
 
 </div>
 
       <div id="footer">
-  Generated on Fri Feb 26 00:52:51 2021 by
+  Generated on Wed Mar 10 17:56:47 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.0).
 </div>

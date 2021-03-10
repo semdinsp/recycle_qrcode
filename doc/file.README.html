@@ -72,9 +72,17 @@ yardoc –no-private –protected app/<em>*/</em>.rb - README LEGAL COPYING NOTE
   <li>add additional indices  (particularly for kv pairs on entity id and same for entity id in locations)</li>
   <li>additional reporting (currently a private google data studio web page links to the data)</li>
   <li>security/authentication (jwt</li>
-  <li>route editing and displays (for truck routes)</li>
+  <li>route editing and displays (for truck routes) -SEMI DONE</li>
   <li>add locatable polymorphic class for locations so that both entity and actiontype have the same type of location</li>
-  <li>add route item and link route item and entity.</li>
+  <li>add route item and link route item and entity. -SEMI DONE</li>
+  <li>add links to return from route pages  (where should they go)</li>
+  <li>add index on route member entity.</li>
+</ul>
+
+<h2 id="installation">Installation</h2>
+<ul>
+  <li>needs postgres database  see database.yml</li>
+  <li>remember to run rails db:seed to create startup Settings  (in theory this can be run a few times as it will skip created data)</li>
 </ul>
 
 <h2 id="documentation">Documentation</h2>
@@ -84,10 +92,12 @@ yardoc –no-private –protected app/<em>*/</em>.rb - README LEGAL COPYING NOTE
 <p>It is currently configured to support heroku using the falcon web server.  It is also configured to support puma (commented out).  Start up for either webserver is as simple (see the Procfile).  On first startup locally you probably need to run rake db:migrate and fiddle with rails credentials.
   * bundle exec falcon host
   * bundle exec puma config.ru  -C ./config/puma.rb</p>
+
+<p>Basic url should bring up google map.  Admin page is located on collection page or via url/admin/entities</p>
 </div></div>
 
       <div id="footer">
-  Generated on Fri Feb 26 00:52:50 2021 by
+  Generated on Wed Mar 10 17:56:46 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.0).
 </div>

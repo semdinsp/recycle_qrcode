@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Class: RouteDashboard
+  Class: SettingDashboard
   
     &mdash; Documentation by YARD 0.9.26
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "RouteDashboard";
+  pathId = "SettingDashboard";
   relpath = '';
 </script>
 
@@ -36,10 +36,10 @@
       <div id="header">
         <div id="menu">
   
-    <a href="_index.html">Index (R)</a> &raquo;
+    <a href="_index.html">Index (S)</a> &raquo;
     
     
-    <span class="title">RouteDashboard</span>
+    <span class="title">SettingDashboard</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Class: RouteDashboard
+      <div id="content"><h1>Class: SettingDashboard
   
   
   
@@ -76,7 +76,7 @@
           
             <li class="next">Administrate::BaseDashboard</li>
           
-            <li class="next">RouteDashboard</li>
+            <li class="next">SettingDashboard</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -96,7 +96,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>app/dashboards/route_dashboard.rb</dd>
+    <dd>app/dashboards/setting_dashboard.rb</dd>
   </dl>
   
 </div>
@@ -127,13 +127,12 @@
 </div>
         </dt>
         <dd><pre class="code"><span class='lbrace'>{</span>
-  <span class='label'>truck:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>BelongsTo</span><span class='comma'>,</span>
-  <span class='label'>route_members:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>HasMany</span><span class='comma'>,</span>
   <span class='label'>id:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>String</span><span class='period'>.</span><span class='id identifier rubyid_with_options'>with_options</span><span class='lparen'>(</span><span class='label'>searchable:</span> <span class='kw'>false</span><span class='rparen'>)</span><span class='comma'>,</span>
-  <span class='label'>name:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>String</span><span class='comma'>,</span>
-  <span class='label'>schedule:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>String</span><span class='comma'>,</span>
-  <span class='label'>info:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>String</span><span class='comma'>,</span>
-  <span class='label'>dayofweek:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>String</span><span class='comma'>,</span>
+  <span class='label'>host:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>String</span><span class='comma'>,</span>
+  <span class='label'>port:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>String</span><span class='comma'>,</span>
+  <span class='label'>centerlat:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>Number</span><span class='period'>.</span><span class='id identifier rubyid_with_options'>with_options</span><span class='lparen'>(</span><span class='label'>decimals:</span> <span class='int'>2</span><span class='rparen'>)</span><span class='comma'>,</span>
+  <span class='label'>centerlong:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>Number</span><span class='period'>.</span><span class='id identifier rubyid_with_options'>with_options</span><span class='lparen'>(</span><span class='label'>decimals:</span> <span class='int'>2</span><span class='rparen'>)</span><span class='comma'>,</span>
+  <span class='label'>zoom:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>Number</span><span class='period'>.</span><span class='id identifier rubyid_with_options'>with_options</span><span class='lparen'>(</span><span class='label'>decimals:</span> <span class='int'>2</span><span class='rparen'>)</span><span class='comma'>,</span>
   <span class='label'>created_at:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>DateTime</span><span class='comma'>,</span>
   <span class='label'>updated_at:</span> <span class='const'>Field</span><span class='op'>::</span><span class='const'>DateTime</span><span class='comma'>,</span>
 <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
@@ -155,10 +154,10 @@
 </div>
         </dt>
         <dd><pre class="code"><span class='qsymbols_beg'>%i[</span><span class='words_sep'>
-</span><span class='tstring_content'>truck</span><span class='words_sep'>
-</span><span class='tstring_content'>route_members</span><span class='words_sep'>
 </span><span class='tstring_content'>id</span><span class='words_sep'>
-</span><span class='tstring_content'>name</span><span class='words_sep'>
+</span><span class='tstring_content'>host</span><span class='words_sep'>
+</span><span class='tstring_content'>port</span><span class='words_sep'>
+</span><span class='tstring_content'>centerlat</span><span class='words_sep'>
 </span><span class='tstring_end'>]</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
         <dt id="SHOW_PAGE_ATTRIBUTES-constant" class="">SHOW_PAGE_ATTRIBUTES =
@@ -176,13 +175,12 @@
 </div>
         </dt>
         <dd><pre class="code"><span class='qsymbols_beg'>%i[</span><span class='words_sep'>
-</span><span class='tstring_content'>truck</span><span class='words_sep'>
-</span><span class='tstring_content'>route_members</span><span class='words_sep'>
 </span><span class='tstring_content'>id</span><span class='words_sep'>
-</span><span class='tstring_content'>name</span><span class='words_sep'>
-</span><span class='tstring_content'>schedule</span><span class='words_sep'>
-</span><span class='tstring_content'>info</span><span class='words_sep'>
-</span><span class='tstring_content'>dayofweek</span><span class='words_sep'>
+</span><span class='tstring_content'>host</span><span class='words_sep'>
+</span><span class='tstring_content'>port</span><span class='words_sep'>
+</span><span class='tstring_content'>centerlat</span><span class='words_sep'>
+</span><span class='tstring_content'>centerlong</span><span class='words_sep'>
+</span><span class='tstring_content'>zoom</span><span class='words_sep'>
 </span><span class='tstring_content'>created_at</span><span class='words_sep'>
 </span><span class='tstring_content'>updated_at</span><span class='words_sep'>
 </span><span class='tstring_end'>]</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
@@ -202,12 +200,11 @@
 </div>
         </dt>
         <dd><pre class="code"><span class='qsymbols_beg'>%i[</span><span class='words_sep'>
-</span><span class='tstring_content'>truck</span><span class='words_sep'>
-</span><span class='tstring_content'>route_members</span><span class='words_sep'>
-</span><span class='tstring_content'>name</span><span class='words_sep'>
-</span><span class='tstring_content'>info</span><span class='words_sep'>
-</span><span class='tstring_content'>dayofweek</span><span class='words_sep'>
-</span><span class='tstring_content'>schedule</span><span class='words_sep'>
+</span><span class='tstring_content'>host</span><span class='words_sep'>
+</span><span class='tstring_content'>port</span><span class='words_sep'>
+</span><span class='tstring_content'>centerlat</span><span class='words_sep'>
+</span><span class='tstring_content'>centerlong</span><span class='words_sep'>
+</span><span class='tstring_content'>zoom</span><span class='words_sep'>
 </span><span class='tstring_end'>]</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
         <dt id="COLLECTION_FILTERS-constant" class="">COLLECTION_FILTERS =
@@ -242,90 +239,8 @@
 
 
 
-  
-    <h2>
-      Instance Method Summary
-      <small><a href="#" class="summary_toggle">collapse</a></small>
-    </h2>
-
-    <ul class="summary">
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#display_resource-instance_method" title="#display_resource (instance method)">#<strong>display_resource</strong>(route)  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Overwrite this method to customize how routes are displayed across all pages of the admin dashboard.</p>
-</div></span>
-  
-</li>
-
-      
-    </ul>
-  
-
-
-  
-
-  <div id="instance_method_details" class="method_details_list">
-    <h2>Instance Method Details</h2>
-
-    
-      <div class="method_details first">
-  <h3 class="signature first" id="display_resource-instance_method">
-  
-    #<strong>display_resource</strong>(route)  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Overwrite this method to customize how routes are displayed across all pages of the admin dashboard.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-75
-76
-77</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'app/dashboards/route_dashboard.rb', line 75</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_display_resource'>display_resource</span><span class='lparen'>(</span><span class='id identifier rubyid_route'>route</span><span class='rparen'>)</span>
-   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_route'>route</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'> #</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_route'>route</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-  </div>
 
 </div>
 

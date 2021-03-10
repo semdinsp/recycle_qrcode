@@ -18,6 +18,11 @@ yardoc --no-private --protected app/**/*.rb - README LEGAL COPYING NOTES.md
   * add links to return from route pages  (where should they go)
   * add index on route member entity.
 
+## Installation
+  * needs postgres database  see database.yml
+  * run all the migrations
+  * remember to run rails db:seed to create startup Settings  (in theory this can be run a few times as it will skip created data)
+
 
 ## Documentation
 Please see the [documentation](https://docs.verde-tl.com).  The documentation is hosted on netlify and generated via Yard.
