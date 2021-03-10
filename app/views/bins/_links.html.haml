@@ -11,3 +11,5 @@
   - if locals[:showroutes]
     =link_to 'Manage Routes', routes_index_url
     |
+  - if locals[:admin]
+    =link_to 'Admin', admin_entities_url

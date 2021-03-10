@@ -1,6 +1,6 @@
 class BinsController < ApplicationController
 
-  before_action :set_bin, only: [:report]
+  before_action :set_bin, only: [:report, :collectmap]
 
 
 def index
@@ -14,6 +14,10 @@ def index
 end
 
 def report
+
+end
+
+def collectmap
 
 end
 

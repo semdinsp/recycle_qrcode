@@ -1,7 +1,10 @@
 - content_for :head do
   :javascript
     function binURL() { return "/bins.json?icon=route"; };
-    console.log("setting binURL to: ", binURL)
+    function mapCenter() { return {
+      lat: #{SETTINGS.centerlat},
+      lng: #{SETTINGS.centerlong}   } };
+    // console.log("setting binURL to: ", binURL, "map center", mapCenter())
 
 
 %h1 Map of Routes

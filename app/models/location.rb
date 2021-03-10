@@ -1,3 +1,8 @@
+# This is a polymorphic class so that both entities and actiontypes are locatable
+# it supports latitude longitude and Accuracy
+# generally it is updated during the checkin_location_set command and created for most objects
+# @author Scott Sproule
+
 class Location < ApplicationRecord
   #belongs_to :entity  SCOTT CHECK
   belongs_to :locatable, polymorphic: true
@@ -11,6 +16,11 @@ def latLngShort
   return "not set" if self.longitude.nil? or self.latitude.nil?
   return "#{self.latitude.round(2)} : #{self.longitude.round(2)}"
 end
+
+# calculate distance between two GPS lat/long points
+# using formual derived from movabletype website
+# @param alocation  - another loation
+# @param miles - result in miles or km (default)
 
 def haversine_distance(alocation, miles=false)
   # Get latitude and longitude

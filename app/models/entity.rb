@@ -18,6 +18,8 @@ class Entity < ApplicationRecord
      @@iconcolormgr=col
      self
    end
+
+
    def self.iconColorMgr()
      @@iconcolormgr
    end
@@ -72,7 +74,9 @@ class Entity < ApplicationRecord
 
     def svg_checkin_qrcode
         url = "v1/entities/checkin";
-        host = "https://recycle-qrcode.herokuapp.com/";  # change to support hostname in Settings
+        #host = "https://recycle-qrcode.herokuapp.com/";  # change to support hostname in Settings
+        host = "#{Setting.first.host}#{Setting.first.port}/";  # change to support hostname in Settings
+
         finalurl = "#{host}#{url}?id=#{self.id}"
         qrcode = RQRCode::QRCode.new(finalurl)
         svg = qrcode.as_svg(

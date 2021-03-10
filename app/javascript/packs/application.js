@@ -39,7 +39,7 @@ function initMap()  {
     lng: 125.5603    };
   map = new google.maps.Map($('#map')[0], {
     zoom: 12,
-    center: center
+    center: mapCenter()
   });
   infowindow = new google.maps.InfoWindow;
   console.log('initMap() binURL: ',binURL());

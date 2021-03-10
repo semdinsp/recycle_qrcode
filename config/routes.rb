@@ -30,6 +30,7 @@ Rails.application.routes.draw do
       ).each do |name|
         resources name, only: %i(index show new create edit update)
       end
+      resources :settings, only: %i(index show edit update)
       root to: "entities#index"
     end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -37,7 +38,7 @@ Rails.application.routes.draw do
      # resources :operation_hours, :index
 
      get 'report' => "bins#report#:id(.:format)"
-
+     get 'collectmap' => "bins#collectmap#:id(.:format)"
      collection do
       get :googlemaps, :routemaps
       #get 'report/:id' => "bins#report#:id(.:format)"
@@ -45,6 +46,6 @@ Rails.application.routes.draw do
  end
 
   # FIX LATER
-      root to: "admin/entities#index"
+      root to: "bins#googlemaps"
 
 end
