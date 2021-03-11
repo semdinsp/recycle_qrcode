@@ -1,5 +1,5 @@
 # QRCode Tracking of Recycle Collection (semdinsp/recycle_qrcode)
-[Github](https://github.com/semdinsp/recycle_qrcode)
+[Github](https://github.com/semdinsp/recycle_qrcode) [Demo](https://qrcode-staging.herokuapp.com)
 
 ## Simple database driven system to monitor collections/activity at various locations and display status on a google map.
 In our particular case we use it for collecting recycled plastic from our collection bins.  The driver at the collection vehicle scans the qr code for the site to track a collection and the database is updated with the collection time stamp.    We support reports and a live google map to track collection status.  Each entity (collection point) can associate data with it via key value pairs.  YOu can drag and drop the collection routes
@@ -30,7 +30,7 @@ yardoc --no-private --protected app/**/*.rb - README LEGAL COPYING NOTES.md
   * remember to run rails db:seed to create startup Settings  (in theory this can be run a few times as it will skip created data)
 
 ## Demo
-Please visit the staging server as a  [Demo](https://qrcode-staging.herokuapp,com).  It is running a free tier on heroku (and is the staging server so it should be upto date) so it takes about 30 seconds to spin up but should be responsive after you start it.  The staging server has the map centered on Dili Timor Leste but also has a few test points in Singapore.  So you need to adjust the scroll to see the sites.
+Please visit the staging server as a  [Demo](https://qrcode-staging.herokuapp.com).  It is running a free tier on heroku (and is the staging server so it should be upto date) so it takes about 30 seconds to spin up but should be responsive after you start it.  The staging server has the map centered on Dili Timor Leste but also has a few test points in Singapore.  So you need to adjust the scroll to see the sites.
 
 
 ## Documentation
