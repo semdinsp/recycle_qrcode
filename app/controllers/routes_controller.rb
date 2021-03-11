@@ -1,5 +1,5 @@
 class RoutesController < ApplicationController
-  before_action :set_route, only: [:show, :move]
+  before_action :set_route, only: [:show, :move, :tile]
 
   def index
     @myroutes=Route.all
@@ -13,10 +13,12 @@ class RoutesController < ApplicationController
   #
   # @param= drag  adjust if drag and draop is enabled
   def show
-   @dragController="drag"
-   @dragController="nodrag" if params['drag']=='nodrag'
-   @route_members=@myroute.route_members
-   Entity.setIconColorMgr('normal')
+   setup_variables(params)
+
+  end
+
+  def tile
+    setup_variables(params)
   end
 
   def collections
@@ -57,7 +59,17 @@ end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_route
+      #puts "set route #{params}"
       @myroute = Route.find(params[:id])
+      puts "set route #{@myroute.inspect}"
+    end
+
+    def setup_variables(params)
+      @dragController="drag"
+      @dragController="nodrag" if params['drag']=='nodrag'
+      @route_members=@myroute.route_members
+      Entity.setIconColorMgr('normal')
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

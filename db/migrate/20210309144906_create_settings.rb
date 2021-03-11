@@ -9,12 +9,6 @@ class CreateSettings < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
-     setting=Setting.new
-     setting.host="https://recycle-qrcode.herokuapp.com"
-     setting.port=""
-     setting.centerlat= -8.5569
-     setting.centerlong= 125.5603
-     setting.zoom=12
-     setting.save
+
   end
 end

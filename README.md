@@ -15,11 +15,12 @@ yardoc --no-private --protected app/**/*.rb - README LEGAL COPYING NOTES.md
   * fix icon color display code to make it more scalable
   * add links to return from route pages  (where should they go)
   * add index on route member entity.
-  * map of collections for a bin
+  * add update bar code to update location of bin
   * track routes
   * add additional indices  (particularly for kv pairs on entity id and same for entity id in locations) -DONE
   * route editing and displays (for truck routes) -SEMI DONE
   * add locatable polymorphic class for locations so that both entity and actiontype have the same type of location -DONE
+  * map of collections for a bin  --DONE
   * add route item and link route item and entity. -SEMI DONE
   * setting object  (for various configurations and a center for google map)- DONE
 

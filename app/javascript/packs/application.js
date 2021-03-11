@@ -16,10 +16,6 @@ import "@fortawesome/fontawesome-free/css/solid.min";
 
 //old import { dom, library, download } from '@fortawesome/fontawesome-free'
 
-
-
-// after library.add
-
 //library.add(download )
 // dom.i2svg()
 
@@ -34,9 +30,9 @@ import "controllers"
 function initMap()  {
   //console.log("in initmap");
   var center, infowindow, map;
-  center = {
-    lat: -8.5569,
-    lng: 125.5603    };
+  //center = {
+  //  lat: -8.5569,
+  //  lng: 125.5603    };
   map = new google.maps.Map($('#map')[0], {
     zoom: 12,
     center: mapCenter()

@@ -17,6 +17,8 @@
     = Route.first.route_members.size
     = link_to "/routes/show/#{Route.first.id}.csv"  do
       %i.fas.fa-download
+    = link_to "/routes/tile/#{Route.first.id}"  do
+      %i.fas.fa-th
 
   %dt.attribute-label Yellow Icon
   %dd.attribute-data

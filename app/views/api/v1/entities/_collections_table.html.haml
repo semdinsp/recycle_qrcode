@@ -19,9 +19,10 @@
           ago
         - if !collection.location.nil?
           %td= link_to collection.location.latLngShort, bin_collectmap_url(collection.entity)
+          %td= number_with_precision(collection.location.accuracy, :precision => 2)
         - else
-          Loc fail
-        %td= number_with_precision(collection.location.accuracy, :precision => 2)  if !collection.location.nil?
+          %td Loc fail
+          %td tbc
         %td= number_with_precision(collection.location.haversine_distance(collection.entity.location), :precision => 2)  if !collection.location.nil?
         %td= collection.created_at.strftime('%d %b %Y %H:%M:%S')
         %td= link_to 'Report', bin_report_url(collection.entity)

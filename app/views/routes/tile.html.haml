@@ -1,0 +1,27 @@
+%h2
+  TIle View Route:
+  = "[#{@myroute.name}] Member count: #{@myroute.route_members.size}"
+  = link_to "/routes/show/#{@myroute.id}.csv" do
+    %i.fas.fa-download
+%h5
+  = "Schedule: #{@myroute.schedule}"
+.row
+  - @route_members.order(position: :asc).each do |rm|
+    .col-3
+      .card.card-body.mb-3
+        %h4.card-title
+          = "#{rm.position} : #{rm.entity.name}"
+          - at=rm.entity.most_recent_actiontype
+          - if !at.nil? and at.today?
+            %span.badge.badge-success Collected Today!
+          - if !at.nil? and at.yesterday?
+            %span.badge.badge-warning Collected Yesterday!
+        %h6.card-subtitle
+          - suco=" "
+          - suco=rm.entity.suco if !rm.entity.nil? and !rm.entity.suco.nil?
+          = "#{rm.entity.contactName} #{rm.entity.telephone} [#{suco}]"
+    -# -if rm.position.modulo(4)==0
+    -#  .row
+
+.row
+  = render 'bins/links', locals: { route: true, collection: true, bin: true}
