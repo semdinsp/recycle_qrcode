@@ -223,7 +223,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>show shows the route in order and allows drag and drop sorting by default drag enabled but set parameter to nodrag eg url?drag=nodrag to disable dragController on phones it is best to view drag in portrait mode so there is a part of the screen you can scroll on.</p>
+</div></span>
   
 </li>
 
@@ -264,19 +266,19 @@
       <pre class="lines">
 
 
-15
-16
-17
-18
-19
-20
-21
 22
 23
-24</pre>
+24
+25
+26
+27
+28
+29
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/routes_controller.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/routes_controller.rb', line 22</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_collections'>collections</span>
   <span class='ivar'>@pickups</span><span class='op'>=</span><span class='const'><span class='object_link'><a href="Actiontype.html" title="Actiontype (class)">Actiontype</a></span></span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>created_at DESC</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_page'>page</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:page</span><span class='rbracket'>]</span><span class='rparen'>)</span>
@@ -338,19 +340,19 @@
       <pre class="lines">
 
 
-26
-27
-28
-29
-30
-31
-32
 33
 34
-35</pre>
+35
+36
+37
+38
+39
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/routes_controller.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/routes_controller.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mercycorpinvoice'>mercycorpinvoice</span>
   <span class='ivar'>@bins</span><span class='op'>=</span><span class='const'><span class='object_link'><a href="Entity.html" title="Entity (class)">Entity</a></span></span><span class='period'>.</span><span class='id identifier rubyid_all'>all</span>
@@ -382,21 +384,21 @@
       <pre class="lines">
 
 
-37
-38
-39
-40
-41
-42
-43
 44
 45
 46
 47
-48</pre>
+48
+49
+50
+51
+52
+53
+54
+55</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/routes_controller.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/routes_controller.rb', line 44</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_move'>move</span>
   <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Move parameters are </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_params'>params</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -424,21 +426,34 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>show shows the route in order and allows drag and drop sorting by default drag enabled but set parameter to nodrag eg url?drag=nodrag to disable dragController on phones it is best to view drag in portrait mode so there is a part of the screen you can scroll on</p>
+
+<p>@param= drag  adjust if drag and draop is enabled</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-8
-9
-10
-11
-12
-13</pre>
+15
+16
+17
+18
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/routes_controller.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/routes_controller.rb', line 15</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_show'>show</span>
  <span class='ivar'>@dragController</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>drag</span><span class='tstring_end'>&quot;</span></span>
@@ -456,7 +471,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Mar 10 17:56:47 2021 by
+  Generated on Thu Mar 11 10:50:26 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.0).
 </div>
