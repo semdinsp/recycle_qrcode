@@ -15,19 +15,20 @@
   %dd.attribute-data
     %td= link_to Route.first.name, "/routes/show/#{Route.first.id}?drag=nodrag"
     = Route.first.route_members.size
-    = link_to "/routes/show/#{Route.first.id}.csv"  do
-      %i.fas.fa-download
     = link_to "/routes/tile/#{Route.first.id}"  do
       %i.fas.fa-th
+    = link_to "/routes/show/#{Route.first.id}.csv"  do
+      %i.fas.fa-download
+
 
   %dt.attribute-label Yellow Icon
   %dd.attribute-data
     %td= link_to Route.last.name, "/routes/show/#{Route.last.id}?drag=nodrag"
     = Route.last.route_members.size
-    = link_to  "/routes/show/#{Route.last.id}.csv" do
-      %i.fas.fa-download
     = link_to "/routes/tile/#{Route.last.id}"  do
       %i.fas.fa-th
+    = link_to  "/routes/show/#{Route.last.id}.csv" do
+      %i.fas.fa-download
 
   %dt.attribute-label Red Icon
   %dd.attribute-data No route!!!
