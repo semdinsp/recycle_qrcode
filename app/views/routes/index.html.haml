@@ -9,6 +9,7 @@
       %th Members
       %th
       %th
+      %th
 
   %tbody
     - @myroutes.each do |myroute|
@@ -19,6 +20,9 @@
         %td= myroute.schedule
         %td= myroute.route_members.size
         %td= link_to 'Show', "/routes/show/#{myroute.id}"
+        %td
+          = link_to "/routes/tile/#{myroute.id}"  do
+            %i.fas.fa-th
         %td
           = link_to "/routes/show/#{myroute.id}.csv" do
             %i.fas.fa-download
