@@ -12,3 +12,5 @@
       - if !bin.notes.nil? then
         %p
           Notes: #{bin.notes}
+  - else
+    %p= "#{bin.created_at}"

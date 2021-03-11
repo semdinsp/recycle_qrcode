@@ -10,6 +10,5 @@ json.array! @bins do |store|
    else
      json.iconcolor store.iconcolor
      json.name store.name
-
    end
 end
