@@ -12,6 +12,14 @@ class Actiontype < ApplicationRecord
   def today?
     self.created_at > Time.now - 1.day
   end
+  # bit of a kludge here
+  # return something in future
+  def routeposition
+    ""
+  end
+  def name
+    self.atype
+  end
   def yesterday?
     return false if self.today?
     return true if self.created_at > Time.now - 2.day

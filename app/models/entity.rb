@@ -46,6 +46,7 @@ class Entity < ApplicationRecord
    def iconcolor   #NEED TO FIX ROUTE CODE COLORS
      mycolor="red"
      mycolor="green" if Entity.iconColorMgr=='normal' and !self.actiontypes.empty? and self.actiontypes.order('created_at DESC').limit(1).first.recent_activity
+     mycolor="green" if Entity.iconColorMgr=='collection'
      if Entity.iconColorMgr=='route'
        mycolor="blue" if self.routes.first==Route.first
        mycolor="yellow" if  self.routes.last==Route.last

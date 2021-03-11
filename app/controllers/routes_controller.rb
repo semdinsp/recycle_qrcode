@@ -5,6 +5,13 @@ class RoutesController < ApplicationController
     @myroutes=Route.all
   end
 
+
+  # show shows the route in order and allows drag and drop sorting
+  # by default drag enabled but set parameter to nodrag eg url?drag=nodrag to disable dragController
+  # on phones it is best to view drag in portrait mode so there is a part of the screen you can
+  # scroll on
+  #
+  # @param= drag  adjust if drag and draop is enabled
   def show
    @dragController="drag"
    @dragController="nodrag" if params['drag']=='nodrag'

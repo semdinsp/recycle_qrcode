@@ -1,11 +1,14 @@
 - content_for :head do
   :javascript
     console.log("collectmap html page ")
-    function binURL() { return "/bins.json?icon=route"; };
+    function binURL() { return "/bins/#{@mybin.id}/collectpoints.json"; };
     function mapCenter() { return {
       lat: #{@mybin.latitude},
       lng: #{@mybin.longitude}   } };
      console.log("setting binURL to: ", binURL, "map center", mapCenter())
 
-%h4 Collecton Map (tbd)
+%h4 Map Showing Recent Collections (tbd)
+%h5= @mybin.name
+%h6= @mybin.id
 #map{:style => "height: 400px; width: 400;"}
+= render 'links', locals: { route: true, collection: true, bin: true}

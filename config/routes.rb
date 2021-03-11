@@ -39,6 +39,8 @@ Rails.application.routes.draw do
 
      get 'report' => "bins#report#:id(.:format)"
      get 'collectmap' => "bins#collectmap#:id(.:format)"
+     get 'collectpoints' => "bins#collectpoints#:id(.:format)"
+
      collection do
       get :googlemaps, :routemaps
       #get 'report/:id' => "bins#report#:id(.:format)"

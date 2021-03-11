@@ -1,6 +1,6 @@
 class BinsController < ApplicationController
 
-  before_action :set_bin, only: [:report, :collectmap]
+  before_action :set_bin, only: [:report, :collectmap, :collectpoints]
 
 
 def index
@@ -15,6 +15,18 @@ end
 
 def report
 
+end
+
+def collectpoints
+  Entity.setIconColorMgr('collection')
+  @bins =[@mybin]
+  @mybin.actiontypes.order('created_at DESC').limit(10).each { |at| @bins << at }
+  puts "Hello in collect points #{@mybin.inspect}"
+  respond_to do |format|
+      format.html
+      format.json
+      format.csv
+    end
 end
 
 def collectmap

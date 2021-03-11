@@ -17,7 +17,10 @@
         %td
           = time_ago_in_words collection.created_at
           ago
-        %td= collection.location.latLngShort if !collection.location.nil?
+        - if !collection.location.nil?
+          %td= link_to collection.location.latLngShort, bin_collectmap_url(collection.entity)
+        - else
+          Loc fail
         %td= number_with_precision(collection.location.accuracy, :precision => 2)  if !collection.location.nil?
         %td= number_with_precision(collection.location.haversine_distance(collection.entity.location), :precision => 2)  if !collection.location.nil?
         %td= collection.created_at.strftime('%d %b %Y %H:%M:%S')
