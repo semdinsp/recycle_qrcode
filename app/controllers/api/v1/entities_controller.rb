@@ -40,7 +40,9 @@ module Api
       def update_entity_location
           # create new location and link to actiontype
           entity=Entity.find(params['entity'])
+
           if Float(params['latitude'], exception: false) and Float(params['longitude'], exception: false)
+             entity.location.destroy if !entity.location.nil?
              loc=Location.create_from_params(params, entity)
           else
             puts "latitude and long look incorrect #{params.inspect}"
