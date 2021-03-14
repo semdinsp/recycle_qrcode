@@ -1,7 +1,7 @@
 module Api
  module V1
     class EntitiesController < ApplicationController
-      before_action :set_entity, only: [:show, :checkin ]
+      before_action :set_entity, only: [:show, :checkin, :update_location ]
       # before_action :authorized
 
 
@@ -25,6 +25,31 @@ module Api
           end
       end
 
+      def update_location
+        log_message({entity: @entity.inspect, params: params})
+        @bin= @entity
+        Entity.setIconColorMgr('normal')  #evenutally checkin color mgmt
+        puts "entity is #{@entity}"
+        respond_to do |format|
+            format.html  { render 'update_location'}
+            format.json {   render json: @entity}
+          end
+      end
+
+
+      def update_entity_location
+          # create new location and link to actiontype
+          entity=Entity.find(params['entity'])
+          if Float(params['latitude'], exception: false) and Float(params['longitude'], exception: false)
+             loc=Location.create_from_params(params, entity)
+          else
+            puts "latitude and long look incorrect #{params.inspect}"
+          end
+          log_message({entity: entity, location: loc})
+          head :ok
+      end
+
+
       # checkin_location_set
       # define and set the location for a checkin or collection
       # eg when someone reads the bar code on the bin log where the bar code was read
@@ -34,7 +59,7 @@ module Api
           # create new location and link to actiontype
           at=Actiontype.find(params['actiontype'])
           loc=Location.create_from_params(params,at)
-      
+
           log_message({actiontype: at, location: loc})
           head :ok
       end

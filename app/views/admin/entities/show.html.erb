@@ -46,7 +46,9 @@ as well as a link to its edit page.
           ><%= render_field attribute, page: page %></dd>
     <% end %>
     <%= render 'invoice', locals: { page: page }%>
-    <%= render 'qrcode', locals: { page: page }%>
+    <%= render 'qrcode', locals: { page: page } %>
+    <%= render 'entity_update_location', locals: { page: page }%>
+
 
   </dl>
 </section>

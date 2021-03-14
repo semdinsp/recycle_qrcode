@@ -12,8 +12,8 @@
     var token = document.getElementsByName("csrf-token")[0].content;
     console.log(`Latitude : ${crd.latitude}`);
     console.log(`Longitude: ${crd.longitude}`);
-    var data2={'latitude': crd.latitude,'accuracy': crd.accuracy, 'longitude': crd.longitude, 'actiontype': "#{@at.id}", 'entity':"#{@at.id}"  };
-    fetch('/v1/entities/checkin_set_location', {method: 'POST',
+    var data2={'latitude': crd.latitude,'accuracy': crd.accuracy, 'longitude': crd.longitude, 'entity':"#{@entity.id}"  };
+    fetch('/v1/entities/update_entity_location', {method: 'POST',
          headers: {'X-Requested-With': 'XMLHttpRequest', 'X-CSRF-Token': token, 'Content-Type': 'application/json', 'Accept': 'application/json'},
          body: JSON.stringify(data2)  });
     };
@@ -42,13 +42,6 @@
   = @bin.name
   ]
 %h4
-  Collection tracker is:
-  -#= @at.inspect
-  =@at.created_at.in_time_zone('Asia/Tokyo') if !@at.nil?
-
-= render 'bins/bins', locals: {bin: @bin}
-
-%h4 Last five collections
-- clist=@bin.actiontypes.order('created_at DESC').limit(5)
-
-=render 'api/v1/entities/collections_table', locals: { clist: clist}
+  See the map for the updated location:
+  = @bin.inspect
+  = link_to "Map #{@bin.name}", bin_collectmap_url(@bin)

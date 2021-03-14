@@ -71,22 +71,35 @@ class Entity < ApplicationRecord
    def telephone
      self.kv_pairs.telephone.first.value if !self.kv_pairs.empty? and !self.kv_pairs.telephone.empty?  and !self.kv_pairs.telephone.nil?
    end
-
+     def svg_base_qrcode(actionurl)
+       host = "#{SETTINGS.host}#{SETTINGS.port}/";  # change to support hostname in Settings
+       finalurl = "#{host}#{actionurl}?id=#{self.id}"
+       qrcode = RQRCode::QRCode.new(finalurl)
+       puts finalurl
+       $stdout.flush
+       svg = qrcode.as_svg(
+         offset: 0,
+         color: '000',
+         shape_rendering: 'crispEdges',
+         module_size: 6,
+         standalone: true
+       )
+       svg
+     end
 
     def svg_checkin_qrcode
         url = "v1/entities/checkin";
         #host = "https://recycle-qrcode.herokuapp.com/";  # change to support hostname in Settings
-        host = "#{Setting.first.host}#{Setting.first.port}/";  # change to support hostname in Settings
+        #host = "#{Setting.first.host}#{Setting.first.port}/";  # change to support hostname in Settings
 
-        finalurl = "#{host}#{url}?id=#{self.id}"
-        qrcode = RQRCode::QRCode.new(finalurl)
-        svg = qrcode.as_svg(
-          offset: 0,
-          color: '000',
-          shape_rendering: 'crispEdges',
-          module_size: 6,
-          standalone: true
-        )
-        svg
+        svg_base_qrcode(url)
+    end
+
+    def svg_update_location_qrcode
+        url = "v1/entities/update_location";
+        #host = "https://recycle-qrcode.herokuapp.com/";  # change to support hostname in Settings
+        #host = "#{Setting.first.host}#{Setting.first.port}/";  # change to support hostname in Settings
+      
+        svg_base_qrcode(url)
     end
 end

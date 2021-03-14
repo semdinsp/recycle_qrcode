@@ -19,4 +19,8 @@ class EntityTest < ActiveSupport::TestCase
   test "qr code" do
     assert !@ent.svg_checkin_qrcode.nil?, "qr code should not be nil"
   end
+
+  test "qr update location code" do
+    assert !@ent.svg_update_location_qrcode.nil?, "qr code should not be nil"
+  end
 end
