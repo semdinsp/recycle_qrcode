@@ -18,6 +18,17 @@ def latLngShort
   return "#{self.latitude.round(2)} : #{self.longitude.round(2)}"
 end
 
+def self.create_from_params(params,parent)
+   loc=Location.new
+   loc.latitude=params['latitude']
+   loc.longitude=params['longitude']
+   loc.accuracy=params['accuracy']
+   parent.location=loc
+   res=loc.save!
+   raise "could not create location #{loc.inspect} #{loc.errors.inspect}" if !res
+   loc
+end
+
 # calculate distance between two GPS lat/long points
 # using formual derived from movabletype website
 # @param alocation  - another loation

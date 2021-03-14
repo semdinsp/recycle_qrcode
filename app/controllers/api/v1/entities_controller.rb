@@ -33,13 +33,8 @@ module Api
       def checkin_location_set
           # create new location and link to actiontype
           at=Actiontype.find(params['actiontype'])
-          loc=Location.new
-          loc.latitude=params['latitude']
-          loc.longitude=params['longitude']
-          loc.accuracy=params['accuracy']
-          at.location=loc
-          loc.save
-          at.save
+          loc=Location.create_from_params(params,at)
+      
           log_message({actiontype: at, location: loc})
           head :ok
       end
