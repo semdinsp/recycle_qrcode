@@ -1,6 +1,7 @@
 # This is a polymorphic class so that both entities and actiontypes are locatable
 # it supports latitude longitude and Accuracy
 # generally it is updated during the checkin_location_set command and created for most objects
+# function haversine_distance calculated distance from another location
 # @author Scott Sproule
 
 class Location < ApplicationRecord

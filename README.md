@@ -1,4 +1,4 @@
-# QRCode Tracking of Recycle Collection (semdinsp/recycle_qrcode)
+# QRCode Tracking of Recycle Collections (semdinsp/recycle_qrcode)
 [Github](https://github.com/semdinsp/recycle_qrcode) [Demo](https://qrcode-staging.herokuapp.com)
 
 ## Simple database driven system to monitor collections/activity at various locations and display status on a google map.
@@ -7,7 +7,7 @@ In our particular case we use it for collecting recycled plastic from our collec
 Feel free to drop me a note on how to migrate this system to track other items (eg security guard scans via QR code or package tracking or ...)
 
 # Yard Command
-yardoc --no-private --protected app/**/*.rb - README LEGAL COPYING NOTES.md
+yardoc --no-private --protected app/**/*.rb - README.md   NOTES.md
 
 # To do
   * additional reporting (currently a private google data studio web page links to the data)
@@ -28,10 +28,10 @@ yardoc --no-private --protected app/**/*.rb - README LEGAL COPYING NOTES.md
 ## Installation
   * needs postgres database  see database.yml
   * run all the migrations
-  * remember to run rails db:seed to create startup Settings  (in theory this can be run a few times as it will skip created data)
+  * remember to run rails db:seed to create startup Settings  (in particular the map center coordinates).  Please update url as necessary for your application
 
 ## Demo
-Please visit the staging server as a  [Demo](https://qrcode-staging.herokuapp.com).  It is running a free tier on heroku (and is the staging server so it should be upto date) so it takes about 30 seconds to spin up but should be responsive after you start it.  The staging server has the map centered on Dili Timor Leste but also has a few test points in Singapore.  So you need to adjust the scroll to see the sites.
+Please visit the staging server as a  [Demo](https://qrcode-staging.herokuapp.com).  It is running a free tier on heroku (and is the staging server so it should be upto date).  It takes about 30 seconds to spin up but should be responsive after you start it.  The staging server has the map centered on Dili Timor Leste but also has a few test points in Singapore.  So you need to adjust the scroll to see the sites.
 
 
 ## Documentation

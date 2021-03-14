@@ -13,9 +13,9 @@
           = "#{rm.position} : #{rm.entity.name}"
           - at=rm.entity.most_recent_actiontype
           - if !at.nil? and at.today?
-            %span.badge.badge-success Collected Today!
+            %span.badge.badge-success.text-small Collected Today!
           - if !at.nil? and at.yesterday?
-            %span.badge.badge-warning Collected Yesterday!
+            %span.badge.badge-warning.text-small Collected Yesterday!
         %p.small.card-subtitle
           - suco=" "
           - suco=rm.entity.suco if !rm.entity.nil? and !rm.entity.suco.nil?

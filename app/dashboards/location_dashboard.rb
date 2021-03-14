@@ -15,7 +15,6 @@ class LocationDashboard < Administrate::BaseDashboard
     entity_id: Field::String.with_options(searchable: false),
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    actiontype_id: Field::String.with_options(searchable: false),
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -24,8 +23,8 @@ class LocationDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-  locatable
   id
+  locatable
   latitude
   longitude
   ].freeze
@@ -40,7 +39,6 @@ class LocationDashboard < Administrate::BaseDashboard
   entity_id
   created_at
   updated_at
-  actiontype_id
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -51,7 +49,6 @@ class LocationDashboard < Administrate::BaseDashboard
   latitude
   longitude
   entity_id
-  actiontype_id
   ].freeze
 
   # COLLECTION_FILTERS
