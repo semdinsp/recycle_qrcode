@@ -20,6 +20,7 @@ def report
 end
 
 def collectpoints
+  set_common_var
   Entity.setIconColorMgr('collection')
   @bins =[@mybin]
   @mybin.actiontypes.order('created_at DESC').limit(10).each { |at| @bins << at }
