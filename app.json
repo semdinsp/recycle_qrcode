@@ -29,7 +29,7 @@
       "scripts": {
         "heroku-prebuild": "npm install --dev",
         "build": "webpack --mode production",
-        "test": " bundle exec rake "
+        "test": " bundle exec rails db:seed; bundle exec rake "
       }
     }
   }
