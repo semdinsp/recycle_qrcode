@@ -1,15 +1,23 @@
 %p
+  - if locals[:bin]
+    =link_to  googlemaps_bins_url, 'data-turbolinks': "false" do
+      Bins
+      %i.fas.fa-map
+    |
   - if locals[:route]
-    =link_to 'Route Map', routemaps_bins_url, 'data-turbolinks': "false"
+    =link_to  routemaps_bins_url, 'data-turbolinks': "false" do
+      Route
+      %i.fas.fa-map
     |
   - if locals[:collection]
-    =link_to 'Collections List', routes_collections_url
-    |
-  - if locals[:bin]
-    =link_to 'Bins Map', googlemaps_bins_url, 'data-turbolinks': "false"
+    =link_to routes_collections_url do
+      Collections
+      %i.fas.fa-list
     |
   - if locals[:showroutes]
     =link_to 'Manage Routes', routes_index_url
     |
   - if locals[:admin]
-    =link_to 'Admin', admin_entities_url
+    =link_to admin_entities_url do
+      Admin
+      %i.fas.fa-tools
