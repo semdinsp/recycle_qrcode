@@ -57,8 +57,8 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><div id='filecontents'><h1 id="qrcode-tracking-of-recycle-collection-semdinsprecycleqrcode">QRCode Tracking of Recycle Collection (semdinsp/recycle_qrcode)</h1>
-<p><a href="https://github.com/semdinsp/recycle_qrcode">Github</a></p>
+      <div id="content"><div id='filecontents'><h1 id="qrcode-tracking-of-recycle-collections-semdinsprecycleqrcode">QRCode Tracking of Recycle Collections (semdinsp/recycle_qrcode)</h1>
+<p><a href="https://github.com/semdinsp/recycle_qrcode">Github</a> <a href="https://qrcode-staging.herokuapp.com">Demo</a></p>
 
 <h2 id="simple-database-driven-system-to-monitor-collectionsactivity-at-various-locations-and-display-status-on-a-google-map">Simple database driven system to monitor collections/activity at various locations and display status on a google map.</h2>
 <p>In our particular case we use it for collecting recycled plastic from our collection bins.  The driver at the collection vehicle scans the qr code for the site to track a collection and the database is updated with the collection time stamp.    We support reports and a live google map to track collection status.  Each entity (collection point) can associate data with it via key value pairs.  YOu can drag and drop the collection routes</p>
@@ -66,20 +66,19 @@
 <p>Feel free to drop me a note on how to migrate this system to track other items (eg security guard scans via QR code or package tracking or …)</p>
 
 <h1 id="yard-command">Yard Command</h1>
-<p>yardoc –no-private –protected app/<em>*/</em>.rb - README LEGAL COPYING NOTES.md</p>
+<p>yardoc –no-private –protected app/<em>*/</em>.rb - README.md   NOTES.md</p>
 
 <h1 id="to-do">To do</h1>
 <ul>
   <li>additional reporting (currently a private google data studio web page links to the data)</li>
   <li>security/authentication (jwt)</li>
   <li>fix icon color display code to make it more scalable</li>
-  <li>add links to return from route pages  (where should they go)</li>
-  <li>add index on route member entity.</li>
-  <li>map of collections for a bin</li>
   <li>track routes</li>
   <li>add additional indices  (particularly for kv pairs on entity id and same for entity id in locations) -DONE</li>
   <li>route editing and displays (for truck routes) -SEMI DONE</li>
   <li>add locatable polymorphic class for locations so that both entity and actiontype have the same type of location -DONE</li>
+  <li>add update bar code to update location of bin -DONE</li>
+  <li>map of collections for a bin  –DONE</li>
   <li>add route item and link route item and entity. -SEMI DONE</li>
   <li>setting object  (for various configurations and a center for google map)- DONE</li>
 </ul>
@@ -88,11 +87,11 @@
 <ul>
   <li>needs postgres database  see database.yml</li>
   <li>run all the migrations</li>
-  <li>remember to run rails db:seed to create startup Settings  (in theory this can be run a few times as it will skip created data)</li>
+  <li>remember to run rails db:seed to create startup Settings  (in particular the map center coordinates).  Please update url as necessary for your application</li>
 </ul>
 
 <h2 id="demo">Demo</h2>
-<p>Please visit the staging server as a  <a href="https://qrcode-staging.herokuapp,com">Demo</a>.  It is running a free tier on heroku (and is the staging server so it should be upto date) so it takes about 30 seconds to spin up but should be responsive after you start it.  The staging server has the map centered on Dili Timor Leste but also has a few test points in Singapore.  So you need to adjust the scroll to see the sites.</p>
+<p>Please visit the staging server as a  <a href="https://qrcode-staging.herokuapp.com">Demo</a>.  It is running a free tier on heroku (and is the staging server so it should be upto date).  It takes about 30 seconds to spin up but should be responsive after you start it.  The staging server has the map centered on Dili Timor Leste but also has a few test points in Singapore.  So you need to adjust the scroll to see the sites.</p>
 
 <h2 id="documentation">Documentation</h2>
 <p>Please see the <a href="https://docs.verde-tl.com">documentation</a>.  The documentation is hosted on netlify and generated via Yard.</p>
@@ -106,7 +105,7 @@
 </div></div>
 
       <div id="footer">
-  Generated on Thu Mar 11 10:50:26 2021 by
+  Generated on Mon Mar 15 10:17:57 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.0).
 </div>
