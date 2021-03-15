@@ -12,14 +12,15 @@ yardoc --no-private --protected app/**/*.rb - README.md   NOTES.md
 # To do
   * additional reporting (currently a private google data studio web page links to the data)
   * security/authentication (jwt)
-  * fix icon color display code to make it more scalable
+  * fix icon color display code to tidy it up.  Currently it is ugly.
   * track routes
+  * import csv file of locations
+  * add route item and link route item and entity. -SEMI DONE needs more thought on tracking routes and when a route was completed.
   * add additional indices  (particularly for kv pairs on entity id and same for entity id in locations) -DONE
   * route editing and displays (for truck routes) -SEMI DONE
   * add locatable polymorphic class for locations so that both entity and actiontype have the same type of location -DONE
   * add update bar code to update location of bin -DONE
   * map of collections for a bin  --DONE
-  * add route item and link route item and entity. -SEMI DONE
   * setting object  (for various configurations and a center for google map)- DONE
 
 
@@ -29,7 +30,9 @@ yardoc --no-private --protected app/**/*.rb - README.md   NOTES.md
   * remember to run rails db:seed to create startup Settings  (in particular the map center coordinates).  Please update url as necessary for your application
 
 ## Demo
-Please visit the staging server as a  [Demo](https://qrcode-staging.herokuapp.com).  It is running a free tier on heroku (and is the staging server so it should be upto date).  It takes about 30 seconds to spin up but should be responsive after you start it.  The staging server has the map centered on Dili Timor Leste but also has a few test points in Singapore.  So you need to adjust the scroll to see the sites.
+Please visit the staging server as a  [Demo](https://qrcode-staging.herokuapp.com).  It is running a free tier on heroku (and is the staging server so it should be upto date).  It takes about 30 seconds to spin up but should be responsive after you start it.  The staging server has the map centered on Dili Timor Leste but also has a few test points in Singapore.  So you need to adjust the scroll to see the sites. YOu can add a test point and scan the qr code to check it in.
+
+To add an entity you need to add the entity and then add a location linked to the new entity.  
 
 
 ## Documentation
