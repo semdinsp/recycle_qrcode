@@ -1,5 +1,21 @@
-%dt.attribute-label{:id => "entity.qrcode"} Update location QR Code
-%dd.attribute-data
-  %h2= locals[:page].resource.name
-  %h4= locals[:page].resource.id
-  = locals[:page].resource.svg_update_location_qrcode.html_safe
+- content_for :javascript do
+  :javascript
+    function toggleBarCodeDisplay() {
+    var x = document.getElementById("qrCodeUpdateLocation");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";  }
+    }
+
+
+
+= link_to "Toggle Update Location QR Visibility", "", :onclick => "toggleBarCodeDisplay(); return false"
+
+
+%div#qrCodeUpdateLocation(style="display:none;")
+  %dt.attribute-label{:id => "entity.qrcode"} Update location QR Code
+  %dd.attribute-data
+    %h2= locals[:page].resource.name
+    %h4= locals[:page].resource.id
+    = locals[:page].resource.svg_update_location_qrcode.html_safe

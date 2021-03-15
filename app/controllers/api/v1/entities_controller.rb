@@ -44,6 +44,7 @@ module Api
           if Float(params['latitude'], exception: false) and Float(params['longitude'], exception: false)
              entity.location.destroy if !entity.location.nil?
              loc=Location.create_from_params(params, entity)
+        
           else
             puts "latitude and long look incorrect #{params.inspect}"
           end
