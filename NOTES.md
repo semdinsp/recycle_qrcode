@@ -1,4 +1,4 @@
-# HOw to add information to google map
+# How to add points to google map and QR Code functionality
 
 ## Admin interface
 URL/admin/entities  See [demo admin](https://grcode-staging.herokuapp.com/admin/entities)
@@ -20,11 +20,11 @@ The system has an object type named key value pair. These key value pairs can st
 
 ## Basic information
 
-Basic information assigned to an entity (bin) is displayed on the googlemap.
+Basic information assigned to an entity (bin) (kv_pair info) is displayed on the googlemap icon.
 
-## Suco
+## Suco (District)
 
-When you set a suco key value then it is appended to the site name in Google maps.  So the site name will appear in a bubble in brackets when you click on the google marker.  [map](https://maps.verde-tl.com)
+When you set a suco key value then it is appended to the site name in Google maps.  So the site name will appear in a bubble in brackets when you click on the google marker.  [map](https://grcode-staging.herokuapp.com)
 
 ## GPS Distances
 
