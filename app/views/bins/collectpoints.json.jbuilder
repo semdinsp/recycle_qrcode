@@ -2,7 +2,7 @@ json.array! @bins do |store|
   if !store.location.nil? then
      json.lat store.location.latitude
      json.lng store.location.longitude
-     json.content BinsController.render(partial: 'bins/bins', locals: { bin: store }, format: :html).squish
+     json.content BinsController.render(partial: 'bins/bins', locals: { bin: store,  domain: @mydomain, proto: @proto }, format: :html).squish
    end
    if store.class==Actiontype
      json.iconcolor 'yellow'

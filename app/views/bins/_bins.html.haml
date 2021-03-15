@@ -1,6 +1,7 @@
 - bin = locals[:bin] if bin.nil?
 %h6
-  = "#{bin.routeposition} #{bin.name}"
+  = "#{bin.routeposition}" if bin.class==Entity
+  = " #{bin.name}"
 - if bin.class==Entity
   - if  !bin.suco.nil? or !bin.suco==""
     ="(#{bin.suco})"
