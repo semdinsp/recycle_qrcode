@@ -1,16 +1,18 @@
 - bin = locals[:bin] if bin.nil?
-%h5
+%h6
   = "#{bin.routeposition} #{bin.name}"
-  - if bin.class==Entity
-    - if  !bin.suco.nil? or !bin.suco==""
-      ="(#{bin.suco})"
+- if bin.class==Entity
+  - if  !bin.suco.nil? or !bin.suco==""
+    ="(#{bin.suco})"
+    %p
+      - if !bin.contactName.nil? then
+        Contact: #{bin.contactName}
+      - if !bin.telephone.nil? then
+        Phone: #{bin.telephone}
+    - if !bin.notes.nil? then
       %p
-        - if !bin.contactName.nil? then
-          Contact: #{bin.contactName}
-        - if !bin.telephone.nil? then
-          Phone: #{bin.telephone}
-      - if !bin.notes.nil? then
-        %p
-          Notes: #{bin.notes}
-  - else
-    %p= "#{bin.created_at}"
+        Notes: #{bin.notes}
+- else
+  %p= "#{bin.created_at}"
+%p.small
+  = link_to "Recent activity", bin_collectmap_url(bin) if bin.class==Entity
