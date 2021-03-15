@@ -36,7 +36,7 @@ To add an entity you need to add the entity and then add a location linked to th
 
 
 ## Documentation
-Please see the [documentation](https://docs.verde-tl.com).  The documentation is hosted on netlify and generated via Yard.
+Please see the [documentation](https://docs.verde-tl.com).  The documentation is hosted on netlify and generated via Yard.  Please see the [notes files](https://docs.verde-tl.com/file.notes) too. 
 
 ## Startup
 It is currently configured to support heroku using the falcon web server.  It is also configured to support puma (commented out).  Start up for either webserver is as simple (see the Procfile).  On first startup locally you probably need to run rake db:migrate and fiddle with rails credentials.
