@@ -25,4 +25,7 @@
           %td tbc
         %td= number_with_precision(collection.location.haversine_distance(collection.entity.location), :precision => 2)  if !collection.location.nil?
         %td= collection.created_at.strftime('%d %b %Y %H:%M:%S')
-        %td= link_to 'Report', bin_report_url(collection.entity)
+        %td
+          = link_to bin_report_url(collection.entity) do
+            Report
+            %i.fas.fa-chart-line
