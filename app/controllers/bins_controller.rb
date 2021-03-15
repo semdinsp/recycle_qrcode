@@ -5,6 +5,8 @@ class BinsController < ApplicationController
 
 def index
   #  @bins = Entity.includes(:kv_pairs).all
+  set_common_var
+
     @bins = Entity.setIconColorMgr(params['icon']).all
     respond_to do |format|
         format.html
@@ -36,6 +38,7 @@ end
 
 def googlemaps
 #  @bins = Entity.all
+
 end
 
 def routemaps
@@ -53,5 +56,10 @@ private
     params.require(:entity).permit(:name, :etype, :status)
   end
 
+def set_common_var
+  @mydomain=SETTINGS.host.gsub('//',' ').split[1]
+  @proto = 'https'
+  @proto = 'http' if Rails.env.development?
+end
 
 end
