@@ -34,7 +34,7 @@ function initMap()  {
   //  lat: -8.5569,
   //  lng: 125.5603    };
   map = new google.maps.Map($('#map')[0], {
-    zoom: 12,
+    zoom: zoomFunc(),   // was 12
     center: mapCenter()
   });
   infowindow = new google.maps.InfoWindow;

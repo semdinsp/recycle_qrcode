@@ -2,6 +2,7 @@
   :javascript
     console.log("collectmap html page ")
     function binURL() { return "/bins/#{@mybin.id}/collectpoints.json"; };
+    function zoomFunc() { return 15.5; };
     function mapCenter() { return {
       lat: #{@mybin.latitude},
       lng: #{@mybin.longitude}   } };

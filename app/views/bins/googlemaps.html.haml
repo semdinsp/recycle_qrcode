@@ -1,6 +1,8 @@
 - content_for :head do
   :javascript
     function binURL() { return "/bins.json?icon=normal"; };
+    function zoomFunc() { return #{SETTINGS.zoom}; };
+
     function mapCenter() { return {
       lat: #{SETTINGS.centerlat},
       lng: #{SETTINGS.centerlong}   } };
