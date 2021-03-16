@@ -5,9 +5,12 @@
       %th Suco
       %th Time
       %th Latitude/Longitude
-      %th.d-none.d-xl-block.d-xxl-none Accuracy
-      %th To Bin (km)
-      %th.d-none.d-lg-block.d-xl-block Time UTC
+      %th.d-none.d-lg-block
+        Accuracy
+      %th.d-none.d-lg-block
+        To Bin (km)
+      %th.d-none.d-lg-block
+        Time UTC
       %th
   %tbody
     - locals[:clist].each do |collection|
@@ -19,12 +22,13 @@
           ago
         - if !collection.location.nil?
           %td= link_to collection.location.latLngShort, bin_collectmap_url(collection.entity)
-          %td.d-none.d-xl-block.d-xxl-none= number_with_precision(collection.location.accuracy, :precision => 2)
+          %td.d-none.d-lg-block= number_with_precision(collection.location.accuracy, :precision => 2)
         - else
           %td Loc fail
-          %td tbc
-        %td= number_with_precision(collection.location.haversine_distance(collection.entity.location), :precision => 2)  if !collection.location.nil?
-        %td.d-none.d-lg-block.d-xl-block= collection.created_at.strftime('%d %b %Y %H:%M:%S')
+          %td.d-none.d-lg-block
+            tbc
+        %td.d-none.d-lg-block= number_with_precision(collection.location.haversine_distance(collection.entity.location), :precision => 2)  if !collection.location.nil?
+        %td.d-none.d-lg-block= collection.created_at.strftime('%d %b %Y %H:%M:%S')
         %td
           = link_to bin_report_url(collection.entity) do
             Report
