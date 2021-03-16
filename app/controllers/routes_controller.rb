@@ -22,7 +22,7 @@ class RoutesController < ApplicationController
   end
 
   def collections
-    @pickups=Actiontype.order("created_at DESC").page(params[:page])
+    @pickups=Actiontype.order("created_at DESC").references(:entities).page(params[:page]) if !request.format.csv?
     @pickups=Actiontype.order("created_at DESC").limit(1000)   if request.format.csv?
     respond_to do |format|
         format.html
