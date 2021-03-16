@@ -9,8 +9,9 @@
   - @route_members.order(position: :asc).each do |rm|
     .col-sm-2
       .card.card-body.mb-2
-        %h6.card-title
+        %h6.card-header
           = "#{rm.position} : #{rm.entity.name}"
+        %h6.card-title
           - at=rm.entity.most_recent_actiontype
           - if !at.nil? and at.today?
             %span.badge.badge-success.text-small Collected Today!
