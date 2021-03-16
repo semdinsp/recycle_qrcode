@@ -5,10 +5,10 @@
     %i.fas.fa-download
 %h5
   = "Schedule: #{@myroute.schedule}"
-.row
+.row.no-gutters
   - @route_members.order(position: :asc).each do |rm|
-    .col-2
-      .card.card-body.mb-3
+    .col-sm-2
+      .card.card-body.mb-2
         %h6.card-title
           = "#{rm.position} : #{rm.entity.name}"
           - at=rm.entity.most_recent_actiontype
