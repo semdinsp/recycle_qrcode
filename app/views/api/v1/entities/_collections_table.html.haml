@@ -1,15 +1,15 @@
-%table(class="table table-hover table-condensed table-responsive" width="100%" cellspacing="0" id="winners_table")
-  %thead.thead-default
+%table(class="table table-hover table-sm table-responsive" width="100%" cellspacing="0" id="collections_table")
+  %thead
     %tr
       %th Entity
       %th Suco
       %th Time
       %th Latitude/Longitude
-      %th.d-none.d-lg-block
+      %th.d-none.d-xl-block
         Accuracy
       %th.d-none.d-lg-block
         To Bin (km)
-      %th.d-none.d-lg-block
+      %th.d-none.d-xl-block
         Time UTC
       %th
   %tbody
@@ -22,13 +22,13 @@
           ago
         - if !collection.location.nil?
           %td= link_to collection.location.latLngShort, bin_collectmap_url(collection.entity)
-          %td.d-none.d-lg-block= number_with_precision(collection.location.accuracy, :precision => 2)
+          %td.d-none.d-xl-block= number_with_precision(collection.location.accuracy, :precision => 2)
         - else
           %td Loc fail
-          %td.d-none.d-lg-block
+          %td.d-none.d-xl-block
             tbc
         %td.d-none.d-lg-block= number_with_precision(collection.location.haversine_distance(collection.entity.location), :precision => 2)  if !collection.location.nil?
-        %td.d-none.d-lg-block= collection.created_at.strftime('%d %b %Y %H:%M:%S')
+        %td.d-none.d-xl-block= collection.created_at.strftime('%d %b %Y %H:%M:%S')
         %td
           = link_to bin_report_url(collection.entity) do
             Report
