@@ -1,8 +1,13 @@
 - bc_headers = [  'name', 'suco',"collection_count","cost"]
 = CSV.generate_line(bc_headers).strip.html_safe
-
+- rtotal=0
 - @bins.each do |bin|
   -count=0
   - count=bin.actiontypes.thisMonth.count  if !bin.actiontypes.thisMonth.empty?  #NEED TO FIX DATE
-  - row=[bin.name, bin.suco, count, [count*2,10].min]
+  - row=[bin.name, bin.suco, count, '%.2f' % [count*2,10].min ]
+  - rtotal = rtotal + [count*2,10].min
   = CSV.generate_line(row).strip.html_safe
+- blankrow=["","","",""]
+= CSV.generate_line(blankrow).strip.html_safe
+- totalrow=["Total: ","" ,"" , '%.2f' % rtotal ]
+= CSV.generate_line(totalrow).strip.html_safe
