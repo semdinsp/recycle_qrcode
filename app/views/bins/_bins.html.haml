@@ -17,5 +17,5 @@
   %p= "#{bin.created_at}"
 %p.small
   - proto = locals[:proto] if proto.nil?
-  - domain = locals[:proto] if domain.nil?
+  - domain = locals[:domain] if domain.nil?
   = link_to "Recent activity", bin_collectmap_url(bin, protocol: "#{proto}", host: "#{domain}")  if bin.class==Entity
