@@ -14,7 +14,7 @@ class Entity < ApplicationRecord
      has_many :routes, through: :route_members
      @@iconcolormgr
 
-     scope :notTest, -> { where("testflag = :tflag",tflag: true) }
+     scope :notTest, -> { where("testflag = :tflag",tflag: false) }
 
 
    def self.setIconColorMgr(col)
