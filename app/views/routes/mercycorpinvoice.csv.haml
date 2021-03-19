@@ -3,6 +3,6 @@
 
 - @bins.each do |bin|
   -count=0
-  - count=bin.actiontypes.count  if !bin.actiontypes.empty?  #NEED TO FIX DATE
+  - count=bin.actiontypes.thisMonth.count  if !bin.actiontypes.thisMonth.empty?  #NEED TO FIX DATE
   - row=[bin.name, bin.suco, count, [count*2,10].min]
   = CSV.generate_line(row).strip.html_safe

@@ -5,7 +5,7 @@ class Actiontype < ApplicationRecord
   has_one :location, as: :locatable, dependent: :destroy
   enum atype: [  :collection, :departure, :arrival ]
   scope :recent, -> { order('created_at DESC').limit(1) }
-
+  scope :thisMonth, -> { where('created_at > :ts', ts: Time.now.all_month.first)}
   def recent_activity
     self.today?
   end

@@ -17,6 +17,7 @@ class EntityDashboard < Administrate::BaseDashboard
     status: Field::Select.with_options(searchable: false, collection: ->(field) { field.resource.class.send(field.attribute.to_s.pluralize).keys }),
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    testflag: Field::Boolean,
 #    location_id: Field::String.with_options(searchable: false),
   }.freeze
 
@@ -41,6 +42,7 @@ class EntityDashboard < Administrate::BaseDashboard
   actiontypes
   kv_pairs
   status
+  testflag
   created_at
   updated_at
   location
@@ -57,6 +59,7 @@ class EntityDashboard < Administrate::BaseDashboard
   status
   location
   kv_pairs
+  testflag
   ].freeze
 
   # COLLECTION_FILTERS

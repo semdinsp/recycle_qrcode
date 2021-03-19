@@ -14,6 +14,9 @@ class Entity < ApplicationRecord
      has_many :routes, through: :route_members
      @@iconcolormgr
 
+     scope :notTest, -> { where("testflag = :tflag",tflag: true) }
+
+
    def self.setIconColorMgr(col)
      @@iconcolormgr=col
      self
@@ -99,7 +102,7 @@ class Entity < ApplicationRecord
         url = "v1/entities/update_location";
         #host = "https://recycle-qrcode.herokuapp.com/";  # change to support hostname in Settings
         #host = "#{Setting.first.host}#{Setting.first.port}/";  # change to support hostname in Settings
-      
+
         svg_base_qrcode(url)
     end
 end

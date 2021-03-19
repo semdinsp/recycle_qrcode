@@ -33,7 +33,7 @@ class RoutesController < ApplicationController
   end
 
 def mercycorpinvoice
-  @bins=Entity.all
+  @bins=Entity.notTest.all
   log_message({format_type: request.format, params: params})
   #puts "format type is #{request.format} params #{params}"
   respond_to do |format|
