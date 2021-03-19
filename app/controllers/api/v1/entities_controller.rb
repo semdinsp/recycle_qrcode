@@ -15,6 +15,8 @@ module Api
       def checkin
         log_message({entity: @entity.inspect, params: params})
         @bin=@entity
+        set_common_var
+
         Entity.setIconColorMgr('normal')  #evenutally checkin color mgmt
         ctx=EntityCheckinAction.execute(entity: @entity)
         @at=ctx.actiontype  # at will be nil if not first during day
@@ -28,6 +30,8 @@ module Api
       def update_location
         log_message({entity: @entity.inspect, params: params})
         @bin= @entity
+        set_common_var
+
         Entity.setIconColorMgr('normal')  #evenutally checkin color mgmt
         puts "entity is #{@entity}"
         respond_to do |format|
@@ -44,7 +48,7 @@ module Api
           if Float(params['latitude'], exception: false) and Float(params['longitude'], exception: false)
              entity.location.destroy if !entity.location.nil?
              loc=Location.create_from_params(params, entity)
-        
+
           else
             puts "latitude and long look incorrect #{params.inspect}"
           end

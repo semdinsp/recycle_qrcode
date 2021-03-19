@@ -15,4 +15,10 @@ class ApplicationController < ActionController::Base
       log_message({message: "--------> ENTRY [#{params['action']}]", params: params}, :info)
     end
 
+    def set_common_var
+      @mydomain=SETTINGS.host.gsub('//',' ').split[1]
+      @proto = 'https'
+      @proto = 'http' if Rails.env.development?
+    end
+
 end

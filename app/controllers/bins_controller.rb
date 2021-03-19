@@ -57,10 +57,6 @@ private
     params.require(:entity).permit(:name, :etype, :status)
   end
 
-def set_common_var
-  @mydomain=SETTINGS.host.gsub('//',' ').split[1]
-  @proto = 'https'
-  @proto = 'http' if Rails.env.development?
-end
+
 
 end

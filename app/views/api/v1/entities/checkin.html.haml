@@ -46,7 +46,7 @@
   -#= @at.inspect
   =@at.created_at.in_time_zone('Asia/Tokyo') if !@at.nil?
 
-= render 'bins/bins', locals: {bin: @bin}
+= render 'bins/bins', locals: {bin: @bin, domain: @mydomain, proto: @proto }
 
 %h4 Last five collections
 - clist=@bin.actiontypes.order('created_at DESC').limit(5)
