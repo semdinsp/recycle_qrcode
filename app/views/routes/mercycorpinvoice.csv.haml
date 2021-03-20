@@ -11,3 +11,5 @@
 = CSV.generate_line(blankrow).strip.html_safe
 - totalrow=["Total: ","" ,"" , '%.2f' % rtotal ]
 = CSV.generate_line(totalrow).strip.html_safe
+- daterow=["Date Range: ",Time.now.all_month.first,"", Time.now.all_month.last]
+= CSV.generate_line(daterow).strip.html_safe
