@@ -7,6 +7,7 @@ for all resources in the admin dashboard,
 as defined by the routes in the `admin/` namespace
 %>
 
+
 <nav class="navigation" role="navigation">
   <%= link_to(t("administrate.navigation.back_to_app"), root_url, class: "button button--alt") if defined?(root_url) %>
   <%= link_to("Map", "/bins/googlemaps", class: "button button--alt")  %>
@@ -20,7 +21,26 @@ as defined by the routes in the `admin/` namespace
       class: "navigation__link navigation__link--#{nav_link_state(resource)}"
     ) if valid_action?(:index, resource) && show_action?(:index, model_from_resource(resource)) %>
   <% end %>
-  
+
   <%= link_to("Mercy Invoice", "/routes/mercycorpinvoice.csv", class: "button button--alt")  %>
+
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonScott" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Dropdown button
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonScott">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+    </div>
+  </div>
+
+  <div class="field-unit__field">
+  <select name="goto_link" id="goto_link">
+    <option value=""></option>
+<option value="Mercy Link"><%= link_to("Mercy Invoice", "/routes/mercycorpinvoice.csv", class: "")  %></option>
+<option value="98ca7f02-33ed-4171-95b1-a7b594ea5d14">link 2</option>
+<option selected="selected" value="27fb98e5-b70d-4d5a-8a12-e76684afde63">link 3</option>
+</select></div>
 
 </nav>

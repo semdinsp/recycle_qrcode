@@ -7,10 +7,10 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 
-import "channels"
+import "channels";
 require("bootstrap");
-require("@fortawesome/fontawesome-free")
-import "bootstrap"
+require("@fortawesome/fontawesome-free");
+import "bootstrap";
 import "@fortawesome/fontawesome-free/js/solid.min.js";
 import "@fortawesome/fontawesome-free/css/solid.min";
 

@@ -29,6 +29,7 @@
       "scripts": {
         "heroku-prebuild": "npm install --dev",
         "build": "webpack --mode production",
+        "test-setup": "bundle exec rails webpacker:binstubs;RAILS_ENV=test bundle exec rails assets:precompile;RAILS_ENV=test bundle exec rails webpacker:compile",
         "test": " bundle exec rails db:seed; bundle exec rake "
       }
     }
