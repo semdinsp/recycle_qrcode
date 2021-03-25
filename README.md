@@ -8,8 +8,6 @@ In our particular case we use it for collecting recycled plastic from our collec
 
 Feel free to drop me a note on how to migrate this system to track other items (eg security guard scans via QR code or package tracking or ...)
 
-# Yard Command
-yardoc --no-private --protected app/**/*.rb - README.md   NOTES.md
 
 # To do
   * additional reporting (currently a private google data studio web page links to the data)
@@ -31,7 +29,6 @@ Please visit the staging server as a  [Demo](https://qrcode-staging.herokuapp.co
 
 To add an entity you need to add the entity and then add a location linked to the new entity.  
 
-
 ## Documentation
 Please see the [documentation](https://docs.verde-tl.com).  The documentation is hosted on netlify and generated via Yard.  Please see the [notes files](https://docs.verde-tl.com/file.notes) too.
 
@@ -41,6 +38,10 @@ It is currently configured to support heroku using the falcon web server.  It is
   * bundle exec puma config.ru  -C ./config/puma.rb
 
 Basic url should bring up google map.  Admin page is located on collection page or via url/admin/entities
+
+# Yard Command (generate documentation)
+yardoc --no-private --protected app/**/*.rb - README.md   NOTES.md
+
 
 ## Completed new features
 * add locatable polymorphic class for locations so that both entity and actiontype have the same type of location -DONE
