@@ -1,7 +1,6 @@
 # QRCode Tracking of Recycle Collections (semdinsp/recycle_qrcode)
 [Github](https://github.com/semdinsp/recycle_qrcode) | [Demo](https://qrcode-staging.herokuapp.com) |
 [![Website qrcode-staging.herokuapp.com](https://img.shields.io/website-up-down-green-red/http/monip.org.svg)](https://qrcode-staging.herokuapp.com/) |
-
 [![Heroku CI Status](https://qrcode-badge.herokuapp.com/last.svg)](https://dashboard.heroku.com/pipelines/af690545-8e90-48e0-832a-bf5816795866/tests) | [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://gitHub.com/semdinsp/recyce-qrcode/graphs/commit-activity) |
 
 
