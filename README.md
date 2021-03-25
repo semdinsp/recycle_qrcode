@@ -1,5 +1,5 @@
 # QRCode Tracking of Recycle Collections (semdinsp/recycle_qrcode)
-[Github](https://github.com/semdinsp/recycle_qrcode) | [Demo](https://qrcode-staging.herokuapp.com) | 
+[Github](https://github.com/semdinsp/recycle_qrcode) | [Demo](https://qrcode-staging.herokuapp.com) |
 [![Heroku CI Status](https://qrcode-badge.herokuapp.com/last.svg)](https://dashboard.heroku.com/pipelines/af690545-8e90-48e0-832a-bf5816795866/tests)
 
 
@@ -18,12 +18,7 @@ yardoc --no-private --protected app/**/*.rb - README.md   NOTES.md
   * track routes
   * import csv file of locations
   * add route item and link route item and entity. -SEMI DONE needs more thought on tracking routes and when a route was completed.
-  * add additional indices  (particularly for kv pairs on entity id and same for entity id in locations) -DONE
   * route editing and displays (for truck routes) -SEMI DONE
-  * add locatable polymorphic class for locations so that both entity and actiontype have the same type of location -DONE
-  * add update bar code to update location of bin -DONE
-  * map of collections for a bin  --DONE
-  * setting object  (for various configurations and a center for google map)- DONE
 
 
 ## Installation
@@ -46,3 +41,11 @@ It is currently configured to support heroku using the falcon web server.  It is
   * bundle exec puma config.ru  -C ./config/puma.rb
 
 Basic url should bring up google map.  Admin page is located on collection page or via url/admin/entities
+
+## Completed new features
+* add locatable polymorphic class for locations so that both entity and actiontype have the same type of location -DONE
+* add additional indices  (particularly for kv pairs on entity id and same for entity id in locations) -DONE
+* add update bar code to update location of bin -DONE
+* map of collections for a bin  --DONE
+* added buttons in admin section of "show" entity to checkin and update locations
+* setting object  (for various configurations and a center for google map)- DONE
