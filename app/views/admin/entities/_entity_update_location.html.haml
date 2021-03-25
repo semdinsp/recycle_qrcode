@@ -17,5 +17,11 @@
   %dt.attribute-label{:id => "entity.qrcode"} Update location QR Code
   %dd.attribute-data
     %h2= locals[:page].resource.name
-    %h4= locals[:page].resource.id
+    %h4
+      = locals[:page].resource.id
+      [Update location Link]
     = locals[:page].resource.svg_update_location_qrcode.html_safe
+  %dt.attribute-label{:id => "entity.qrcode"} Update location Button
+  %dd.attribute-data
+    = link_to "Update bin location", v1_entities_update_location_url(locals[:page].resource.id), class: "button"
+    %p Click this button to change the location of the bin in the database. The QR code and button have identical functionality.
