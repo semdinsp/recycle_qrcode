@@ -3,3 +3,7 @@
   %h2= locals[:page].resource.name
   %h4= locals[:page].resource.id
   = locals[:page].resource.svg_checkin_qrcode.html_safe
+%dt.attribute-label{:id => "entity.qrcode"} Checkin Button
+%dd.attribute-data
+  = link_to "Mark bin collected", v1_entities_checkin_url(id: locals[:page].resource.id), class: "button"
+  %p Same function as qrcode but qrcode preferred as button can be pressed elsewhere
