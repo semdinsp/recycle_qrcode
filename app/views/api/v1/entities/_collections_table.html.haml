@@ -19,9 +19,9 @@
       -bindist=5000
       -bindist=collection.location.haversine_distance(collection.entity.location) if !collection.location.nil?
       - rclass=""
-      - rclass= "table-warning" if bindist < 1
-      - rclass="table-danger" if bindist==5000
-      - rclasss="table-success" if bindist<0.1
+      - rclass = "table-warning" if bindist <= 1.0
+      - rclass ="table-danger" if bindist==5000
+      - rclass ="table-success" if bindist < 0.1
       %tr(class="#{rclass}")
         %td= collection.entity.name
         %td= collection.entity.suco
