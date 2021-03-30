@@ -21,6 +21,12 @@ class RoutesController < ApplicationController
     setup_variables(params)
   end
 
+  def tile_all
+    setup_variables(params)
+    @route_members=RouteMember.all
+    Entity.setIconColorMgr('normal')
+  end
+
   def collections
     @pickups=Actiontype.order("created_at DESC").references(:entities).page(params[:page]) if !request.format.csv?
     @pickups=Actiontype.order("created_at DESC").limit(1000)   if request.format.csv?
@@ -67,7 +73,7 @@ end
     def setup_variables(params)
       @dragController="drag"
       @dragController="nodrag" if params['drag']=='nodrag'
-      @route_members=@myroute.route_members
+      @route_members=@myroute.route_members if !@myroute.nil?
       Entity.setIconColorMgr('normal')
 
     end

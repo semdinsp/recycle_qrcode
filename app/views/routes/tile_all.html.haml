@@ -1,0 +1,14 @@
+%h2
+  Tile View All:
+%p
+  This is a view of all route members which may be more or less than the number of bins as bins
+  can be absent or in two routes.  But it gives a condensed view of entire list of bins.
+  
+
+.row.no-gutters
+  - collection = @route_members
+  - collection.each do |rm|
+    = render 'tile', locals: { routemember: rm }
+
+.row
+  = render 'bins/links', locals: { route: true, collection: true, bin: true}

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # scott original get 'routes/show'
   get 'routes/show/:id' => "routes#show#:id(.:format)"
   get 'routes/tile/:id' => "routes#tile#:id(.:format)"
+  get 'routes/tile_all' => "routes#tile_all"
 
 
   patch 'routes/move/:id' => "routes#move#:id(.:format)"

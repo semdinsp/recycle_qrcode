@@ -17,6 +17,11 @@
   - if locals[:showroutes]
     =link_to 'Manage Routes', routes_index_url
     |
+  - if locals[:tile]
+    =link_to routes_tile_all_url do
+      Tile
+      %i.fas.fa-th
+    |
   - if locals[:admin]
     =link_to admin_entities_url do
       Admin

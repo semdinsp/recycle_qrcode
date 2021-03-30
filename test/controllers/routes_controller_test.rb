@@ -19,6 +19,11 @@ class RoutesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get tile all" do
+    get routes_tile_all_url, params: {  }
+    assert_response :success
+  end
+
   test "should get mercy corp invoice" do
     get routes_mercycorpinvoice_path, params: {  format: :csv}
     assert_response :success
