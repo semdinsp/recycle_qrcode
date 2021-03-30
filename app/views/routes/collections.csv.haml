@@ -1,9 +1,10 @@
-- bc_headers = [  'name', 'suco','date','ago time','entity id', 'collection id','latitude', 'longitude', 'contact','telephone', "accuracy", "Bin Distance" ]
+- bc_headers = [  'name', 'suco','date','ago time','entity id', 'collection id','latitude', 'longitude', 'contact','telephone', "accuracy", "Bin Distance","Collection Report" ]
 = CSV.generate_line(bc_headers).strip.html_safe
 
 - @pickups.each do |pickup|
   - accuracy=bindistance=""
   - accuracy=pickup.location.accuracy if !pickup.location.nil?
+  - collecturl="#{SETTINGS.host}#{SETTINGS.port}/bins/#{pickup.entity.id}/report"
   - bindistance=pickup.location.haversine_distance(pickup.entity.location) if !pickup.location.nil?
-  - row=[pickup.entity.name, pickup.entity.suco, pickup.created_at, time_ago_in_words(pickup.created_at) ,pickup.entity.id, pickup.id, pickup.entity.latitude, pickup.entity.longitude, pickup.entity.contactName, pickup.entity.telephone, accuracy, bindistance]
+  - row=[pickup.entity.name, pickup.entity.suco, pickup.created_at, time_ago_in_words(pickup.created_at) ,pickup.entity.id, pickup.id, pickup.entity.latitude, pickup.entity.longitude, pickup.entity.contactName, pickup.entity.telephone, accuracy, bindistance, collecturl]
   = CSV.generate_line(row).strip.html_safe
