@@ -4,6 +4,13 @@ class BinsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
+  setup do
+
+    @location=locations(:one)
+    @entity=entities(:one)
+    @at=actiontypes(:one)
+
+  end
 
   test "should get bins" do
   #  jwt=get_token
@@ -29,6 +36,15 @@ class BinsControllerTest < ActionDispatch::IntegrationTest
   #get v1_entities_checkin_url, params: {activity_id: @activity.id  },headers: {Authorization: "Bearer #{jwt}"} , as: :json
 
     get routemaps_bins_url, params: { },headers: {Authorization: "Bearer #{jwt}"}
+    assert_response :success
+  end
+
+  test "should get bins report" do
+  #  jwt=get_token
+  jwt="test"
+  #get v1_entities_checkin_url, params: {activity_id: @activity.id  },headers: {Authorization: "Bearer #{jwt}"} , as: :json
+
+    get bin_report_url(bin_id: @entity.id), params: { },headers: {Authorization: "Bearer #{jwt}"}
     assert_response :success
   end
 

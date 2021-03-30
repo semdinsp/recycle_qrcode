@@ -4,67 +4,18 @@
 
 .row
   .col-1
-  .col-3
-    -#=image_tag "mercycorp.jpg",  size: "100x100"
-  .col-2
-  .col-3
-    =image_tag "verde.jpg", size: "100x100"
-.row
-  .col-1
   .col
-    %h4
-      = @mybin.name
-    %h5
-      Date:
-      = Time.now.to_date
-    %h5
-      Entity ID:
-      =@mybin.id
-    %table(class="table table-hover table-condensed table-responsive" width="100%" cellspacing="0" id="winners_table")
-      %thead.thead-default
-        %tr
-          %th Name
-          %th Suco
-          %th Collection Date
-          %th Time
-          -#%th User
-          %th
-          %th
-      %tbody
-        - @mybin.actiontypes.order("created_at DESC").each do |collection|
-          %tr
-            %td= collection.entity.name
-            %td= collection.entity.suco
-            %td
-              = collection.created_at.to_date
-            %td
-              = collection.created_at.strftime("%H:%M:%S")
-            -# %td
-            -#  = collection.user
-            -#  (Coming soon)
+    %h2 Current Month
 .row
-  .col-1
-  .col
-    %h5 Customer Signature
-    %p
-.row
-  .col-1
-  .col
-    %p _____________________
-.row
-  .col-1
-  .col
-    %p
-      =@mybin.contactName
-      ="[#{@mybin.telephone}]"
+  =render "month_report", locals: { month_range: Time.now.all_month, scope: 'thisMonth'}
 
 .row
   .col-1
   .col
-    %h2 Past Month - TBC
+    %h2 Last Month
+.row 
+  =render "month_report", locals: { month_range: Time.now.last_month, scope: 'lastMonth'}
 
-
-.row
 
 .row
   .col-1

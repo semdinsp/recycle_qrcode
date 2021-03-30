@@ -1,0 +1,61 @@
+
+.row
+  .col-1
+  .col-3
+    -#=image_tag "mercycorp.jpg",  size: "100x100"
+  .col-2
+  .col-3
+    =image_tag "verde.jpg", size: "100x100"
+.row
+  .col-1
+  .col
+    %h4
+      = @mybin.name
+    %h5
+      Date:
+      = Time.now.to_date
+      = locals[:month_range]
+      = locals[:scope]
+    %h5
+      Entity ID:
+      =@mybin.id
+    %table(class="table table-hover table-condensed table-responsive" width="100%" cellspacing="0" id="winners_table")
+      %thead.thead-default
+        %tr
+          %th Name
+          %th Suco
+          %th Collection Date
+          %th Time
+          -#%th User
+          %th
+          %th
+      %tbody
+        - collections=@mybin.actiontypes.thisMonth.order("created_at DESC")
+        - if locals[:scope]=="lastMonth"
+          - collections=@mybin.actiontypes.lastMonth.order("created_at DESC")
+        - collections.each do |collection|
+          %tr
+            %td= collection.entity.name
+            %td= collection.entity.suco
+            %td
+              = collection.created_at.to_date
+            %td
+              = collection.created_at.strftime("%H:%M:%S")
+            -# %td
+            -#  = collection.user
+            -#  (Coming soon)
+.row
+  .col-1
+  .col
+    %h5 Customer Signature
+    %p
+.row
+  .col-1
+  .col
+    %p _____________________
+.row
+  .col-1
+  .col
+    %p
+      =@mybin.contactName
+      ="[#{@mybin.telephone}]"
