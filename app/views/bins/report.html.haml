@@ -5,6 +5,12 @@
 .row
   .col-1
   .col
+    %h6
+      Run Date:
+      = Time.now.to_date
+.row
+  .col-1
+  .col
     %h2 Current Month
 .row
   =render "month_report", locals: { month_range: Time.now.all_month, scope: 'thisMonth'}
@@ -13,13 +19,10 @@
   .col-1
   .col
     %h2 Last Month
-.row 
-  =render "month_report", locals: { month_range: Time.now.last_month, scope: 'lastMonth'}
-
-
 .row
-  .col-1
-  .col
+  =render "month_report", locals: { month_range: Time.now.last_month.all_month, scope: 'lastMonth'}
+
+
 .row
   .col-1
   .col

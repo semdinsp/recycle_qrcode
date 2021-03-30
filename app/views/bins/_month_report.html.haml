@@ -1,9 +1,7 @@
 
 .row
   .col-1
-  .col-3
-    -#=image_tag "mercycorp.jpg",  size: "100x100"
-  .col-2
+  .col-4
   .col-3
     =image_tag "verde.jpg", size: "100x100"
 .row
@@ -12,10 +10,8 @@
     %h4
       = @mybin.name
     %h5
-      Date:
-      = Time.now.to_date
+      Report Range
       = locals[:month_range]
-      = locals[:scope]
     %h5
       Entity ID:
       =@mybin.id
@@ -44,18 +40,13 @@
             -# %td
             -#  = collection.user
             -#  (Coming soon)
+
 .row
   .col-1
   .col
     %h5 Customer Signature
     %p
-.row
-  .col-1
-  .col
     %p _____________________
-.row
-  .col-1
-  .col
     %p
       =@mybin.contactName
       ="[#{@mybin.telephone}]"
