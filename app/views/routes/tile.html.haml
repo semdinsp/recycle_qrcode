@@ -5,6 +5,9 @@
     %i.fas.fa-download
 %h5
   = "Schedule: #{@myroute.schedule}"
+%h6
+  Run time (GMT +9)
+  = Time.now.in_time_zone('Asia/Tokyo')
 .row.no-gutters
   - collection = @route_members.order(position: :asc)
   - collection.each do |rm|

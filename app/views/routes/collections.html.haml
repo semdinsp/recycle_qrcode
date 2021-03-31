@@ -4,6 +4,10 @@
   = link_to "/routes/collections.csv"  do
     %i.fas.fa-download
 
+%h6
+  Run time (GMT +9)
+  = Time.now.in_time_zone('Asia/Tokyo')
+
 %p
   Ordered most recent first to last by created_at timestamp
 

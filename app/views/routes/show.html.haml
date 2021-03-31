@@ -5,9 +5,12 @@
     %i.fas.fa-download
 
 %h5
-  Drag the elements up and down to change the order
+  Drag the elements up and down to change the order (if drag is enabled)
 %h5
   = "Schedule: #{@myroute.schedule}"
+%h6
+  Run time (GMT +9)
+  = Time.now.in_time_zone('Asia/Tokyo')
 %p
   %div{"data-controller" => "#{@dragController}", "data-drag-url" => "/routes/move/#{@myroute.id}"}
     - @route_members.order(position: :asc).each do |rm|
