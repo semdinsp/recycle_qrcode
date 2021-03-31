@@ -9,8 +9,11 @@
   Run time (GMT +9)
   = Time.now.in_time_zone('Asia/Tokyo')
 
-%p
+%p.d-block.d-md-none
   On a small device (eg phone) this page is best viewed in landscape mode.
+  %i.fas.fa-magic
+  %i.fas.fa-tv
+
 
 .row.no-gutters
   - collection = @route_members.order(position: :asc)
