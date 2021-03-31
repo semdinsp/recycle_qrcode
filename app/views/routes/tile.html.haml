@@ -8,6 +8,10 @@
 %h6
   Run time (GMT +9)
   = Time.now.in_time_zone('Asia/Tokyo')
+
+%p
+  On a small device (eg phone) this page is best viewed in landscape mode.
+
 .row.no-gutters
   - collection = @route_members.order(position: :asc)
   - collection.each do |rm|
