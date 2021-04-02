@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_19_090552) do
+ActiveRecord::Schema.define(version: 2021_04_02_032613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -22,7 +22,10 @@ ActiveRecord::Schema.define(version: 2021_03_19_090552) do
     t.integer "atype"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "trackable_type"
+    t.bigint "trackable_id"
     t.index ["entity_id"], name: "index_actiontypes_on_entity_id"
+    t.index ["trackable_type", "trackable_id"], name: "index_actiontypes_on_trackable"
   end
 
   create_table "entities", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

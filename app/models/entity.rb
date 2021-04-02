@@ -1,6 +1,6 @@
 # Entity is the key datastructure in the system.
 # We store the bin as an entity and link actiontypes to it to reflect actions on the entity
-#
+# testflag: We use this to not include in the invoice generation.  So the entity is not included in the invoice if testflag is true
 # @author Scott Sproule
 
 class Entity < ApplicationRecord
@@ -12,6 +12,8 @@ class Entity < ApplicationRecord
      has_many :kv_pairs
      has_many :route_members
      has_many :routes, through: :route_members
+     has_many :events, as: :trackable
+
      @@iconcolormgr
 
      scope :notTest, -> { where("testflag = :tflag",tflag: false) }

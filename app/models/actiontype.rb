@@ -3,10 +3,11 @@ class Actiontype < ApplicationRecord
 
   belongs_to :entity
   has_one :location, as: :locatable, dependent: :destroy
-  enum atype: [  :collection, :departure, :arrival ]
+  enum atype: [  :collection, :departure, :arrival, :start_route, :close_route ]
   scope :recent, -> { order('created_at DESC').limit(1) }
   scope :thisMonth, -> { where('created_at > :ts', ts: Time.now.all_month.first)}
-  scope :lastMonth, -> { where('created_at > :ts1 and created_at < :ts2', {ts1: Time.now.last_month.all_month.first, ts2: Time.now.last_month.all_month.last})}
+  scope :lastMonth, -> { where('created_at > :ts1 and created_at < :ts2',
+    {ts1: Time.now.last_month.all_month.first, ts2: Time.now.last_month.all_month.last})}
 
   def recent_activity
     self.today?
