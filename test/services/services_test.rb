@@ -14,7 +14,7 @@ class ServicesTest < ActiveSupport::TestCase
 
   test "creation" do
       puts "service creation"
-      assert_difference('Actiontype.count', 0) do
+      assert_difference('Actiontype.count', 1) do
         ctx = EntityCheckinAction.execute(entity: @entity, location: @location)
       end
   end # creation

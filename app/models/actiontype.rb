@@ -5,6 +5,7 @@ class Actiontype < ApplicationRecord
   has_one :location, as: :locatable, dependent: :destroy
   enum atype: [  :collection, :departure, :arrival, :start_route, :close_route ]
   scope :recent, -> { order('created_at DESC').limit(1) }
+  scope :collected, -> {where('atype = :t1',t1: Actiontype.atypes[:collection])}
   scope :thisMonth, -> { where('created_at > :ts', ts: Time.now.all_month.first)}
   scope :lastMonth, -> { where('created_at > :ts1 and created_at < :ts2',
     {ts1: Time.now.last_month.all_month.first, ts2: Time.now.last_month.all_month.last})}
@@ -37,5 +38,16 @@ def self.create_checkin
 
 end
 
+def self.route_event(route,atype)
+  raise "wrong type of event" if ![:start_route,:close_route].include?(atype)
+  at=Actiontype.new
+  at.atype=atype
+  at.trackable=at
+  at.entity=Entity.first  #TODO FIX this
+  route.actionevents << at
+  at.save
+  route.save
+  at
+end
 
 end

@@ -32,7 +32,7 @@ class Entity < ApplicationRecord
    end
 
    def most_recent_actiontype
-     self.actiontypes.order("created_at DESC").first
+     self.actiontypes.collected.order("created_at DESC").first
    end
 
    def latitude

@@ -27,6 +27,20 @@ class RouteTest < ActiveSupport::TestCase
 
   end
 
+  test "action type class method" do
+    e=Route.new
+    e.name="Fred"
+    e.truck=@truck
+    assert e.save,  "could not save #{e.errors}  #{e.errors.inspect} "
+    assert e.actionevents.size == 0, "should have not trackable item"
+    at=Actiontype.route_event(e,:start_route)
+    assert e.actionevents.include?(at), "should now be part of route list"
+  #  e.events << @at
+    assert e.save,  "could not save after event adding #{e.errors} #{e.errors.inspect} "
+    assert e.actionevents.size > 0, "should have trackable item"
+
+  end
+
   test "action type with append" do
     e=Route.new
     e.name="Fred"

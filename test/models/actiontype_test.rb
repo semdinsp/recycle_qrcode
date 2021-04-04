@@ -38,7 +38,7 @@ class ActiontypeTest < ActiveSupport::TestCase
     e.entity=@entity
     @entity.location=@location
   #  e.location_id=@location.id
-     e.trackable=@entity
+    e.trackable=@entity
     e.location= @location
     puts "enntity #{@entity.inspect} actionntype #{e.inspect}"
     puts "before second save"

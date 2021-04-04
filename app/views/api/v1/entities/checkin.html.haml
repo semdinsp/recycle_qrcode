@@ -49,6 +49,6 @@
 = render 'bins/bins', locals: {bin: @bin, domain: @mydomain, proto: @proto }
 
 %h4 Last five collections
-- clist=@bin.actiontypes.order('created_at DESC').limit(5)
+- clist=@bin.actiontypes.collected.order('created_at DESC').limit(5)
 
 =render 'api/v1/entities/collections_table', locals: { clist: clist}
