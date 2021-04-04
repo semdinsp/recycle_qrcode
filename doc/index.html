@@ -58,15 +58,14 @@
       </div>
 
       <div id="content"><div id='filecontents'><h1 id="qrcode-tracking-of-recycle-collections-semdinsprecycleqrcode">QRCode Tracking of Recycle Collections (semdinsp/recycle_qrcode)</h1>
-<p><a href="https://github.com/semdinsp/recycle_qrcode">Github</a> | <a href="https://qrcode-staging.herokuapp.com">Demo</a></p>
+<p><a href="https://github.com/semdinsp/recycle_qrcode">Github</a> | <a href="https://qrcode-staging.herokuapp.com">Demo</a> |
+<a href="https://qrcode-staging.herokuapp.com/"><img src="https://img.shields.io/website-up-down-green-red/http/monip.org.svg" alt="Website qrcode-staging.herokuapp.com" /></a> |
+<a href="https://dashboard.heroku.com/pipelines/af690545-8e90-48e0-832a-bf5816795866/tests"><img src="https://qrcode-badge.herokuapp.com/last.svg" alt="Heroku CI Status" /></a> | <a href="https://gitHub.com/semdinsp/recyce-qrcode/graphs/commit-activity"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" alt="Maintenance" /></a> |</p>
 
 <h2 id="simple-database-driven-system-to-monitor-collectionsactivity-at-various-locations-and-display-status-on-a-google-map">Simple database driven system to monitor collections/activity at various locations and display status on a google map.</h2>
-<p>In our particular case we use it for collecting recycled plastic from our collection bins.  The driver at the collection vehicle scans the qr code for the site to track a collection and the database is updated with the collection time stamp.    We support reports and a live google map to track collection status.  Each entity (collection point) can associate data with it via key value pairs.  YOu can drag and drop the collection routes</p>
+<p>In our particular case we use it for collecting recycled plastic from our collection bins.  The driver at the collection vehicle scans the qr code for the site to track a collection and the database is updated with the collection time stamp.    We support reports and a live google map to track collection status.  Each entity (collection point) can associate data with it via key value pairs.  You can drag and drop the collection routes to reorder the routes.</p>
 
 <p>Feel free to drop me a note on how to migrate this system to track other items (eg security guard scans via QR code or package tracking or …)</p>
-
-<h1 id="yard-command">Yard Command</h1>
-<p>yardoc –no-private –protected app/<em>*/</em>.rb - README.md   NOTES.md</p>
 
 <h1 id="to-do">To do</h1>
 <ul>
@@ -76,12 +75,7 @@
   <li>track routes</li>
   <li>import csv file of locations</li>
   <li>add route item and link route item and entity. -SEMI DONE needs more thought on tracking routes and when a route was completed.</li>
-  <li>add additional indices  (particularly for kv pairs on entity id and same for entity id in locations) -DONE</li>
   <li>route editing and displays (for truck routes) -SEMI DONE</li>
-  <li>add locatable polymorphic class for locations so that both entity and actiontype have the same type of location -DONE</li>
-  <li>add update bar code to update location of bin -DONE</li>
-  <li>map of collections for a bin  –DONE</li>
-  <li>setting object  (for various configurations and a center for google map)- DONE</li>
 </ul>
 
 <h2 id="installation">Installation</h2>
@@ -97,7 +91,7 @@
 <p>To add an entity you need to add the entity and then add a location linked to the new entity.</p>
 
 <h2 id="documentation">Documentation</h2>
-<p>Please see the <a href="https://docs.verde-tl.com">documentation</a>.  The documentation is hosted on netlify and generated via Yard.</p>
+<p>Please see the <a href="https://docs.verde-tl.com">documentation</a>.  The documentation is hosted on netlify and generated via Yard.  Please see the <a href="https://docs.verde-tl.com/file.notes">notes files</a> too.</p>
 
 <h2 id="startup">Startup</h2>
 <p>It is currently configured to support heroku using the falcon web server.  It is also configured to support puma (commented out).  Start up for either webserver is as simple (see the Procfile).  On first startup locally you probably need to run rake db:migrate and fiddle with rails credentials.
@@ -105,10 +99,23 @@
   * bundle exec puma config.ru  -C ./config/puma.rb</p>
 
 <p>Basic url should bring up google map.  Admin page is located on collection page or via url/admin/entities</p>
+
+<h1 id="yard-command-generate-documentation">Yard Command (generate documentation)</h1>
+<p>yardoc –no-private –protected app/<em>*/</em>.rb - README.md   NOTES.md</p>
+
+<h2 id="completed-new-features">Completed new features</h2>
+<ul>
+  <li>add locatable polymorphic class for locations so that both entity and actiontype have the same type of location -DONE</li>
+  <li>add additional indices  (particularly for kv pairs on entity id and same for entity id in locations) -DONE</li>
+  <li>add update bar code to update location of bin -DONE</li>
+  <li>map of collections for a bin  –DONE</li>
+  <li>added buttons in admin section of “show” entity to checkin and update locations -DONE</li>
+  <li>setting object  (for various configurations and a center for google map)- DONE</li>
+</ul>
 </div></div>
 
       <div id="footer">
-  Generated on Mon Mar 15 10:35:30 2021 by
+  Generated on Sun Apr  4 12:04:55 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.26 (ruby-3.0.0).
 </div>

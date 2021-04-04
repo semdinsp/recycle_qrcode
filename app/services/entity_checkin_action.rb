@@ -14,6 +14,7 @@ class EntityCheckinAction
     a.entity=context.entity
   #  a.location=context.location
     a.atype=:collection
+    a.trackable=context.entity
     a.save if oldat.nil? or !oldat.today?
     a=oldat if !oldat.nil? and oldat.today?
     context.actiontype=a

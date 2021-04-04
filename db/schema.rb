@@ -23,9 +23,9 @@ ActiveRecord::Schema.define(version: 2021_04_02_032613) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "trackable_type"
-    t.bigint "trackable_id"
+    t.uuid "trackable_id"
     t.index ["entity_id"], name: "index_actiontypes_on_entity_id"
-    t.index ["trackable_type", "trackable_id"], name: "index_actiontypes_on_trackable"
+    t.index ["trackable_type", "trackable_id"], name: "index_actiontypes_on_trackable_type_and_trackable_id"
   end
 
   create_table "entities", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

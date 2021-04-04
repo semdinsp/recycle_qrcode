@@ -8,6 +8,10 @@ class Actiontype < ApplicationRecord
   scope :thisMonth, -> { where('created_at > :ts', ts: Time.now.all_month.first)}
   scope :lastMonth, -> { where('created_at > :ts1 and created_at < :ts2',
     {ts1: Time.now.last_month.all_month.first, ts2: Time.now.last_month.all_month.last})}
+  belongs_to :trackable, polymorphic: true
+  #def polymorphic_name
+  #  Actiontype
+  #end
 
   def recent_activity
     self.today?

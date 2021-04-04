@@ -4,6 +4,7 @@
 # @author Scott Sproule
 
 class Entity < ApplicationRecord
+
      enum etype: [  :bin, :garage ]
      enum status: [  :active, :deleted ]
   #   has_one :location, required: false
@@ -12,7 +13,8 @@ class Entity < ApplicationRecord
      has_many :kv_pairs
      has_many :route_members
      has_many :routes, through: :route_members
-     has_many :events, as: :trackable
+
+     has_many :actionevents, as: :trackable, class_name: "Actiontype"
 
      @@iconcolormgr
 
