@@ -7,7 +7,7 @@
   = "Schedule: #{@myroute.schedule}"
 %h6
   Run time (GMT +9)
-  = Time.now.in_time_zone('Asia/Tokyo')
+  = Time.now.in_time_zone(SETTINGS.timezone)
 
 %p.d-block.d-md-none
   On a small device (eg phone) this page is best viewed in landscape mode.

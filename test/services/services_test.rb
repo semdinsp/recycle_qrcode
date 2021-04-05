@@ -30,7 +30,7 @@ class ServicesTest < ActiveSupport::TestCase
         # only create one per day
         ctx = EntityCheckinAction.execute(entity: fred, location: @location)
       end
-      at=fred.actiontypes.first
+      at=fred.actiontypes.collected.first
       at.created_at = Time.now - 6.days
       at.save
       assert_difference('Actiontype.count', 1) do

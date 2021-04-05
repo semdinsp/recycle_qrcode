@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_02_032613) do
+ActiveRecord::Schema.define(version: 2021_04_05_135344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 2021_04_02_032613) do
     t.float "zoom"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "timezone", default: "Asia/Tokyo"
   end
 
   create_table "trucks", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

@@ -6,7 +6,7 @@
 
 %h6
   Run time (GMT +9)
-  = Time.now.in_time_zone('Asia/Tokyo')
+  = Time.now.in_time_zone(SETTINGS.timezone)
 
 %p
   Ordered most recent first to last by created_at timestamp

@@ -10,7 +10,7 @@
   = "Schedule: #{@myroute.schedule}"
 %h6
   Run time (GMT +9)
-  = Time.now.in_time_zone('Asia/Tokyo')
+  = Time.now.in_time_zone(SETTINGS.timezone)
 %p
   %div{"data-controller" => "#{@dragController}", "data-drag-url" => "/routes/move/#{@myroute.id}"}
     - @route_members.order(position: :asc).each do |rm|
@@ -30,5 +30,16 @@
         %p.small
           = "[#{rm.id}]"
 
-  .row
-    = render 'bins/links', locals: { route: true, collection: true, bin: true}
+.w-100
+.row
+  %h6 Event list
+.row
+  - @myroute.actionevents.order('created_at DESC').limit(100).each do |event|
+    .col-sm-4
+      .card.card-body.mb-4
+        %h5.card-header
+          = "#{event.atype}"
+        %h6.card-title
+          = event.created_at.in_time_zone(SETTINGS.timezone)
+.row
+  = render 'bins/links', locals: { route: true, collection: true, bin: true}
