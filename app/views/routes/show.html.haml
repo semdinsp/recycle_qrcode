@@ -14,7 +14,7 @@
 %p
   %div{"data-controller" => "#{@dragController}", "data-drag-url" => "/routes/move/#{@myroute.id}"}
     - @route_members.order(position: :asc).each do |rm|
-      .card.card-body.mb-4{"data-id" => rm.id}
+      .card.card-body.w-75.mb-4{"data-id" => rm.id}
         %h5.card-header
           = "#{rm.position} : #{rm.entity.name}"
         %h6.card-title

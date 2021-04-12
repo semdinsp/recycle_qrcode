@@ -34,9 +34,9 @@
           %td= collection.entity.name
           %td= collection.entity.suco
           %td
-            = collection.created_at.to_date
+            = collection.created_at.in_time_zone(SETTINGS.timezone).to_date
           %td
-            = collection.created_at.strftime("%H:%M:%S")
+            = collection.created_at.in_time_zone(SETTINGS.timezone).strftime("%H:%M:%S")
           -# %td
           -#  = collection.user
           -#  (Coming soon)

@@ -14,6 +14,7 @@ class SettingDashboard < Administrate::BaseDashboard
     centerlat: Field::Number.with_options(decimals: 2),
     centerlong: Field::Number.with_options(decimals: 2),
     zoom: Field::Number.with_options(decimals: 2),
+    timezone: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -39,6 +40,7 @@ class SettingDashboard < Administrate::BaseDashboard
   centerlat
   centerlong
   zoom
+  timezone
   created_at
   updated_at
   ].freeze
@@ -51,6 +53,7 @@ class SettingDashboard < Administrate::BaseDashboard
   port
   centerlat
   centerlong
+  timezone
   zoom
   ].freeze
 
