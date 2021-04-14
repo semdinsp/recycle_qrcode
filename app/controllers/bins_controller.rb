@@ -19,6 +19,10 @@ def report
 
 end
 
+def report_all
+    @bins = Entity.notTest.all
+end
+
 def collectpoints
   set_common_var
   Entity.setIconColorMgr('collection')

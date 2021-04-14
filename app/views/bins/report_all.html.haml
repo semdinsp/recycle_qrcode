@@ -1,0 +1,29 @@
+- content_for :head do
+  :javascript
+    console.log("report html page ")
+
+.row
+  .col-1
+  .col
+    %h6
+      Run Date:
+      = Time.now.to_date
+
+.row
+  .col-1
+  .col
+    %h2 Last Month
+.w-100
+- @bins.each do |bin|
+  - @mybin=bin
+  =render "month_report", locals: { month_range: Time.now.last_month.all_month, scope: 'lastMonth'}
+  %p(style="page-break-before: always;")
+    &nbsp
+
+.row
+  .col-1
+  .col
+    %p
+      =link_to 'Routes', routemaps_bins_url
+      |
+      =link_to 'Collections', '/routes/collections'
