@@ -22,10 +22,12 @@ as defined by the routes in the `admin/` namespace
     ) if valid_action?(:index, resource) && show_action?(:index, model_from_resource(resource)) %>
   <% end %>
 
-  <%= link_to("Mercy Invoice", "/routes/mercycorpinvoice.csv", class: "button button--alt")  %>
+  <%= link_to("Mercy Invoice Current", "/routes/mercycorpinvoice.csv", class: "button button--alt")  %>
+
+  <%= link_to("Mercy Invoice Last Month", "/routes/mercycorpinvoice.csv?lastMonth=true", class: "button button--alt")  %>
 
   <div class="dropdown">
-    <button class="btn btn-success dropdown-toggle" href="#" 
+    <button class="btn btn-success dropdown-toggle" href="#"
         type="button" id="dropdownMenuButtonScott" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       Coming Soon...
     </button>

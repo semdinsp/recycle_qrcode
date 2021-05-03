@@ -41,6 +41,9 @@ class RoutesController < ApplicationController
 def mercycorpinvoice
   @bins=Entity.notTest.all
   log_message({format_type: request.format, params: params})
+  @lastMonthFlag=false
+  @lastMonthFlag= params['lastMonth']=="true"
+  #puts "LAST MONTH #{@lastMonthFlag}"
   #puts "format type is #{request.format} params #{params}"
   respond_to do |format|
       #  format.html

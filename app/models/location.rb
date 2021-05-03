@@ -15,7 +15,8 @@ end
 
 def latLngShort
   return "not set" if self.longitude.nil? or self.latitude.nil?
-  return "#{self.latitude.round(2)} : #{self.longitude.round(2)}"
+  len=3  # was 2
+  return "#{self.latitude.round(len)} : #{self.longitude.round(len)}"
 end
 
 def self.create_from_params(params,parent)
