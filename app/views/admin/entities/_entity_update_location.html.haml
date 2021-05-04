@@ -9,8 +9,10 @@
     }
 
 
-
-= link_to "Toggle Update Location QR Visibility", "", :onclick => "toggleBarCodeDisplay(); return false"
+%dt.attribute-label{:id => "entity.location"}
+  Toggle Visibility
+%dd.attribute-data
+  = link_to "Update Location QR Visibility", "", :onclick => "toggleBarCodeDisplay(); return false"
 
 
 %div#qrCodeUpdateLocation(style="display:none;")
