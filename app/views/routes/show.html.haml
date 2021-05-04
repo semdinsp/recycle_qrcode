@@ -26,7 +26,7 @@
       = Time.now.in_time_zone(SETTINGS.timezone)
 .w-100
 .row
-  .col-7.col-xs-2
+  .col-8.col-xs-3
     %div{"data-controller" => "#{@dragController}", "data-drag-url" => "/routes/move/#{@myroute.id}"}
       - @route_members.order(position: :asc).each do |rm|
         .card.card-body.w-75.mb-4{"data-id" => rm.id}
