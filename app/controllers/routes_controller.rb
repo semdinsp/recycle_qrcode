@@ -1,5 +1,5 @@
 class RoutesController < ApplicationController
-  before_action :set_route, only: [:show, :move, :tile]
+  before_action :set_route, only: [:show, :move, :tile, :update_state]
 
   def index
     @myroutes=Route.all
@@ -63,6 +63,13 @@ end
       puts "rm is nil for #{params}"
     end
     head :ok
+  end
+
+  def update_state
+     setup_variables(params)
+     @myroute.start_route() if params['actionflag']=='start'
+     @myroute.close_route() if params['actionflag']=='stop'
+     render 'show'
   end
 
   private

@@ -8,27 +8,42 @@
   Drag the elements up and down to change the order (if drag is enabled)
 %h5
   = "Schedule: #{@myroute.schedule}"
-%h6
-  Run time (GMT +9)
-  = Time.now.in_time_zone(SETTINGS.timezone)
-%p
-  %div{"data-controller" => "#{@dragController}", "data-drag-url" => "/routes/move/#{@myroute.id}"}
-    - @route_members.order(position: :asc).each do |rm|
-      .card.card-body.w-75.mb-4{"data-id" => rm.id}
-        %h5.card-header
-          = "#{rm.position} : #{rm.entity.name}"
-        %h6.card-title
-          - at=rm.entity.most_recent_actiontype
-          - if !at.nil? and at.today?
-            %span.badge.badge-success Collected Today!
-          - if !at.nil? and at.yesterday?
-            %span.badge.badge-warning Collected Yesterday!
-        %h6.card-subtitle
-          - suco=""
-          - suco=rm.entity.suco if !rm.entity.nil? and !rm.entity.suco.nil?
-          = "#{rm.entity.contactName} #{rm.entity.telephone} [#{suco}]"
-        %p.small
-          = "[#{rm.id}]"
+.w-100
+.row
+  .col-3
+    %h5
+      = link_to "/routes/update_state/#{@myroute.id}?actionflag=start" do
+        Start
+        %i.fas.fa-play
+  .col-3
+    %h5
+      = link_to "/routes/update_state/#{@myroute.id}?actionflag=stop" do
+        Stop
+        %i.fas.fa-stop
+  .col-3
+    %h6
+      Run time (GMT +9)
+      = Time.now.in_time_zone(SETTINGS.timezone)
+.w-100
+.row
+  .col-7.col-xs-2
+    %div{"data-controller" => "#{@dragController}", "data-drag-url" => "/routes/move/#{@myroute.id}"}
+      - @route_members.order(position: :asc).each do |rm|
+        .card.card-body.w-75.mb-4{"data-id" => rm.id}
+          %h5.card-header
+            = "#{rm.position} : #{rm.entity.name}"
+          %h6.card-title
+            - at=rm.entity.most_recent_actiontype
+            - if !at.nil? and at.today?
+              %span.badge.badge-success Collected Today!
+            - if !at.nil? and at.yesterday?
+              %span.badge.badge-warning Collected Yesterday!
+          %h6.card-subtitle
+            - suco=""
+            - suco=rm.entity.suco if !rm.entity.nil? and !rm.entity.suco.nil?
+            = "#{rm.entity.contactName} #{rm.entity.telephone} [#{suco}]"
+          %p.small
+            = "[#{rm.id}]"
 
 .w-100
 .row

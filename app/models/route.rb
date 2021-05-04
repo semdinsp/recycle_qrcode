@@ -11,10 +11,12 @@ class Route < ApplicationRecord
   has_many :actionevents, as: :trackable, class_name: "Actiontype"
 
 def start_route
+  puts "START ROUTE #{self.inspect}"
   Actiontype.route_event(self,:start_route)
 end
 
 def close_route
+  puts "STOP ROUTE #{self.inspect}"
   Actiontype.route_event(self,:close_route)
 end
 

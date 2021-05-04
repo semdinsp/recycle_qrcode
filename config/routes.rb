@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # scott original get 'routes/show'
   get 'routes/show/:id' => "routes#show#:id(.:format)"
   get 'routes/tile/:id' => "routes#tile#:id(.:format)"
+  get 'routes/update_state/:id' => "routes#update_state#:id(.:format)"
   get 'routes/tile_all' => "routes#tile_all"
 
 
@@ -31,7 +32,7 @@ Rails.application.routes.draw do
   namespace :admin do
       # resources :entities
       %i(
-        entities actiontypes locations trucks routes kv_pairs route_members
+        entities actiontypes locations trucks routes  kv_pairs route_members
       ).each do |name|
         resources name, only: %i(index show new create edit update)
       end
