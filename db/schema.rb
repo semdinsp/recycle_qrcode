@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_05_135344) do
+ActiveRecord::Schema.define(version: 2021_06_18_042213) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_135344) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "trackable_type"
     t.uuid "trackable_id"
+    t.index ["atype"], name: "index_actiontypes_on_atype"
     t.index ["entity_id"], name: "index_actiontypes_on_entity_id"
     t.index ["trackable_type", "trackable_id"], name: "index_actiontypes_on_trackable_type_and_trackable_id"
   end
