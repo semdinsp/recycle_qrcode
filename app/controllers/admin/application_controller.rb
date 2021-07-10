@@ -9,7 +9,9 @@ module Admin
     before_action :authenticate_admin
 
     def authenticate_admin
-      # TODO Add authentication logic here.
+      # TODO Add authentication logic here
+      http_basic_authenticate_or_request_with :name => "admin", :password => "ercio"
+
     end
 
     # Override this value to specify the number of elements to display at a time
